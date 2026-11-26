@@ -1,0 +1,1302 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Salma Aaroud · Aeronautical engineer">
+<meta property="og:description" content="CFD and simulation, airworthiness, and customer-facing engineering. Based in Milan.">
+<meta name="theme-color" content="#05090D">
+<link rel="icon" href="img/av_head.webp">
+<title>Salma Aaroud</title>
+<meta name="description" content="Salma Aaroud, aeronautical engineer: CFD and simulation, airworthiness, and customer-facing engineering.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: a flight log. Hero = live shock-diamond lab; then hiring-track switch, route map with chapters, thesis figures, filterable projects, fit checker, languages, off the clock, contact. Palette: night-sky navy + aviation blue, one warm rose accent for the personal touch. */
+:root{
+  --bg:#060D1A; --panel:#0D1A2C; --ink:#E8EFF9; --muted:#97A8BF; --line:#1F3350;
+  --blue:#5AA8FF; --sky:#8CC8FF; --rose:#FF6F9E; --rose-soft:#3A1830; --blue-soft:#10264A; --ok:#45D29C;
+  --nd-bg:#020A10; --nd-g:#3DF5A0; --nd-c:#4FD8FF; --nd-m:#FF4FD8;
+  --f-display:"Sora","Segoe UI",system-ui,sans-serif;
+  --f-body:"Inter","Segoe UI",system-ui,-apple-system,"Noto Sans Arabic","Apple SD Gothic Neo","Noto Sans KR","PingFang SC","Noto Sans SC",sans-serif;
+  --f-mono:"JetBrains Mono",ui-monospace,"SF Mono",Menlo,monospace;
+  --r:12px; --wrap:1140px; color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:radial-gradient(1100px 520px at 75% -10%,#173057 0%,transparent 60%),radial-gradient(900px 500px at 0% 110%,#2A2416 0%,transparent 55%),var(--bg);background-attachment:fixed;color:var(--ink);font-family:var(--f-body);font-size:16px;line-height:1.6;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--bg)}
+.wrap{max-width:var(--wrap);margin:0 auto}
+a{color:inherit}
+h1,h2,h3{font-family:var(--f-display);line-height:1.15;text-wrap:balance;margin:0;letter-spacing:-.01em}
+[dir="rtl"] h1,[dir="rtl"] h2,[dir="rtl"] h3,:lang(ko) h1,:lang(ko) h2,:lang(ko) h3,:lang(zh) h1,:lang(zh) h2,:lang(zh) h3{font-family:var(--f-body);letter-spacing:0}
+p{margin:0}
+.label{font-family:var(--f-mono);font-size:.74rem;letter-spacing:.12em;text-transform:uppercase;color:var(--blue)}
+.sec-head .label{display:inline-flex;align-items:center;gap:10px;font-size:clamp(1rem,1.6vw,1.25rem);font-weight:700;letter-spacing:.16em;margin-bottom:6px}
+.sec-head .label::before{content:"";width:28px;height:3px;border-radius:2px;background:linear-gradient(90deg,var(--blue),var(--rose))}
+.mono{font-family:var(--f-mono);font-size:.78rem;color:var(--muted)}
+:focus-visible{outline:2px solid var(--rose);outline-offset:3px;border-radius:4px}
+button{font:inherit;color:inherit}
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:color-mix(in srgb,var(--bg) 90%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);
+  margin-inline:calc(-1*max(16px,env(safe-area-inset-left,0px)));padding:9px max(16px,env(safe-area-inset-right,0px)) 9px max(16px,env(safe-area-inset-left,0px))}
+.bar{display:flex;align-items:center;gap:14px;flex-wrap:wrap;max-width:var(--wrap);margin:0 auto}
+.brand{display:flex;align-items:center;gap:9px;text-decoration:none;font-family:var(--f-display);font-weight:700}
+.mono-badge{width:30px;height:30px;border-radius:50%;display:grid;place-items:center;background:var(--ink);color:var(--bg);font:700 .78rem var(--f-display)}
+nav{display:flex;gap:14px;flex-wrap:wrap;margin-inline-start:auto}
+nav a{text-decoration:none;color:var(--muted);font-size:.88rem}
+nav a:hover{color:var(--ink)}
+.ctrls{display:flex;gap:8px;align-items:center}
+.langs{display:flex;gap:1px;border:1px solid var(--line);border-radius:999px;padding:2px;background:var(--panel)}
+.langs button{font:500 .72rem var(--f-mono);border:0;background:transparent;color:var(--muted);padding:5px 7px;border-radius:999px;cursor:pointer;min-width:26px}
+.langs button[aria-pressed="true"]{background:var(--ink);color:var(--bg)}
+.motion{border:1px solid var(--line);background:var(--panel);border-radius:999px;padding:5px 10px;font:500 .72rem var(--f-mono);color:var(--muted);cursor:pointer}
+@media (max-width:860px){nav{display:none}.ctrls{margin-inline-start:auto}}
+@media (max-width:480px){.motion{display:none}}
+section{padding-block:60px;border-bottom:1px solid var(--line);scroll-margin-top:64px}
+.sec-head{display:flex;flex-direction:column;gap:6px;margin-bottom:28px}
+.sec-head h2{font-size:clamp(1.5rem,3vw,2.1rem)}
+.sec-head p{color:var(--muted);max-width:62ch}
+.hero{padding-block:40px 52px}
+.hero-grid{display:grid;grid-template-columns:1fr 1.1fr;gap:40px;align-items:center}
+@media (max-width:940px){.hero-grid{grid-template-columns:1fr}}
+.hello{font:600 1.05rem var(--f-display);color:var(--rose)}
+.hero h1{font-size:clamp(2.5rem,6vw,4.3rem);margin-top:6px}
+.role{font:500 1.02rem var(--f-body);color:var(--blue);margin-top:10px}
+.lead{font-size:clamp(1.05rem,2vw,1.22rem);margin-top:16px;max-width:42ch}
+.woman{margin-top:14px;display:flex;gap:10px;align-items:flex-start;color:var(--muted);max-width:46ch}
+.woman svg{flex:0 0 22px;margin-top:2px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}
+.chip{font:500 .8rem var(--f-body);border:1px solid var(--line);background:var(--panel);border-radius:999px;padding:5px 11px;display:inline-flex;align-items:center;gap:7px}
+.chip.open::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--ok)}
+.cta{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+.btn{font:600 .93rem var(--f-body);text-decoration:none;border-radius:9px;padding:11px 17px;border:1px solid var(--ink);cursor:pointer;background:transparent;color:var(--ink);display:inline-flex;align-items:center;gap:8px}
+.btn.primary{background:var(--blue);border-color:var(--blue);color:#04101F}
+.btn.rose{border-color:var(--rose);color:var(--rose)}
+.lab{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);overflow:hidden}
+.lab-top{display:flex;justify-content:space-between;align-items:center;padding:12px 16px;border-bottom:1px solid var(--line);gap:10px;flex-wrap:wrap}
+.lab-top h3{font-size:.98rem}
+.lab canvas{display:block;width:100%;height:230px;background:linear-gradient(180deg,var(--blue-soft),transparent 140%)}
+.lab-ctrl{display:grid;grid-template-columns:1fr auto;gap:12px 18px;align-items:center;padding:14px 16px}
+.lab-ctrl label{font-size:.84rem;color:var(--muted);display:flex;flex-direction:column;gap:6px}
+.lab-ctrl input[type=range]{accent-color:var(--blue);width:100%}
+.seg{display:inline-flex;border:1px solid var(--line);border-radius:8px;overflow:hidden}
+.seg button{border:0;background:transparent;padding:7px 10px;font-size:.8rem;cursor:pointer;color:var(--muted)}
+.seg button[aria-pressed="true"]{background:var(--blue);color:#fff}
+.lab-read{display:flex;gap:16px;flex-wrap:wrap;padding:0 16px 14px;font:500 .78rem var(--f-mono);color:var(--muted)}
+.lab-read b{color:var(--ink);font-variant-numeric:tabular-nums}
+.lab-cap{padding:0 16px 14px;font-size:.8rem;color:var(--muted)}
+.switch{display:inline-flex;border:1px solid var(--line);border-radius:999px;padding:3px;background:var(--panel);gap:3px;flex-wrap:wrap}
+.switch button{border:0;background:transparent;border-radius:999px;padding:8px 14px;cursor:pointer;font-weight:600;font-size:.9rem;color:var(--muted)}
+.switch button[aria-pressed="true"]{background:var(--ink);color:var(--bg)}
+.track-panel{margin-top:22px;display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+@media (max-width:800px){.track-panel{grid-template-columns:1fr}}
+.tp{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:18px}
+.tp b{display:block;font-family:var(--f-display);font-size:1.02rem;margin-bottom:6px}
+.tp p{color:var(--muted);font-size:.92rem}
+.route-grid{display:grid;grid-template-columns:1.25fr 1fr;gap:28px;align-items:start}
+@media (max-width:900px){.route-grid{grid-template-columns:1fr}}
+.map{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:10px;overflow:hidden}
+.map svg{display:block;width:100%;height:auto}
+#rmap .cty{fill:#17283B;stroke:#0B1520;stroke-width:.4}#rmap .cty.l{fill:#3A2B4A}#rmap .cty.r{fill:#1E3A55}
+#rmap .leg{fill:none;stroke:var(--rose);stroke-width:2.2;stroke-linecap:round;transition:opacity .5s}
+#rmap .rem path{fill:none;stroke:#5BA8FF;stroke-width:1.4;stroke-dasharray:3 4}
+#rmap #remote{transition:opacity .6s}
+#rmap text{font:600 10px var(--f-mono);fill:var(--ink)}#rmap text.s{font-size:8px;fill:#8FA3BA}
+.rleg{display:flex;gap:16px;flex-wrap:wrap;padding:6px 8px 0;font:500 .75rem var(--f-mono);color:var(--muted)}
+.rleg>span{display:flex;align-items:center;gap:6px}.rleg i{display:inline-block;width:18px;height:0;border-top:2.5px solid var(--rose)}.rleg i.l2{border-top:2px dashed #5BA8FF}
+.km{font:600 1.6rem var(--f-display);font-variant-numeric:tabular-nums}
+.stops{display:flex;gap:8px;flex-wrap:wrap;margin:14px 0}
+.stops button{border:1px solid var(--line);background:var(--panel);border-radius:8px;padding:7px 11px;cursor:pointer;font:500 .8rem var(--f-mono);color:var(--muted)}
+.stops button[aria-pressed="true"]{border-color:var(--rose);color:var(--rose);background:var(--rose-soft)}
+.chapter{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:20px;display:grid;gap:8px;min-height:190px}
+.chapter .when{font:500 .8rem var(--f-mono);color:var(--rose)}
+.chapter h3{font-size:1.2rem}
+.chapter p{color:var(--muted)}
+.thesis-grid{display:grid;grid-template-columns:1fr 1.25fr;gap:34px;align-items:start}
+@media (max-width:900px){.thesis-grid{grid-template-columns:1fr}}
+.ttl{font-style:italic;font-weight:500;margin-bottom:12px}
+.prose{display:grid;gap:12px;max-width:62ch}
+.nums{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:22px}
+@media (max-width:520px){.nums{grid-template-columns:1fr}}
+.num{border-top:2px solid var(--rose);padding-top:10px}
+.num b{font:600 1.5rem var(--f-display);font-variant-numeric:tabular-nums;display:block}
+.num span{font-size:.84rem;color:var(--muted)}
+figure{margin:0}
+.fig{background:#fff;border:1px solid var(--line);border-radius:var(--r);overflow:hidden}
+.fig img{display:block;width:100%;height:auto}
+figcaption{font:400 .77rem/1.5 var(--f-mono);color:var(--muted);margin-top:8px}
+figcaption b{color:var(--blue);font-weight:500}
+.figs{display:grid;gap:20px}
+.filters{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:18px}
+.filters button,.skill{border:1px solid var(--line);background:var(--panel);border-radius:999px;padding:6px 12px;cursor:pointer;font:500 .8rem var(--f-body);color:var(--muted)}
+.filters button[aria-pressed="true"],.skill[aria-pressed="true"]{background:var(--blue);border-color:var(--blue);color:#fff}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+@media (max-width:980px){.cards{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:620px){.cards{grid-template-columns:1fr}}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);overflow:hidden;display:flex;flex-direction:column;min-width:0;transition:opacity .25s}
+.card.dim{opacity:.28}
+.card.hit{box-shadow:0 0 0 2px var(--rose)}
+.thumb{aspect-ratio:16/10;background:#fff;border-bottom:1px solid var(--line);overflow:hidden}
+.thumb img{width:100%;height:100%;object-fit:cover;display:block}
+.thumb.contain img{object-fit:contain}
+.noimg{aspect-ratio:16/10;border-bottom:1px solid var(--line);display:grid;place-items:center;background:var(--blue-soft)}
+.noimg svg{width:58%;height:auto}
+.body{padding:16px 18px 18px;display:flex;flex-direction:column;gap:8px;flex:1}
+.body h3{font-size:1.05rem}
+.body p{font-size:.9rem;color:var(--muted)}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:auto;padding-top:6px}
+.tag{font:500 .7rem var(--f-mono);border:1px solid var(--line);border-radius:5px;padding:2px 7px;color:var(--muted)}
+.skills-box{margin-top:30px;background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:18px}
+.skills-box>p{color:var(--muted);font-size:.88rem;margin-bottom:12px}
+.skills{display:flex;flex-wrap:wrap;gap:8px}
+.where{margin-top:12px;font-size:.88rem;min-height:1.4em}
+.where b{color:var(--rose)}
+.fit-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+@media (max-width:860px){.fit-grid{grid-template-columns:1fr}}
+textarea{width:100%;min-height:210px;resize:vertical;border:1px solid var(--line);border-radius:var(--r);background:var(--panel);color:var(--ink);padding:14px;font:400 .9rem/1.5 var(--f-body)}
+.fit-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:10px}
+.result{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:18px;display:grid;gap:14px;align-content:start;min-width:0}
+.score{display:flex;align-items:center;gap:14px}
+.ring{width:76px;height:76px;flex:0 0 76px}
+.ring circle{fill:none;stroke-width:8}
+.ring .bg{stroke:var(--line)}.ring .fg{stroke:var(--blue);stroke-linecap:round;transition:stroke-dashoffset .6s}
+.score b{font:600 1.6rem var(--f-display)}
+.rlist{display:grid;gap:6px;font-size:.88rem}
+.rlist div{display:grid;grid-template-columns:auto 1fr;gap:8px;align-items:baseline}
+.ok-dot{color:var(--ok);font-weight:700}.gap-dot{color:var(--rose);font-weight:700}
+.rlist span{color:var(--muted)}
+.rh{font:600 .78rem var(--f-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+@media (max-width:860px){.two{grid-template-columns:1fr}}
+.langgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:10px}
+.lang{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:12px;cursor:pointer;text-align:start;display:grid;gap:4px}
+.lang:hover{border-color:var(--blue)}
+.lang .hi{font:600 1.15rem var(--f-display)}
+.lang .lv{font:400 .74rem var(--f-mono);color:var(--muted)}
+.meter{height:5px;background:var(--line);border-radius:3px;overflow:hidden}
+.meter i{display:block;height:100%;background:var(--blue)}
+.lang.native .meter i{background:var(--rose)}
+.offgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px}
+.off{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:14px;display:grid;gap:6px}
+.off svg{width:26px;height:26px}
+.off b{font-size:.95rem}
+.off span{font-size:.82rem;color:var(--muted)}
+.contact{display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:start}
+@media (max-width:860px){.contact{grid-template-columns:1fr}}
+.cbox{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:20px;display:grid;gap:14px;min-width:0}
+.crow{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.crow .k{font:500 .72rem var(--f-mono);text-transform:uppercase;letter-spacing:.1em;color:var(--muted);width:6.5em}
+.crow .v{font-weight:600;overflow-wrap:anywhere;min-width:0;user-select:all}
+.copy{font:500 .78rem var(--f-body);border:1px solid var(--line);background:var(--bg);border-radius:6px;padding:4px 10px;cursor:pointer}
+select{font:inherit;border:1px solid var(--line);border-radius:8px;background:var(--panel);color:var(--ink);padding:8px 10px;max-width:100%}
+.draft{background:var(--bg);border:1px dashed var(--line);border-radius:10px;padding:12px;font-size:.88rem;white-space:pre-wrap;color:var(--ink)}
+.travel-grid{display:grid;grid-template-columns:1.6fr 1fr;gap:24px;align-items:start}
+@media (max-width:900px){.travel-grid{grid-template-columns:1fr}}
+.world{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:10px;overflow:hidden;position:relative}
+.world svg{display:block;width:100%;height:auto}
+.world path{fill:var(--line);stroke:var(--panel);stroke-width:.4;transition:fill .2s}
+.world path.v{fill:var(--rose);fill-opacity:.5}
+.world path.l{fill:var(--rose);fill-opacity:1}
+.world path.v:hover,.world path.l:hover,.world path.on,.world circle.on{fill:var(--blue);fill-opacity:1}
+.world .hk{fill:var(--rose);stroke:var(--panel);stroke-width:1}
+.wtip{position:absolute;pointer-events:none;background:var(--ink);color:var(--bg);font:500 .75rem var(--f-body);padding:4px 8px;border-radius:6px;transform:translate(-50%,-130%);white-space:nowrap}
+.tcount{font:700 2.6rem var(--f-display);color:var(--rose);line-height:1}
+.legend{display:flex;gap:14px;flex-wrap:wrap;font-size:.8rem;color:var(--muted);margin:10px 0 14px}
+.legend i{display:inline-block;width:12px;height:12px;border-radius:3px;background:var(--rose);vertical-align:-2px;margin-inline-end:6px}
+.legend .vi{opacity:.5}
+.clist{display:flex;flex-wrap:wrap;gap:6px}
+.cc{border:1px solid var(--line);background:var(--panel);border-radius:999px;padding:4px 10px;font-size:.8rem;cursor:pointer;color:var(--ink)}
+.cc.lived{border-color:var(--rose);color:var(--rose);font-weight:600}
+.cc[aria-pressed="true"]{background:var(--blue);border-color:var(--blue);color:#fff}
+/* avatar + tour */
+:root{--skin:#EFC6A8;--skin-d:#DDA987;--hair:#3B2418;--hair-l:#5C3A27;--jacket:#1B3D6E;--gold:#F2C14E}
+.greeter{display:flex;gap:16px;align-items:center;margin-bottom:10px}
+.avatar{width:112px;height:112px;flex:0 0 112px}
+.bubble{position:relative;background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:12px 14px;max-width:30ch;font-weight:500;box-shadow:0 6px 20px color-mix(in srgb,var(--ink) 10%,transparent)}
+.bubble::before{content:"";position:absolute;left:-7px;top:24px;width:12px;height:12px;background:var(--panel);border-left:1px solid var(--line);border-bottom:1px solid var(--line);transform:rotate(45deg)}
+[dir="rtl"] .bubble::before{left:auto;right:-7px;transform:rotate(-135deg)}
+.say::after{content:"";position:absolute;left:-8px;top:40px;transform:rotate(135deg)!important;width:14px;height:14px;background:var(--panel);border-right:1px solid var(--line);border-bottom:1px solid var(--line);transform:rotate(45deg)}
+.bubble .tbtns{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+.tbtn{border:1px solid var(--blue);background:var(--blue);color:#04101F;border-radius:999px;padding:7px 13px;font:600 .82rem var(--f-body);cursor:pointer}
+.tbtn.ghost{background:transparent;color:var(--blue)}
+@media (prefers-reduced-motion:no-preference){
+  .wave{animation:wave 1.6s ease-in-out infinite}
+  @keyframes wave{0%,60%,100%{transform:rotate(0)}10%{transform:rotate(-22deg)}20%{transform:rotate(8deg)}30%{transform:rotate(-22deg)}40%{transform:rotate(4deg)}}
+  .prop{animation:spin .12s linear infinite}@keyframes spin{50%{transform:scaleY(.12)}}
+  .bob{animation:bob 2.4s ease-in-out infinite}@keyframes bob{50%{transform:translateY(-5px)}}
+}
+.still .wave,.still .prop,.still .bob{animation:none}
+.tour-hl{outline:2px dashed var(--rose);outline-offset:6px;border-radius:12px}
+/* intro + nav display */
+#intro{position:fixed;inset:0;z-index:50;display:grid;place-items:end center;overflow:hidden;background:#10161F;transition:opacity .6s}
+#intro.gone{opacity:0;pointer-events:none}
+#intro .hangar{position:absolute;inset:0;width:100%;height:100%}
+#intro .stars{position:absolute;inset:0;opacity:.8;background-image:radial-gradient(1.5px 1.5px at 12% 18%,#fff 50%,transparent 51%),radial-gradient(1px 1px at 33% 62%,#cfe3ff 50%,transparent 51%),radial-gradient(2px 2px at 58% 22%,#fff 50%,transparent 51%),radial-gradient(1px 1px at 78% 48%,#fff 50%,transparent 51%),radial-gradient(1.5px 1.5px at 88% 80%,#cfe3ff 50%,transparent 51%),radial-gradient(1px 1px at 22% 88%,#fff 50%,transparent 51%);background-size:360px 360px}
+#intro .horizon{position:absolute;left:-10%;right:-10%;bottom:-62vh;height:80vh;border-radius:50%;background:radial-gradient(closest-side,#173761 0%,#0B1C33 70%,transparent 100%);box-shadow:0 -20px 80px #2D6BC055}
+.stage{position:absolute;inset:0}
+.me{position:absolute;left:5%;bottom:-2vh;height:min(80vh,760px);aspect-ratio:434/900;z-index:4;transform-origin:50% 100%}
+.me img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 16px 18px #000c)}
+.me .fs{opacity:0}
+.me svg{display:block;width:100%;height:auto;filter:drop-shadow(0 14px 18px #000a)}
+.say{position:absolute;left:calc(5% + min(80vh,760px)*0.46 + 6px);top:14vh;z-index:5;max-width:min(380px,60vw);background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:16px 18px;opacity:0;transform:translateY(8px);transition:opacity .4s,transform .4s}
+.say.on{opacity:1;transform:none}
+.say h2{font-size:clamp(1.4rem,3.5vw,2rem)}
+.say p{color:var(--muted);margin-top:6px}
+.say .tbtns{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
+.plane{position:absolute;right:9%;bottom:13vh;width:min(50vw,860px);z-index:2;transform-origin:50% 100%;transition:transform 1.1s cubic-bezier(.5,0,.25,1)}
+@media (max-width:700px){.me{height:58vh;left:2%}.say{left:4%;top:8vh;max-width:88vw}.plane{width:80vw;right:-6%;bottom:30vh}}
+@media (prefers-reduced-motion:no-preference){
+  .me.jump{animation:jumpin 1.1s cubic-bezier(.3,1.4,.5,1) both}
+  @keyframes jumpin{0%{transform:translateY(-120vh) rotate(-8deg)}60%{transform:translateY(0) rotate(3deg)}75%{transform:translateY(-38px)}90%{transform:translateY(0)}100%{transform:none}}
+  .me.hop{animation:walkin 1.7s cubic-bezier(.45,.05,.35,1) forwards}
+  @keyframes walkin{0%{transform:none}10%{transform:translateY(-6px) rotate(-1deg)}25%{transform:translate(calc(var(--tx)*.22),calc(var(--ty)*.22)) scale(calc(1 - (1 - var(--sc))*.22)) rotate(1deg)}50%{transform:translate(calc(var(--tx)*.55),calc(var(--ty)*.55)) scale(calc(1 - (1 - var(--sc))*.55)) rotate(-1deg)}80%{transform:translate(var(--tx),var(--ty)) scale(var(--sc));opacity:1}100%{transform:translate(var(--tx),calc(var(--ty) - 8px)) scale(var(--sc));opacity:0}}
+  .plane.takeoff{transition:transform 1.4s cubic-bezier(.6,0,.3,1)}
+}
+#nd{position:fixed;z-index:40;left:0;right:0;top:var(--hdr,57px);height:74px;display:flex;align-items:center;gap:10px;padding:0 max(12px,env(safe-area-inset-right,0px)) 0 max(12px,env(safe-area-inset-left,0px));
+  background:none;border:0;pointer-events:none;font-family:var(--f-mono)}
+#nd .keys{pointer-events:auto}#nd svg text{paint-order:stroke;stroke:#05090D;stroke-width:3px}
+#nd .strip{position:relative;flex:1;height:100%;min-width:0}
+#nd svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
+#ndJet{position:absolute;left:0;top:3px;pointer-events:none;width:96px;transform:translateX(var(--jx,0px));transition:transform 1.1s cubic-bezier(.45,.05,.3,1);filter:drop-shadow(0 4px 5px #000a)}
+#ndJet.back{transform:translateX(var(--jx,0px)) scaleX(-1)}
+@media (prefers-reduced-motion:no-preference){#ndJet.moving{animation:bob 1.1s ease-in-out}@keyframes bob{50%{top:-2px}}}
+#nd .keys{display:flex;align-items:center;gap:6px}
+#nd .ndc{font:600 .66rem var(--f-mono);color:#5BD8FF;min-width:34px;text-align:right}
+#nd button{font:700 .7rem var(--f-mono);background:#11181Fcc;color:#5BD8FF;border:1px solid #39434D;border-radius:4px;min-width:30px;height:26px;padding:0 8px;cursor:pointer;box-shadow:inset 0 1px 0 #ffffff14,0 2px 0 #000}
+#nd button:active{transform:translateY(1px);box-shadow:none}
+#nd button.go{color:#3DF5A0;border-color:#3DF5A0aa}
+#nd button:disabled{opacity:.3;cursor:default}
+@media (max-width:600px){#nd{height:54px}#ndJet{width:72px}#nd .ndc{display:none}}
+.tnote{display:flex;gap:10px;align-items:baseline;max-width:680px;margin:0 0 14px;padding:6px 0 6px 12px;border-left:3px solid #FF4FD8;animation:tn .5s ease-out}
+.tnote b{font:700 .82rem var(--f-mono);letter-spacing:.1em;color:#5BD8FF;white-space:nowrap}
+.tnote span{font:500 .95rem/1.4 var(--f-body);color:var(--ink,#F2F7FF)}
+@keyframes tn{from{opacity:0;transform:translateY(-6px)}}
+.touring{padding-top:74px}.touring .greeter .bubble{visibility:hidden}
+@media (max-width:600px){.touring{padding-top:54px}}
+
+#ownship{transition:transform .9s cubic-bezier(.45,.05,.25,1)}
+.still #ownship,.still .plane{transition:none}
+.hero-me{width:116px;height:116px;flex:0 0 116px;border-radius:50%;object-fit:cover;background:var(--blue-soft);border:2px solid var(--line)}
+.plane img{display:block;width:100%;height:auto;filter:drop-shadow(0 22px 20px #000b)}
+.plane .glow{position:absolute;left:34%;top:28%;width:6%;height:11%;border-radius:50%;background:radial-gradient(closest-side,#FFE7A8,#FF8A3D88 45%,transparent 75%);opacity:0;transition:opacity .4s;filter:blur(2px)}
+.plane.boarded .glow{opacity:1}
+@media (prefers-reduced-motion:no-preference){.me.waving .fw{animation:fw 1.3s steps(1) infinite}.me.waving .fs{animation:fs 1.3s steps(1) infinite}
+ @keyframes fw{0%{opacity:1}55%{opacity:0}}@keyframes fs{0%{opacity:0}55%{opacity:1}}}
+#intro .hangar3d{position:absolute;inset:0;background:#10161F url(img/hangar3d.webp) center 70%/cover no-repeat}
+#intro .hangar3d::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,#0006 0%,transparent 30%,transparent 70%,#0005 100%)}
+#intro .hlabels{position:absolute;right:3%;top:7vh;z-index:1;font-family:var(--f-mono);text-align:right}
+.hname{font:700 clamp(1.6rem,4vw,3rem) var(--f-mono);letter-spacing:.18em;color:#F2C14E;text-shadow:0 2px 12px #000a}
+.hsub{color:#D5DEEA;letter-spacing:.25em;font-size:.85rem;margin-top:2px;text-shadow:0 2px 8px #000a}
+.mboard{margin:14px 0 0 auto;display:grid;gap:3px;background:#0B1219cc;border:1px solid #3A4656;border-radius:8px;padding:10px 12px;font-size:.75rem;color:#C9D6E8;width:max-content}
+.mboard b{color:#3DF5A0;font-weight:600}
+@media (max-width:700px){#intro .hlabels{top:6%}.mboard{display:none}}
+.me .ft,.me .fb{opacity:0}
+.me.turn img,.me.back img{opacity:0!important;animation:none!important}.me.turn .ft,.me.back .fb{opacity:1!important}
+.plane svg.door{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
+.plane .dpanel{transform-box:fill-box;transform-origin:50% 0;opacity:0;transition:transform .7s cubic-bezier(.5,0,.2,1),opacity .15s .55s}
+.plane .seam{opacity:.45}
+.plane.open .dpanel{opacity:1;transition:transform .7s cubic-bezier(.5,0,.2,1),opacity .1s}
+.plane .stairs{transform-box:fill-box;transform-origin:50% 0;transform:scaleY(0);transition:transform .5s .45s ease-out}
+.plane .dopen{opacity:0;transition:opacity .2s}
+.plane.open .dopen{opacity:1}.plane.open .dpanel{transform:translateY(-4px) scaleY(-.55) skewX(-8deg)}.plane.open .stairs{transform:scaleY(1)}
+.hero-fig{position:relative;display:flex;justify-content:center;align-items:flex-end;min-height:min(560px,70vh)}
+.hero-fig::before{content:"";position:absolute;left:50%;bottom:4%;width:78%;aspect-ratio:1;transform:translateX(-50%);border-radius:50%;background:radial-gradient(closest-side,#5BA8FF33,#FF4FD814 55%,transparent 72%)}
+.hero-fig::after{content:"";position:absolute;left:50%;bottom:0;width:46%;height:22px;transform:translateX(-50%);border-radius:50%;background:radial-gradient(closest-side,#000a,transparent)}
+.hero-fig img{position:relative;z-index:1;height:min(560px,70vh);width:auto;filter:drop-shadow(0 20px 26px #000b)}
+@media (max-width:940px){.hero-fig{min-height:0}.hero-fig img{height:52vh}}
+.lab-wrap{max-width:820px;margin:48px auto 0}
+/* centred hero */
+.hero{position:relative;min-height:calc(100vh - 70px);display:flex;align-items:center;padding-block:48px}
+.hero::before{content:"";position:absolute;top:0;bottom:0;left:50%;width:100vw;transform:translateX(-50%);z-index:-1;background:radial-gradient(48% 46% at 50% 40%,#05090Dcc,#05090D66 60%,transparent 85%),linear-gradient(180deg,#05090D 0%,transparent 14%,transparent 80%,var(--bg) 100%),#0B1630 url(img/hero_bg.webp?v=2) left bottom/cover no-repeat}
+.hero h1,.hero .role,.hero .lead,.hero .woman{text-shadow:0 2px 14px #000c}
+html,body{overflow-x:clip}
+.hero-grid{grid-template-columns:1fr!important;justify-items:center;text-align:center;width:100%}
+.hero-grid>div:first-child{max-width:820px;display:flex;flex-direction:column;align-items:center}
+.hero .greeter{justify-content:center}.hero .greeter .bubble{text-align:start}
+.hero .lead{max-width:680px;margin-inline:auto}
+.hero .woman{justify-content:center;display:flex;gap:8px;text-align:start}
+.hero .chips,.hero .cta{justify-content:center}
+.hero-fig{display:none}
+#why .sec-head h2{max-width:900px}
+.why-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:8px}
+@media (max-width:1000px){.why-grid{grid-template-columns:repeat(2,1fr)}}@media (max-width:560px){.why-grid{grid-template-columns:1fr}}
+.why-c{position:relative;background:linear-gradient(180deg,#10213A,var(--panel));border:1px solid var(--line);border-radius:var(--r);padding:20px 18px 18px;display:flex;flex-direction:column;gap:8px;overflow:hidden;transition:transform .25s,border-color .25s}
+.why-c:hover{transform:translateY(-3px);border-color:#5BA8FF88}
+.why-c::before{content:"";position:absolute;left:0;top:0;right:0;height:3px;background:linear-gradient(90deg,var(--blue),var(--rose))}
+.why-n{font:700 .7rem var(--f-mono);color:var(--muted);letter-spacing:.1em}
+.why-k{font:700 1.15rem var(--f-display);color:#fff;letter-spacing:-.01em}
+.why-c h3{font-size:1.02rem;color:var(--sky,#9CC7FF)}
+.why-c p{font-size:.9rem;line-height:1.5;color:var(--muted)}
+.why-cta{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:14px;margin-top:22px;padding:18px 20px;border:1px solid #FF4FD855;border-radius:var(--r);background:linear-gradient(90deg,#FF4FD812,#5BA8FF12)}
+.why-cta p{font:600 1.1rem var(--f-display);color:#fff}.why-cta>div{display:flex;gap:10px;flex-wrap:wrap}
+.th-cta{margin-top:18px}.th-cta a{display:inline-block;font:600 1rem var(--f-display);color:#fff;padding:12px 16px;border:1px solid #FF4FD855;border-radius:var(--r);background:linear-gradient(90deg,#FF4FD812,#5BA8FF12);text-decoration:none}.th-cta a:hover{border-color:var(--rose)}
+.tl-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}@media (max-width:760px){.tl-grid{grid-template-columns:1fr}}
+.tl-col{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:18px}.tl-col h3{font:700 .72rem var(--f-mono);letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:12px}
+.tl-col.now{border-color:#3DF5A055}.tl-col.now h3{color:#3DF5A0}.tl-col.now h3::before{content:"● ";animation:blink 1.6s infinite}@keyframes blink{50%{opacity:.3}}
+.tl-chips{display:flex;flex-wrap:wrap;gap:8px}.tl-chips span{font:600 .85rem var(--f-body);padding:7px 12px;border-radius:999px;border:1px solid var(--line);background:#0E1B2C;color:var(--ink)}
+.now-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}@media (max-width:860px){.now-grid{grid-template-columns:1fr}}
+.now-c{position:relative;background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:18px 18px 18px 40px}.now-c h3{font-size:1rem;color:var(--sky,#9CC7FF);margin-bottom:6px}.now-c p{color:var(--muted);line-height:1.5;font-size:.93rem}
+.now-dot{position:absolute;left:18px;top:24px;width:9px;height:9px;border-radius:50%;background:#3DF5A0;box-shadow:0 0 0 4px #3DF5A022}
+footer{padding-block:26px 40px;color:var(--muted);font-size:.82rem;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+@media (prefers-reduced-motion:no-preference){.btn{transition:transform .15s}.btn:hover{transform:translateY(-1px)}}
+.still *{transition:none!important;animation:none!important}
+</style>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><defs>
+ <linearGradient id="sa-skin" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#F6D4BC"/><stop offset=".6" stop-color="#EDC2A4"/><stop offset="1" stop-color="#D9A585"/></linearGradient>
+ <linearGradient id="sa-neck" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#C9927A"/><stop offset=".5" stop-color="#E2B496"/><stop offset="1" stop-color="#EDC2A4"/></linearGradient>
+ <linearGradient id="sa-hair" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#6A4430"/><stop offset=".4" stop-color="#40271A"/><stop offset="1" stop-color="#24150E"/></linearGradient>
+ <linearGradient id="sa-jacket" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#2A5294"/><stop offset=".55" stop-color="#1B3D6E"/><stop offset="1" stop-color="#122A4E"/></linearGradient>
+ <linearGradient id="sa-pants" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#3E2C23"/><stop offset=".5" stop-color="#31221B"/><stop offset="1" stop-color="#241812"/></linearGradient>
+ <linearGradient id="sa-coat" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#D9B68A"/><stop offset=".55" stop-color="#C49A6C"/><stop offset="1" stop-color="#A47A4E"/></linearGradient>
+<linearGradient id="sa-jkt" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#3A5674"/><stop offset=".55" stop-color="#26405C"/><stop offset="1" stop-color="#182B40"/></linearGradient>
+ <linearGradient id="sa-jeans" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#2B3954"/><stop offset=".5" stop-color="#222E45"/><stop offset="1" stop-color="#18213A"/></linearGradient>
+ <linearGradient id="sa-boot" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#6B4630"/><stop offset="1" stop-color="#3E2819"/></linearGradient>
+</defs></svg>
+<header><div class="bar">
+  <a class="brand" href="#top"><span class="mono-badge" aria-hidden="true">SA</span>Salma Aaroud</a>
+  <nav aria-label="Sections">
+    <a href="#route" data-i="nav_story">Story</a>
+    <a href="#thesis" data-i="nav_thesis">Thesis</a>
+    <a href="#projects" data-i="nav_projects">Projects</a>
+    <a href="#fit" data-i="nav_fit">Fit check</a>
+    <a href="#travel" data-i="nav_travel">Travel</a>
+    <a href="#contact" data-i="nav_contact">Contact</a>
+  </nav>
+  <div class="ctrls">
+    <button type="button" class="motion" id="motionBtn" aria-pressed="false">Motion: on</button>
+    <div class="langs" role="group" aria-label="Language">
+      <button type="button" data-lang="en" aria-pressed="true">EN</button>
+      <button type="button" data-lang="it" aria-pressed="false">IT</button>
+      <button type="button" data-lang="fr" aria-pressed="false">FR</button>
+      <button type="button" data-lang="es" aria-pressed="false">ES</button>
+      <button type="button" data-lang="ar" aria-pressed="false">ع</button>
+      <button type="button" data-lang="ko" aria-pressed="false">한</button>
+      <button type="button" data-lang="zh" aria-pressed="false">中</button>
+    </div>
+  </div>
+</div></header>
+
+<main class="wrap" id="top">
+<section class="hero">
+  <div class="hero-grid">
+    <div>
+      <div class="greeter">
+        <svg class="avatar" viewBox="0 0 120 120" aria-hidden="true">
+  <circle cx="60" cy="60" r="58" fill="var(--blue-soft)"/>
+  <path d="M30 62c0-22 12-36 30-36s30 14 30 36v26H30z" fill="var(--hair)"/>
+  <path d="M22 120c2-22 16-32 38-32s36 10 38 32z" fill="var(--jacket)"/>
+  <path d="M48 90l12 12 12-12" fill="none" stroke="var(--rose)" stroke-width="5" stroke-linejoin="round"/>
+  <rect x="53" y="74" width="14" height="14" rx="4" fill="var(--skin)"/>
+  <ellipse cx="60" cy="58" rx="20" ry="23" fill="var(--skin)"/>
+  <path d="M40 54c4-14 14-18 22-18 8 0 16 5 18 16-8-6-20-8-40 2z" fill="var(--hair)"/>
+  <path d="M36 44c4-12 14-18 24-18s20 6 24 18z" fill="var(--jacket)"/>
+  <rect x="34" y="42" width="52" height="6" rx="3" fill="var(--rose)"/>
+  <path d="M54 34l6-4 6 4-6 2z" fill="#F4C542"/>
+  <path d="M38 56v10M82 56v10" stroke="var(--ink)" stroke-width="3" stroke-linecap="round"/>
+  <path d="M82 64q-4 12-14 13" fill="none" stroke="var(--ink)" stroke-width="2"/>
+  <circle cx="52" cy="58" r="2.2" fill="var(--ink)"/><circle cx="68" cy="58" r="2.2" fill="var(--ink)"/>
+  <path d="M53 67q7 6 14 0" fill="none" stroke="var(--ink)" stroke-width="2" stroke-linecap="round"/>
+  <circle cx="48" cy="64" r="3" fill="var(--rose)" opacity=".35"/><circle cx="72" cy="64" r="3" fill="var(--rose)" opacity=".35"/>
+  <g class="wave"><path d="M84 96c6-6 10-14 12-24" stroke="var(--jacket)" stroke-width="10" stroke-linecap="round" fill="none"/><circle cx="97" cy="68" r="6.5" fill="var(--skin)"/></g>
+</svg>
+        <div class="bubble"><span data-i="greet">Hi, I'm Salma! Hop on, let me give you a tour.</span>
+          <div class="tbtns"><button type="button" class="tbtn" id="tourStart" data-i="tour_start">Hop on</button><button type="button" class="tbtn ghost" id="tourSkip" data-i="tour_skip">I'll look around myself</button></div></div>
+      </div>
+      <h1>Salma Aaroud</h1>
+      <p class="role" data-i="role">Aeronautical engineer · CFD, airworthiness and the people in between</p>
+      <p class="lead" data-i="lead">I make invisible flows visible: supersonic jets, the wake behind a solar car, the air over a racing wing. And I enjoy explaining them to the people who need the answer.</p>
+      <p class="woman"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M2 14l9-2 4-9 2 1-2 8 6-1 2 2-6 3 2 6-2 1-5-6-6 2-2-2 4-3z" fill="var(--rose)"/></svg><span data-i="woman">A woman in aerospace engineering, trained in Morocco, China and Italy, and working in seven languages.</span></p>
+      <div class="chips">
+        <span class="chip open" data-i="chip_open">Open to work · Milan</span>
+        <span class="chip" data-i="chip_reloc">Open to relocation</span>
+        <span class="chip" data-i="chip_lang">7 languages</span>
+      </div>
+      <div class="cta">
+        <a class="btn primary" href="#contact" data-i="btn_contact">Contact me</a>
+        <a class="btn rose" href="#fit" data-i="btn_fit">Check my fit for your role</a>
+        <a class="btn" href="https://www.linkedin.com/in/salma-aaroud/" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+    </div>
+    <div class="hero-fig" aria-hidden="true"><img src="img/av_wave.webp" alt=""></div>
+
+  </div>
+</section>
+
+<section id="why">
+  <div class="sec-head"><span class="label" data-i="why_label">Why hire me</span><h2 data-i="why_h">I run the simulation, check it, and explain it to the people who decide.</h2><p data-i="why_p">Most engineers do one of these. I have done all three: CFD, aircraft airworthiness, and customer-facing work in four languages.</p></div>
+  <div class="why-grid">
+    <article class="why-c"><span class="why-n">01</span><b class="why-k">0.11 mm · 4.7%</b><h3 data-i="w1t">Results you can trust</h3><p data-i="w1d">Every set-up checked before it counts: 0.11 mm against published jet cases, drag within 4.7% of PoliMi wind-tunnel data.</p></article>
+    <article class="why-c"><span class="why-n">02</span><b class="why-k">SU2 · OpenFOAM · HPC</b><h3 data-i="w2t">From mesh to answer, on my own</h3><p data-i="w2d">SU2 and OpenFOAM, adaptive meshing, Linux/HPC batch runs and Python post-processing. I hand over answers, not just plots.</p></article>
+    <article class="why-c"><span class="why-n">03</span><b class="why-k">5 aircraft · 381 defects</b><h3 data-i="w3t">I know real aircraft</h3><p data-i="w3d">Certificate of airworthiness renewals for five aircraft, FAA and EASA AD/SB studies, 381 in-service defects analysed.</p></article>
+    <article class="why-c"><span class="why-n">04</span><b class="why-k">NL · SG · USA · FR</b><h3 data-i="w4t">Clients trust me</h3><p data-i="w4d">Customer support and sales for companies in the Netherlands, Singapore, the USA and France. Fluent English, French and Arabic, Italian B2.</p></article>
+  </div>
+  <div class="why-cta"><p data-i="why_cta">If your team needs this mix, let's talk this week.</p><div><a class="btn primary" href="#contact" data-i="btn_contact">Contact me</a><a class="btn rose" href="#fit" data-i="btn_fit">Check my fit for your role</a></div></div>
+</section>
+
+<section id="route">
+  <div class="sec-head"><span class="label" data-i="rt_label">Flight log</span><h2 data-i="rt_h">Three countries, one direction</h2><p data-i="rt_p">Tap a stop to open its chapter.</p></div>
+  <div class="route-grid">
+    <div class="map">
+      <svg id="rmap" viewBox="0 0 640 300" role="img" aria-label="Map: Casablanca, Nanjing and Milan, plus remote work for the Netherlands, France, the USA and Singapore"></svg>
+      <div class="rleg"><span><i class="l1"></i><span data-i="rt_leg1">Lived and studied</span></span><span><i class="l2"></i><span data-i="rt_leg2">Remote work, 2021–2022</span></span></div>
+      <div style="padding:8px 8px 4px"><div class="km" id="km">0 km</div><div class="mono" data-i="km_note">great-circle distance along the route so far</div></div>
+    </div>
+    <div>
+      <div class="stops" role="group" aria-label="Chapters">
+        <button type="button" data-ch="0" aria-pressed="true">NKG 2017</button>
+        <button type="button" data-ch="1" aria-pressed="false">CMN 2021</button>
+        <button type="button" data-ch="2" aria-pressed="false">MIL 2023</button>
+        <button type="button" data-ch="3" aria-pressed="false" data-i="ch_next">Next</button>
+      </div>
+      <article class="chapter" aria-live="polite">
+        <div class="when" id="chWhen"></div>
+        <h3 id="chT"></h3>
+        <p id="chD"></p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="sec-head"><span class="label" data-i="pr_label">Projects</span><h2 data-i="pr_h">Selected work</h2></div>
+  <div class="filters" role="group" aria-label="Filter projects">
+    <button type="button" data-f="all" aria-pressed="true" data-i="f_all">All</button>
+    <button type="button" data-f="cfd" aria-pressed="false">CFD</button>
+    <button type="button" data-f="exp" aria-pressed="false" data-i="f_exp">Experiments</button>
+    <button type="button" data-f="ctrl" aria-pressed="false" data-i="f_ctrl">Control</button>
+    <button type="button" data-f="biz" aria-pressed="false" data-i="f_biz">Business</button>
+  </div>
+  <div class="cards">
+    <article class="card" data-tags="cfd exp" data-sk="cfd openfoam aero cad python">
+      <div class="thumb"><img src="img/car_cp.webp" alt="Pressure coefficient on a solar car" loading="lazy"></div>
+      <div class="body"><h3 data-i="p1_t">Solar car aerodynamics</h3><p data-i="p1_d">Team of 4. Four World Solar Challenge designs compared with RANS CFD on 7–8.5 M-cell meshes. My part: the grid convergence study and the 3D-printed model. Wind tunnel: CFD Cd 0.144 vs 0.163 measured.</p>
+      <div class="tags"><span class="tag">OpenFOAM</span><span class="tag">SOLIDWORKS</span><span class="tag">ParaView</span></div></div></article>
+    <article class="card" data-tags="exp" data-sk="aero valid cad">
+      <div class="thumb"><img src="img/car_tunnel.webp" alt="3D-printed model on the wind-tunnel force balance" loading="lazy"></div>
+      <div class="body"><h3 data-i="p2_t">From CFD to the wind tunnel</h3><p data-i="p2_d">The 16 cm printed model I prepared and sanded, on the PoliMi force balance. Close to the ground, drag rose 2.4 times.</p>
+      <div class="tags"><span class="tag">3D printing</span><span class="tag">Force balance</span></div></div></article>
+    <article class="card" data-tags="cfd" data-sk="cfd su2 aero valid">
+      <div class="thumb"><img src="img/drs_mach.webp" alt="Mach field around a rear wing with DRS open" loading="lazy"></div>
+      <div class="body"><h3 data-i="p3_t">2D DRS rear wing</h3><p data-i="p3_d">Team of 5. 24 mainplane and flap combinations with the DRS open, Euler and unsteady RANS. RANS set-up within 4.7% of wind-tunnel drag.</p>
+      <div class="tags"><span class="tag">SU2</span><span class="tag">Gmsh</span><span class="tag">URANS</span></div></div></article>
+    <article class="card" data-tags="cfd" data-sk="cfd openfoam aero python">
+      <div class="thumb contain"><img src="img/car_vortex.webp" alt="Vortex structures behind a solar car" loading="lazy"></div>
+      <div class="body"><h3 data-i="p4_t">Wake and vortex study</h3><p data-i="p4_d">Vortex structures behind the solar cars, used to explain where the drag comes from.</p>
+      <div class="tags"><span class="tag">OpenFOAM</span><span class="tag">ParaView</span></div></div></article>
+    <article class="card" data-tags="ctrl" data-sk="matlab stats">
+      <div class="noimg" aria-hidden="true"><svg viewBox="0 0 200 110" fill="none"><g stroke="var(--blue)" stroke-width="2"><circle cx="50" cy="40" r="18"/><circle cx="150" cy="40" r="18"/><path d="M68 40h64M100 40v30"/><rect x="82" y="66" width="36" height="16" rx="3"/></g><g stroke="var(--rose)" stroke-width="1.2"><path d="M10 100 C40 70,60 95,90 85 S150 70,190 92" opacity=".8"/><path d="M10 96 C40 78,70 100,100 88 S160 80,190 98" opacity=".5"/></g></svg></div>
+      <div class="body"><h3 data-i="p5_t">Robust drone control</h3><p data-i="p5_d">Team of 3. Lateral control of a multirotor by dynamic inversion and H∞ mixed sensitivity; robustness checked with 1,000 Monte Carlo runs.</p>
+      <div class="tags"><span class="tag">MATLAB</span><span class="tag">Simulink</span><span class="tag">Monte Carlo</span></div></div></article>
+    <article class="card" data-tags="biz" data-sk="cust pitch">
+      <div class="noimg" aria-hidden="true"><svg viewBox="0 0 200 110" fill="none"><g stroke="var(--blue)" stroke-width="2"><path d="M100 12 L100 92"/><path d="M100 16 C130 36,138 66,128 88 L100 88"/><path d="M98 30 C80 46,76 68,84 86 L98 86"/></g><path d="M40 96 C70 92,130 92,160 96" stroke="var(--muted)" stroke-width="2"/><g fill="var(--rose)"><circle cx="118" cy="40" r="3"/><circle cx="126" cy="58" r="3"/><circle cx="124" cy="76" r="3"/></g></svg></div>
+      <div class="body"><h3 data-i="p6_t">SpeedySails start-up</h3><p data-i="p6_d">Team of 6, graded 29/30. Sail-mounted pressure sensors for real-time trim feedback. Market study, customer interviews (88% positive), visuals and the final pitch.</p>
+      <div class="tags"><span class="tag" data-i="tg_mk">Market research</span><span class="tag">Pitch</span></div></div></article>
+  </div>
+  <div class="skills-box">
+    <p data-i="sk_hint">Tap a skill to see where I used it.</p>
+    <div class="skills" id="skills"></div>
+    <div class="where" id="where" aria-live="polite"></div>
+  </div>
+</section>
+
+<section id="lab">
+  <div class="sec-head"><span class="label" data-i="lab_label">Interactive</span><h2 data-i="lab_h">My thesis in ten seconds</h2></div>
+  <div class="lab-wrap">
+    <div class="lab" aria-label="Shock diamond lab">
+      <div class="lab-top"><h3 data-i="lab_t">Shock-diamond lab</h3><span class="mono" data-i="lab_hint">Drag the slider</span></div>
+      <canvas id="jet" width="900" height="300" role="img" aria-label="Animated illustration of shock cells in a supersonic jet"></canvas>
+      <div class="lab-ctrl">
+        <label><span><span data-i="lab_npr">Nozzle pressure ratio</span> <b id="nprVal" class="mono">5.0</b></span><input id="npr" type="range" min="2" max="9" step="0.1" value="5"></label>
+        <div class="seg" role="group" aria-label="Gas"><button type="button" id="gN2" aria-pressed="true">N₂</button><button type="button" id="gMM" aria-pressed="false">MM</button></div>
+      </div>
+      <div class="lab-read"><span><span data-i="lab_cells">Shock cells</span>: <b id="rCells">3</b></span><span><span data-i="lab_disk">Mach disk</span>: <b id="rDisk">–</b></span></div>
+      <p class="lab-cap" data-i="lab_cap">An illustration, not a simulation, of the shock cells I studied in my thesis. Raise the pressure ratio and a Mach disk appears; switch to MM, a non-ideal organic vapour, and the disk grows.</p>
+    </div>
+  </div>
+</section>
+
+<section id="tools">
+  <div class="sec-head"><span class="label" data-i="tl_label">Toolbox</span><h2 data-i="tl_h">What I work with</h2></div>
+  <div class="tl-grid">
+    <div class="tl-col now"><h3 data-i="tl_now">Using now</h3><div class="tl-chips"><span>SU2</span><span>Python</span><span>ParaView</span><span>Linux / HPC · Bash · MPI</span><span>Gmsh</span><span data-i="tl_ai">AI tools (professional use)</span></div></div>
+    <div class="tl-col"><h3 data-i="tl_used">Used in projects</h3><div class="tl-chips"><span>OpenFOAM</span><span>MATLAB / Simulink</span><span>SOLIDWORKS</span><span data-i="tl_catia">CATIA V5 (basic)</span><span>AutoCAD</span><span>Excel / Office</span><span>LaTeX</span></div></div>
+  </div>
+</section>
+
+<section id="thesis">
+  <div class="sec-head"><span class="label" data-i="th_label">MSc thesis</span><h2 data-i="th_h">Supersonic jets of a non-ideal gas</h2></div>
+  <div class="thesis-grid">
+    <div>
+      <p class="ttl">Numerical Investigation of Planar and Axisymmetric Underexpanded Jets in Ideal and Non-Ideal Compressible Flows</p>
+      <div class="prose">
+        <p data-i="th_p1">When a gas leaves a nozzle at higher pressure than its surroundings, it forms a chain of shock cells. I compared planar and round jets of nitrogen and of siloxane MM, a dense organic vapour used in ORC turbines, where the ideal-gas law no longer holds.</p>
+        <p data-i="th_p2">I ran SU2 Euler, RANS and unsteady RANS simulations with ten levels of anisotropic mesh adaptation on an HPC cluster, and checked grid convergence and domain independence before trusting the results.</p>
+      </div>
+      <div class="nums">
+        <div class="num"><b>0.11 mm</b><span data-i="n1">match to published jet cases</span></div>
+        <div class="num"><b>2.5–4.1×</b><span data-i="n2">farther downstream: planar first shock cell vs round Mach disk</span></div>
+        <div class="num"><b>+75%</b><span data-i="n3">Mach disk radius with stronger non-ideality</span></div>
+      </div>
+    </div>
+    <div class="figs">
+      <figure><div class="fig"><img src="img/jet_round.webp" width="1400" height="499" alt="Mach number and numerical schlieren of a round MM jet" loading="lazy"></div>
+        <figcaption><b>Fig. 1</b> <span data-i="fig1">Round jet of siloxane MM: Mach number (left) and numerical schlieren (right), two levels of non-ideality. SU2 RANS.</span></figcaption></figure>
+      
+    </div>
+  </div>
+  <p class="th-cta"><a href="#contact" data-i="th_cta">Want the full thesis, the data or a walkthrough? Ask me, I'll gladly send it.</a></p>
+</section>
+
+<section id="now">
+  <div class="sec-head"><span class="label" data-i="now_label">Right now</span><h2 data-i="now_h">Ready for my first full-time role</h2></div>
+  <div class="now-grid">
+    <div class="now-c"><span class="now-dot"></span><h3 data-i="now1t">Doing</h3><p data-i="now1d">Completing my MSc in Aeronautical Engineering at Politecnico di Milano (December 2026) and keeping my CFD workflow sharp.</p></div>
+    <div class="now-c"><span class="now-dot"></span><h3 data-i="now2t">Looking for</h3><p data-i="now2d">A full-time role in CFD and simulation, in airworthiness and maintenance engineering, or a technical customer-facing role: application, sales or support engineer.</p></div>
+    <div class="now-c"><span class="now-dot"></span><h3 data-i="now3t">Where</h3><p data-i="now3d">Based in Milan, open to relocation across Europe.</p></div>
+  </div>
+</section>
+
+<section id="langs">
+  <div class="two">
+    <div>
+      <div class="sec-head"><span class="label" data-i="lg_label">Languages</span><h2 data-i="lg_h">Say hello</h2><p data-i="lg_p">Tap one: the whole page switches to it.</p></div>
+      <div class="langgrid">
+        <button type="button" class="lang native" data-to="ar"><span class="hi">مرحبا</span><span data-i="l_ar">Arabic</span><span class="meter"><i style="width:100%"></i></span><span class="lv" data-i="lv_n">fluent</span></button>
+        <button type="button" class="lang native" data-to="fr"><span class="hi">Bonjour</span><span data-i="l_fr">French</span><span class="meter"><i style="width:100%"></i></span><span class="lv" data-i="lv_n">fluent</span></button>
+        <button type="button" class="lang native" data-to="en"><span class="hi">Hello</span><span data-i="l_en">English</span><span class="meter"><i style="width:100%"></i></span><span class="lv" data-i="lv_n">fluent</span></button>
+        <button type="button" class="lang" data-to="it"><span class="hi">Ciao</span><span data-i="l_it">Italian</span><span class="meter"><i style="width:72%"></i></span><span class="lv">B2</span></button>
+        <button type="button" class="lang" data-to="es"><span class="hi">Hola</span><span data-i="l_es">Spanish</span><span class="meter"><i style="width:55%"></i></span><span class="lv" data-i="lv_i">intermediate</span></button>
+        <button type="button" class="lang" data-to="zh"><span class="hi">你好</span><span data-i="l_zh">Chinese</span><span class="meter"><i style="width:25%"></i></span><span class="lv" data-i="lv_b">basic</span></button>
+        <button type="button" class="lang" data-to="ko"><span class="hi">안녕하세요</span><span data-i="l_ko">Korean</span><span class="meter"><i style="width:22%"></i></span><span class="lv" data-i="lv_b">basic</span></button>
+      </div>
+    </div>
+    <div>
+      <div class="sec-head"><span class="label" data-i="off_label">Off the clock</span><h2 data-i="off_h">When I'm not meshing</h2></div>
+      <div class="offgrid">
+        <div class="off"><svg viewBox="0 0 26 26" fill="none" stroke="var(--blue)" stroke-width="2"><path d="M3 18h20M6 18l2-6h10l2 6"/><circle cx="8" cy="20" r="2"/><circle cx="18" cy="20" r="2"/></svg><b data-i="o1">Motorsport</b><span data-i="o1d">Where aerodynamics is decided in milliseconds.</span></div>
+        <div class="off"><svg viewBox="0 0 26 26" fill="none" stroke="var(--blue)" stroke-width="2"><path d="M2 16c3-3 6-3 9 0s6 3 9 0 4-2 4-2M2 21c3-3 6-3 9 0s6 3 9 0"/></svg><b data-i="o2">Surfing</b><span data-i="o2d">Fluid dynamics, felt rather than computed.</span></div>
+        <div class="off"><svg viewBox="0 0 26 26" fill="none" stroke="var(--blue)" stroke-width="2"><rect x="3" y="7" width="20" height="14" rx="2"/><circle cx="13" cy="14" r="4"/><path d="M9 7l2-3h4l2 3"/></svg><b data-i="o3">Photography</b><span data-i="o3d">Same instinct as a good post-processing image.</span></div>
+        <div class="off"><svg viewBox="0 0 26 26" fill="none" stroke="var(--rose)" stroke-width="2"><path d="M5 10h13v6a5 5 0 0 1-5 5H10a5 5 0 0 1-5-5zM18 12h2a2 2 0 0 1 0 4h-2M9 3c0 2 2 2 2 4M13 3c0 2 2 2 2 4"/></svg><b data-i="o4">Coffee and tea</b><span data-i="o4d">From Moroccan mint tea to Italian espresso and Chinese tea.</span></div>
+        <div class="off"><svg viewBox="0 0 26 26" fill="none" stroke="var(--rose)" stroke-width="2"><circle cx="13" cy="13" r="10"/><path d="M3 13h20M13 3c3 3 3 17 0 20M13 3c-3 3-3 17 0 20"/></svg><b data-i="o5">Travel</b><span data-i="o5d">Three countries lived in, 18 visited.</span></div>
+        <div class="off"><svg viewBox="0 0 26 26" fill="none" stroke="var(--rose)" stroke-width="2"><path d="M4 5h11v8H9l-3 3v-3H4zM15 9h7v8h-2v3l-3-3h-4v-3"/></svg><b data-i="o6">Languages</b><span data-i="o6d">Currently improving my Italian every day.</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="travel">
+  <div class="sec-head"><span class="label" data-i="tv_label">Travel log</span><h2 data-i="tv_h">18 countries and counting</h2><p data-i="tv_p">Travelling taught me to adapt quickly and to feel at home in international teams.</p></div>
+  <div class="travel-grid">
+    <div class="world" id="world"><div class="mono" id="worldMsg"></div></div>
+    <div>
+      <div class="tcount" id="tcount">18</div>
+      <div class="legend"><span><i></i><span data-i="tv_lived">lived there</span></span><span><i class="vi"></i><span data-i="tv_vis">visited</span></span></div>
+      <div class="clist" id="clist"></div>
+    </div>
+  </div>
+</section>
+
+<section id="fit">
+  <div class="sec-head"><span class="label" data-i="fit_label">Where to next?</span><h2 data-i="fit_h">Got a role in mind? Paste it and see how I match.</h2><p data-i="fit_p">Paste a job description. The check runs in your browser and nothing is sent anywhere. It also shows what I have not done yet.</p></div>
+  <div class="fit-grid">
+    <div>
+      <label for="jd" class="rh" data-i="fit_paste">Job description</label>
+      <textarea id="jd" placeholder="Paste the job description here…"></textarea>
+      <div class="fit-actions"><button type="button" class="btn primary" id="fitBtn" data-i="fit_btn">Check fit</button><button type="button" class="btn" id="fitEx" data-i="fit_ex">Try an example</button></div>
+    </div>
+    <div class="result">
+      <div class="score"><svg class="ring" viewBox="0 0 80 80"><circle class="bg" cx="40" cy="40" r="32"/><circle class="fg" id="ringFg" cx="40" cy="40" r="32" stroke-dasharray="201" stroke-dashoffset="201" transform="rotate(-90 40 40)"/></svg>
+        <div><b id="scoreTxt">–</b><div class="mono" data-i="fit_sc">of the skills your ad mentions</div></div></div>
+      <div><div class="rh" data-i="fit_have">Matches and where I used them</div><div class="rlist" id="haveList"></div></div>
+      <div><div class="rh" data-i="fit_gap">Not yet, honestly</div><div class="rlist" id="gapList"></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="contact">
+    <div>
+      <div class="sec-head"><span class="label" data-i="ct_label">Contact</span><h2 data-i="ct_h">Let's talk</h2><p data-i="ct_p">Hiring for CFD, simulation, airworthiness, or a technical customer role? Write to me and I will send a CV tailored to your position.</p></div>
+      <div class="cbox">
+        <div class="crow"><span class="k">Email</span><span class="v" id="em">salma.aaroud@mail.polimi.it</span><button type="button" class="copy" id="copyEm" data-i="copy">Copy</button></div>
+        <div class="crow"><span class="k">LinkedIn</span><a class="v" href="https://www.linkedin.com/in/salma-aaroud/" target="_blank" rel="noopener">linkedin.com/in/salma-aaroud</a></div>
+        <div class="crow"><span class="k" data-i="ct_based">Based in</span><span class="v">Milano, Italia</span></div>
+      </div>
+    </div>
+    <div class="cbox">
+      <label for="reason" class="rh" data-i="ct_why">Reason for writing</label>
+      <select id="reason">
+        <option value="job" data-i="r_job">A full-time role</option>
+        <option value="talk" data-i="r_talk">A first call about my team</option>
+        <option value="cv" data-i="r_cv">Please send me your CV</option>
+      </select>
+      <div class="draft" id="draft"></div>
+      <div><button type="button" class="copy" id="copyDraft" data-i="copy_d">Copy message</button></div>
+    </div>
+  </div>
+</section>
+
+<section id="tracks" hidden>
+  <div class="sec-head"><span class="label" data-i="tr_label">Two profiles, one engineer</span><h2 data-i="tr_q">Choose the engineer you need</h2></div>
+  <div class="switch" role="group" aria-label="Hiring track">
+    <button type="button" id="tEng" aria-pressed="true" data-i="tr_eng">Engineering & simulation</button>
+    <button type="button" id="tCus" aria-pressed="false" data-i="tr_cus">Customer-facing engineering</button>
+  </div>
+  <div class="track-panel" id="tpEng">
+    <div class="tp"><b data-i="e1t">CFD from mesh to answer</b><p data-i="e1d">SU2 and OpenFOAM, meshing with Gmsh and adaptive refinement, post-processing in Python and ParaView.</p></div>
+    <div class="tp"><b data-i="e2t">Results you can trust</b><p data-i="e2d">Every set-up checked against published or wind-tunnel data: 0.11 mm on jet cases, 4.7% on wing drag.</p></div>
+    <div class="tp"><b data-i="e3t">Aircraft that fly legally</b><p data-i="e3d">Certificate of airworthiness renewals, FAA and EASA AD/SB studies, and a reliability analysis of 381 in-service defects.</p></div>
+  </div>
+  <div class="track-panel" id="tpCus" hidden>
+    <div class="tp"><b data-i="c1t">Four countries of customers</b><p data-i="c1d">Remote support and sales in 2021–2022 for 5CA (Netherlands) on the Secretlab account (Singapore), 1840 &amp; Company (USA, real estate) and Intelcia (for a French company), in English and French.</p></div>
+    <div class="tp"><b data-i="c2t">Technical, explained simply</b><p data-i="c2d">Reports, slides and pitches that turn engineering results into decisions.</p></div>
+    <div class="tp"><b data-i="c3t">Seven languages</b><p data-i="c3d">Arabic, French and English fluently, Italian B2, Spanish, and some Chinese and Korean.</p></div>
+  </div>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</main>
+<div id="intro" hidden>
+  <div class="hangar3d" aria-hidden="true"></div>
+  <div class="hlabels" aria-hidden="true"><div class="hname">HANGAR 7</div><div class="hsub">I-SALM · MILANO</div>
+    <div class="mboard"><b>MISSION BOARD</b><span>TODAY: PORTFOLIO TOUR</span><span>STOPS: 11 · WX: CAVOK</span></div></div>
+  <div class="stage">
+    <div class="me" id="me"></div>
+    <div class="say" id="say"><h2 data-i="intro_hi">Hi, I'm Salma!</h2><p data-i="intro_sub">Welcome to my hangar. Today's mission: a tour of my work. Hop on!</p>
+      <div class="tbtns"><button type="button" class="tbtn" id="hopOn" data-i="tour_start">Hop on</button><button type="button" class="tbtn ghost" id="skipIntro" data-i="intro_skip">Skip</button></div></div>
+    <div class="plane" id="planeEl"></div>
+  </div>
+</div>
+<div id="nd" hidden role="navigation" aria-label="Guided tour">
+  <div class="strip"><svg id="ndR" aria-hidden="true"></svg><img id="ndJet" src="img/minijet.webp" alt=""></div>
+  <div class="keys"><span class="ndc" id="ndS">1/10</span><button type="button" id="ndPrev" aria-label="Previous stop">◀</button><button type="button" class="go" id="ndNext" aria-label="Next stop">NEXT</button><button type="button" id="ndEnd" aria-label="End tour">✕</button></div>
+</div>
+</div>
+</div>
+<footer class="wrap"><span>© 2026 Salma Aaroud</span><span data-i="foot">Figures from my MSc thesis and course projects at Politecnico di Milano.</span></footer>
+
+<script>window.jsVectorMap={addMap:function(n,d){window.__WORLD=d}};</script>
+<script src="https://cdn.jsdelivr.net/npm/jsvectormap@1.5.3/dist/maps/world.js"></script>
+<script>
+const T={
+it:{nav_story:"Percorso",nav_thesis:"Tesi",nav_projects:"Progetti",nav_fit:"Compatibilità",nav_contact:"Contatti",motion:"Animazioni: sì",motion_off:"Animazioni: no",
+hello:"Ciao, sono Salma.",role:"Ingegnera aeronautica · CFD, aeronavigabilità e le persone in mezzo",
+lead:"Rendo visibili i flussi invisibili: getti supersonici, la scia di un'auto solare, l'aria su un'ala da corsa. E mi piace spiegarli a chi ha bisogno della risposta.",
+woman:"Una donna nell'ingegneria aerospaziale, formata tra Marocco, Cina e Italia, che lavora in sette lingue.",
+chip_open:"Aperta a nuove opportunità · Milano",chip_reloc:"Disposta a trasferirmi",chip_lang:"7 lingue",btn_contact:"Contattami",btn_fit:"Verifica la compatibilità con il tuo ruolo",
+lab_t:"Laboratorio delle celle d'urto",lab_hint:"Muovi il cursore",lab_npr:"Rapporto di pressione",lab_cells:"Celle d'urto",lab_disk:"Disco di Mach",
+lab_cap:"Un'illustrazione, non una simulazione, delle celle d'urto che ho studiato nella tesi. Aumenta il rapporto di pressione e compare un disco di Mach; passa a MM, un vapore organico non ideale, e il disco si allarga.",
+tr_label:"Due profili, un'ingegnera",tr_q:"Scegliete l'ingegnera di cui avete bisogno",tr_eng:"Ingegneria e simulazione",tr_cus:"Ingegneria a contatto con il cliente",
+e1t:"CFD dalla mesh alla risposta",e1d:"SU2 e OpenFOAM, mesh con Gmsh e raffinamento adattivo, post-processing in Python e ParaView.",
+e2t:"Risultati affidabili",e2d:"Ogni set-up verificato su dati pubblicati o di galleria del vento: 0,11 mm sui getti, 4,7% sulla resistenza dell'ala.",
+e3t:"Aerei in regola",e3d:"Rinnovi del certificato di aeronavigabilità, studi su AD/SB FAA ed EASA e un'analisi di affidabilità su 381 difetti in servizio.",
+c1t:"Clienti in quattro paesi",c1d:"Assistenza e vendite da remoto nel 2021–2022 per 5CA (Paesi Bassi) sull'account Secretlab (Singapore), 1840 & Company (USA, immobiliare) e Intelcia (per un'azienda francese), in inglese e francese.",
+c2t:"Tecnica, spiegata semplice",c2d:"Report, slide e presentazioni che trasformano i risultati tecnici in decisioni.",
+c3t:"Sette lingue",c3d:"Arabo, francese e inglese fluenti, italiano B2, spagnolo, e un po' di cinese e coreano.",
+rt_leg1:"Vissuto e studiato",rt_leg2:"Lavoro da remoto, 2021–2022",why_label:"Perché io",why_h:"Faccio la simulazione, la verifico e la spiego a chi deve decidere.",why_p:"Di solito un ingegnere fa una di queste cose. Io le ho fatte tutte e tre: CFD, aeronavigabilità e lavoro a contatto con i clienti in quattro lingue.",w1t:"Risultati affidabili",w1d:"Ogni impostazione verificata prima di usarla: 0,11 mm sui casi di getto pubblicati, resistenza entro il 4,7% dai dati della galleria del vento del PoliMi.",w2t:"Dalla mesh alla risposta, in autonomia",w2d:"SU2 e OpenFOAM, mesh adattive, calcoli batch su Linux/HPC e post-processing in Python. Consegno risposte, non solo grafici.",w3t:"Conosco gli aerei veri",w3d:"Rinnovi del certificato di navigabilità per cinque aeromobili, studi AD/SB FAA ed EASA, 381 difetti in servizio analizzati.",w4t:"I clienti si fidano di me",w4d:"Assistenza clienti e vendite per aziende di Paesi Bassi, Singapore, USA e Francia. Inglese, francese e arabo fluenti, italiano B2.",why_cta:"Se al vostro team serve questo mix, parliamone questa settimana.",tl_label:"Strumenti",tl_h:"Con cosa lavoro",tl_now:"Uso adesso",tl_used:"Usati nei progetti",tl_ai:"Strumenti di IA (uso professionale)",tl_catia:"CATIA V5 (base)",now_label:"In questo momento",now_h:"Pronta per il mio primo ruolo a tempo pieno",now1t:"Cosa faccio",now1d:"Concludo la Laurea Magistrale in Ingegneria Aeronautica al Politecnico di Milano (dicembre 2026) e tengo allenato il mio flusso di lavoro CFD.",now2t:"Cosa cerco",now2d:"Un ruolo a tempo pieno in CFD e simulazione, in aeronavigabilità e ingegneria di manutenzione, oppure un ruolo tecnico a contatto con i clienti: application, sales o support engineer.",now3t:"Dove",now3d:"Vivo a Milano, disponibile a trasferirmi in Europa.",lab_label:"Interattivo",lab_h:"La mia tesi in dieci secondi",th_cta:"Volete la tesi completa, i dati o una presentazione? Chiedetemelo, ve li mando volentieri.",rt_label:"Diario di volo",rt_h:"Tre paesi, una direzione",rt_p:"Tocca una tappa per aprire il capitolo.",km_note:"distanza ortodromica lungo il percorso finora",ch_next:"Prossima",
+th_label:"Tesi magistrale",th_h:"Getti supersonici di un gas non ideale",
+th_p1:"Quando un gas esce da un ugello a una pressione più alta dell'ambiente, forma una catena di celle d'urto. Ho confrontato getti planari e circolari di azoto e di silossano MM, un vapore organico denso usato nelle turbine ORC, dove la legge dei gas ideali non vale più.",
+th_p2:"Ho eseguito simulazioni SU2 Euler, RANS e RANS non stazionarie con dieci livelli di adattazione anisotropa della mesh su un cluster HPC, verificando convergenza di griglia e indipendenza dal dominio.",
+n1:"scarto rispetto ai casi pubblicati",n2:"più a valle: prima cella d'urto planare vs disco di Mach circolare",n3:"raggio del disco di Mach con maggiore non idealità",
+fig1:"Getto circolare di silossano MM: numero di Mach (sinistra) e schlieren numerico (destra), due livelli di non idealità. SU2 RANS.",
+fig2:"Validazione: pressione lungo l'asse del getto, la mia riproduzione (tratteggiata) rispetto allo studio di riferimento (continua).",
+pr_label:"Progetti",pr_h:"Lavori scelti",f_all:"Tutti",f_exp:"Sperimentale",f_ctrl:"Controllo",f_biz:"Business",tg_mk:"Studio di mercato",
+p1_t:"Aerodinamica di un'auto solare",p1_d:"Team di 4. Quattro progetti della World Solar Challenge confrontati con CFD RANS su mesh da 7–8,5 milioni di celle. Il mio contributo: convergenza di griglia e modello stampato in 3D. Galleria: Cd 0,144 in CFD contro 0,163 misurato.",
+p2_t:"Dalla CFD alla galleria del vento",p2_d:"Il modello stampato da 16 cm che ho preparato e carteggiato, sulla bilancia del Politecnico. Vicino al suolo la resistenza aumenta di 2,4 volte.",
+p3_t:"Ala posteriore DRS 2D",p3_d:"Team di 5. 24 combinazioni di profilo e flap con DRS aperto, Euler e RANS non stazionarie. Set-up RANS entro il 4,7% della resistenza misurata.",
+p4_t:"Studio della scia e dei vortici",p4_d:"Strutture vorticose dietro le auto solari, per spiegare da dove nasce la resistenza.",
+p5_t:"Controllo robusto di un drone",p5_d:"Team di 3. Controllo laterale di un multirotore con inversione dinamica e H∞; robustezza verificata con 1.000 simulazioni Monte Carlo.",
+p6_t:"SpeedySails, startup",p6_d:"Team di 6, voto 29/30. Sensori di pressione sulle vele per regolarle in tempo reale. Studio di mercato, interviste ai clienti (88% positive), grafica e pitch finale.",
+sk_hint:"Tocca una competenza per vedere dove l'ho usata.",
+fit_label:"Prossima destinazione?",fit_h:"Avete un ruolo in mente? Incollatelo e vedete quanto corrispondo.",fit_p:"Incollate un annuncio. Il controllo avviene nel vostro browser e nulla viene inviato. Mostra anche ciò che non ho ancora fatto.",
+fit_paste:"Annuncio di lavoro",fit_btn:"Verifica",fit_ex:"Prova un esempio",fit_sc:"delle competenze citate nell'annuncio",fit_have:"Corrispondenze e dove le ho usate",fit_gap:"Non ancora, in tutta onestà",fit_empty:"Incolla un annuncio e premi «Verifica».",fit_none:"Nessuna competenza riconosciuta: prova con un annuncio tecnico.",fit_nogap:"Nessuna lacuna rilevata tra gli strumenti che conosco.",
+lg_label:"Lingue",lg_h:"Saluta",lg_p:"Toccane una: tutta la pagina cambia lingua.",l_ar:"Arabo",l_fr:"Francese",l_en:"Inglese",l_it:"Italiano",l_es:"Spagnolo",l_zh:"Cinese",l_ko:"Coreano",lv_n:"fluente",lv_i:"intermedio",lv_b:"base",
+off_label:"Fuori orario",off_h:"Quando non sto facendo mesh",o1:"Motorsport",o1d:"Dove l'aerodinamica si decide in millisecondi.",o2:"Surf",o2d:"Fluidodinamica, sentita invece che calcolata.",o3:"Fotografia",o3d:"Lo stesso istinto di una buona immagine di post-processing.",o4:"Caffè e tè",o4d:"Dal tè alla menta marocchino all'espresso italiano e al tè cinese.",o5:"Viaggi",o5d:"Tre paesi vissuti, 18 visitati.",o6:"Lingue",o6d:"Miglioro il mio italiano ogni giorno.",
+ct_label:"Contatti",ct_h:"Parliamone",ct_p:"Cercate qualcuno per CFD, simulazione, aeronavigabilità o un ruolo tecnico a contatto con i clienti? Scrivetemi e vi mando un CV adattato alla posizione.",ct_based:"Sede",ct_why:"Motivo del contatto",r_job:"Un ruolo a tempo pieno",r_talk:"Una prima chiamata sul mio team",r_cv:"Mandami il tuo CV",copy:"Copia",copy_d:"Copia il messaggio",copied:"Copiato",
+nav_travel:"Viaggi",tv_label:"Diario di viaggio",tv_h:"18 paesi, e non è finita",tv_p:"Viaggiare mi ha insegnato ad adattarmi in fretta e a sentirmi a casa nei team internazionali.",tv_lived:"ci ho vissuto",tv_vis:"visitato",
+greet:"Ciao, sono Salma! Sali a bordo, ti faccio fare un giro.",tour_start:"Sali a bordo",tour_skip:"Guardo da sola/o",tour_back:"Indietro",tour_next:"Avanti",tour_end:"Fine del giro",tour_land:"Atterra",sWy:"Prima tappa: perché assumermi. Quattro motivi, con i numeri a dimostrarlo.",sL:"Il mio laboratorio delle celle d'urto: muovi il cursore e guarda comparire il disco di Mach.",sTo:"La mia cassetta degli attrezzi: cosa uso adesso e cosa ho usato nei progetti.",sNw:"In questo momento: cosa faccio e che ruolo cerco.",sOf:"Fuori orario: cosa faccio quando non creo mesh.",s0:"Si parte! Prima, qualcosa su di me: un'ingegnera aeronautica a Milano che trasforma flussi complessi in risposte chiare.",s1:"Due profili, un'ingegnera. Scegli per quale ruolo cerchi.",s2:"Il mio diario di volo: Nanchino, Casablanca, Milano. Tocca una tappa per leggere il capitolo.",s3:"La mia tesi: getti supersonici di un gas che non si comporta da gas ideale.",s4:"Alcuni progetti di cui vado fiera. Tocca una competenza per vedere dove l'ho usata.",s5:"Selezioni personale? Incolla qui il tuo annuncio e vedi quanto ci assomigliamo, con onestà.",s6:"18 paesi finora. Passa sulla mappa.",s7:"Saluta in una delle mie lingue e tutta la pagina cambia.",s8:"Atterraggio! Se vuoi parlarne, la mia email è qui. Grazie per aver volato con me.",
+intro_hi:"Ciao, sono Salma!",intro_sub:"Benvenuti nel mio hangar. La missione di oggi: un giro del mio lavoro. Salite a bordo!",intro_skip:"Salta",
+foot:"Figure dalla mia tesi magistrale e dai progetti del Politecnico di Milano."},
+fr:{nav_story:"Parcours",nav_thesis:"Mémoire",nav_projects:"Projets",nav_fit:"Adéquation",nav_contact:"Contact",motion:"Animations : oui",motion_off:"Animations : non",
+hello:"Bonjour, moi c'est Salma.",role:"Ingénieure aéronautique · CFD, navigabilité et les personnes entre les deux",
+lead:"Je rends visibles les écoulements invisibles : jets supersoniques, sillage d'une voiture solaire, air sur un aileron de course. Et j'aime les expliquer à ceux qui ont besoin de la réponse.",
+woman:"Une femme dans l'ingénierie aérospatiale, formée au Maroc, en Chine et en Italie, qui travaille en sept langues.",
+chip_open:"Ouverte aux opportunités · Milan",chip_reloc:"Mobile",chip_lang:"7 langues",btn_contact:"Me contacter",btn_fit:"Vérifier l'adéquation avec votre poste",
+lab_t:"Labo des cellules de choc",lab_hint:"Faites glisser le curseur",lab_npr:"Rapport de pression",lab_cells:"Cellules de choc",lab_disk:"Disque de Mach",
+lab_cap:"Une illustration, pas une simulation, des cellules de choc étudiées dans mon mémoire. Augmentez le rapport de pression : un disque de Mach apparaît ; passez au MM, une vapeur organique non idéale, et le disque grandit.",
+tr_label:"Deux profils, une ingénieure",tr_q:"Choisissez l'ingénieure qu'il vous faut",tr_eng:"Ingénierie et simulation",tr_cus:"Ingénierie orientée client",
+e1t:"La CFD, du maillage à la réponse",e1d:"SU2 et OpenFOAM, maillage avec Gmsh et raffinement adaptatif, post-traitement en Python et ParaView.",
+e2t:"Des résultats fiables",e2d:"Chaque réglage vérifié sur des données publiées ou de soufflerie : 0,11 mm sur les jets, 4,7 % sur la traînée.",
+e3t:"Des avions en règle",e3d:"Renouvellements de certificats de navigabilité, études AD/SB FAA et EASA, et une analyse de fiabilité de 381 défauts en service.",
+c1t:"Des clients dans quatre pays",c1d:"Support et vente à distance en 2021–2022 pour 5CA (Pays-Bas) sur le compte Secretlab (Singapour), 1840 & Company (États-Unis, immobilier) et Intelcia (pour une entreprise française), en anglais et en français.",
+c2t:"Technique, expliqué simplement",c2d:"Rapports, présentations et pitchs qui transforment des résultats d'ingénierie en décisions.",
+c3t:"Sept langues",c3d:"Arabe, français et anglais courants, italien B2, espagnol, et un peu de chinois et de coréen.",
+rt_leg1:"Vécu et étudié",rt_leg2:"Travail à distance, 2021–2022",why_label:"Pourquoi moi",why_h:"Je fais la simulation, je la vérifie et je l'explique à ceux qui décident.",why_p:"En général, un ingénieur fait l'une de ces choses. J'ai fait les trois : CFD, navigabilité et relation client en quatre langues.",w1t:"Des résultats fiables",w1d:"Chaque configuration vérifiée avant de compter : 0,11 mm sur des cas de jets publiés, traînée à 4,7 % des données de soufflerie du PoliMi.",w2t:"Du maillage à la réponse, en autonomie",w2d:"SU2 et OpenFOAM, maillage adaptatif, calculs en lot sous Linux/HPC et post-traitement en Python. Je livre des réponses, pas seulement des graphiques.",w3t:"Je connais les vrais avions",w3d:"Renouvellements du certificat de navigabilité pour cinq avions, études AD/SB FAA et EASA, 381 défauts en service analysés.",w4t:"Les clients me font confiance",w4d:"Support client et vente pour des entreprises des Pays-Bas, de Singapour, des États-Unis et de France. Anglais, français et arabe courants, italien B2.",why_cta:"Si votre équipe a besoin de ce profil, parlons-en cette semaine.",tl_label:"Boîte à outils",tl_h:"Avec quoi je travaille",tl_now:"En ce moment",tl_used:"Utilisés en projet",tl_ai:"Outils d'IA (usage professionnel)",tl_catia:"CATIA V5 (notions)",now_label:"En ce moment",now_h:"Prête pour mon premier poste à temps plein",now1t:"Ce que je fais",now1d:"Je termine mon master en ingénierie aéronautique au Politecnico di Milano (décembre 2026) et je garde ma chaîne CFD bien rodée.",now2t:"Ce que je cherche",now2d:"Un poste à temps plein en CFD et simulation, en navigabilité et ingénierie de maintenance, ou un poste technique en contact client : ingénieure d'application, commerciale ou support.",now3t:"Où",now3d:"Basée à Milan, ouverte à une mobilité en Europe.",lab_label:"Interactif",lab_h:"Ma thèse en dix secondes",th_cta:"Vous voulez la thèse complète, les données ou une présentation ? Demandez-moi, je vous les envoie avec plaisir.",rt_label:"Carnet de vol",rt_h:"Trois pays, une direction",rt_p:"Touchez une escale pour ouvrir son chapitre.",km_note:"distance orthodromique parcourue jusqu'ici",ch_next:"Suite",
+th_label:"Mémoire de master",th_h:"Jets supersoniques d'un gaz non idéal",
+th_p1:"Quand un gaz sort d'une tuyère à une pression supérieure à celle de l'ambiance, il forme une suite de cellules de choc. J'ai comparé des jets plans et ronds d'azote et de siloxane MM, une vapeur organique dense utilisée dans les turbines ORC, où la loi des gaz parfaits ne s'applique plus.",
+th_p2:"J'ai lancé des simulations SU2 Euler, RANS et RANS instationnaires avec dix niveaux d'adaptation anisotrope du maillage sur un cluster HPC, en vérifiant la convergence en maillage et l'indépendance au domaine.",
+n1:"d'écart avec les cas publiés",n2:"plus en aval : première cellule de choc plane vs disque de Mach rond",n3:"rayon du disque de Mach avec une non-idéalité plus forte",
+fig1:"Jet rond de siloxane MM : nombre de Mach (gauche) et strioscopie numérique (droite), deux niveaux de non-idéalité. SU2 RANS.",
+fig2:"Validation : pression sur l'axe du jet, ma reproduction (tirets) face à l'étude de référence (trait plein).",
+pr_label:"Projets",pr_h:"Travaux choisis",f_all:"Tous",f_exp:"Expérimental",f_ctrl:"Commande",f_biz:"Business",tg_mk:"Étude de marché",
+p1_t:"Aérodynamique d'une voiture solaire",p1_d:"Équipe de 4. Quatre concepts du World Solar Challenge comparés en CFD RANS sur 7 à 8,5 millions de cellules. Ma part : convergence en maillage et maquette imprimée en 3D. Soufflerie : Cd 0,144 en CFD contre 0,163 mesuré.",
+p2_t:"De la CFD à la soufflerie",p2_d:"La maquette de 16 cm que j'ai préparée et poncée, sur la balance de PoliMi. Près du sol, la traînée est multipliée par 2,4.",
+p3_t:"Aileron arrière DRS 2D",p3_d:"Équipe de 5. 24 combinaisons profil et volet avec le DRS ouvert, Euler et RANS instationnaire. Réglage RANS à 4,7 % de la traînée mesurée.",
+p4_t:"Sillage et tourbillons",p4_d:"Structures tourbillonnaires derrière les voitures solaires, pour expliquer l'origine de la traînée.",
+p5_t:"Commande robuste d'un drone",p5_d:"Équipe de 3. Commande latérale d'un multirotor par inversion dynamique et H∞ ; robustesse vérifiée par 1 000 tirages Monte-Carlo.",
+p6_t:"SpeedySails, start-up",p6_d:"Équipe de 6, note 29/30. Capteurs de pression sur les voiles pour un réglage en temps réel. Étude de marché, entretiens clients (88 % positifs), visuels et pitch final.",
+sk_hint:"Touchez une compétence pour voir où je l'ai utilisée.",
+fit_label:"Prochaine destination ?",fit_h:"Un poste en tête ? Collez-le et voyez si je corresponds.",fit_p:"Collez une offre. La vérification se fait dans votre navigateur, rien n'est envoyé. Elle montre aussi ce que je n'ai pas encore fait.",
+fit_paste:"Offre d'emploi",fit_btn:"Vérifier",fit_ex:"Essayer un exemple",fit_sc:"des compétences citées dans l'offre",fit_have:"Correspondances et où je les ai utilisées",fit_gap:"Pas encore, honnêtement",fit_empty:"Collez une offre puis appuyez sur « Vérifier ».",fit_none:"Aucune compétence reconnue : essayez une offre technique.",fit_nogap:"Aucun manque détecté parmi les outils que je connais.",
+lg_label:"Langues",lg_h:"Dites bonjour",lg_p:"Touchez-en une : toute la page change de langue.",l_ar:"Arabe",l_fr:"Français",l_en:"Anglais",l_it:"Italien",l_es:"Espagnol",l_zh:"Chinois",l_ko:"Coréen",lv_n:"courant",lv_i:"intermédiaire",lv_b:"notions",
+off_label:"Hors du bureau",off_h:"Quand je ne maille pas",o1:"Sport automobile",o1d:"Là où l'aérodynamique se joue en millisecondes.",o2:"Surf",o2d:"La mécanique des fluides, ressentie plutôt que calculée.",o3:"Photographie",o3d:"Le même instinct qu'une bonne image de post-traitement.",o4:"Café et thé",o4d:"Du thé à la menthe marocain à l'espresso italien et au thé chinois.",o5:"Voyages",o5d:"Trois pays habités, 18 visités.",o6:"Langues",o6d:"J'améliore mon italien chaque jour.",
+ct_label:"Contact",ct_h:"Parlons-en",ct_p:"Vous recrutez en CFD, simulation, navigabilité ou pour un poste technique au contact des clients ? Écrivez-moi, je vous envoie un CV adapté au poste.",ct_based:"Basée à",ct_why:"Objet du message",r_job:"Un poste à temps plein",r_talk:"Un premier appel sur mon équipe",r_cv:"Envoyez-moi votre CV",copy:"Copier",copy_d:"Copier le message",copied:"Copié",
+nav_travel:"Voyages",tv_label:"Carnet de voyage",tv_h:"18 pays, et ce n'est pas fini",tv_p:"Voyager m'a appris à m'adapter vite et à me sentir chez moi dans les équipes internationales.",tv_lived:"j'y ai vécu",tv_vis:"visité",
+greet:"Bonjour, moi c'est Salma ! Montez à bord, je vous fais visiter.",tour_start:"Monter à bord",tour_skip:"Je visite seul·e",tour_back:"Retour",tour_next:"Suivant",tour_end:"Fin de la visite",tour_land:"Atterrir",sWy:"Première escale : pourquoi m'embaucher. Quatre raisons, chiffres à l'appui.",sL:"Mon labo des cellules de choc : faites glisser le curseur et regardez le disque de Mach apparaître.",sTo:"Ma boîte à outils : ce que j'utilise aujourd'hui et ce que j'ai utilisé en projet.",sNw:"En ce moment : ce que je fais et le poste que je cherche.",sOf:"En dehors du travail : ce que je fais quand je ne maille pas.",s0:"Décollage ! D'abord, un mot sur moi : ingénieure aéronautique à Milan, je transforme des écoulements complexes en réponses claires.",s1:"Deux profils, une ingénieure. Choisissez le poste que vous recrutez.",s2:"Mon carnet de vol : Nankin, Casablanca, Milan. Touchez une escale pour lire le chapitre.",s3:"Mon mémoire : des jets supersoniques d'un gaz qui ne se comporte pas comme un gaz parfait.",s4:"Quelques projets dont je suis fière. Touchez une compétence pour voir où je l'ai utilisée.",s5:"Recruteur ? Collez votre offre ici et voyez, honnêtement, si mon profil correspond.",s6:"18 pays jusqu'ici. Survolez la carte.",s7:"Dites bonjour dans l'une de mes langues : toute la page change.",s8:"Atterrissage ! Si vous voulez en parler, mon e-mail est ici. Merci d'avoir volé avec moi.",
+intro_hi:"Bonjour, moi c'est Salma !",intro_sub:"Bienvenue dans mon hangar. Mission du jour : une visite de mon travail. Montez à bord !",intro_skip:"Passer",
+foot:"Figures issues de mon mémoire et de mes projets au Politecnico di Milano."},
+es:{nav_story:"Trayectoria",nav_thesis:"Tesis",nav_projects:"Proyectos",nav_fit:"Encaje",nav_contact:"Contacto",motion:"Animación: sí",motion_off:"Animación: no",
+hello:"Hola, soy Salma.",role:"Ingeniera aeronáutica · CFD, aeronavegabilidad y las personas entre ambas",
+lead:"Hago visibles los flujos invisibles: chorros supersónicos, la estela de un coche solar, el aire sobre un alerón de carreras. Y me gusta explicarlos a quien necesita la respuesta.",
+woman:"Una mujer en la ingeniería aeroespacial, formada en Marruecos, China e Italia, que trabaja en siete idiomas.",
+chip_open:"Abierta a oportunidades · Milán",chip_reloc:"Dispuesta a mudarme",chip_lang:"7 idiomas",btn_contact:"Contactar",btn_fit:"Comprobar mi encaje con tu puesto",
+lab_t:"Laboratorio de celdas de choque",lab_hint:"Mueve el control",lab_npr:"Relación de presiones",lab_cells:"Celdas de choque",lab_disk:"Disco de Mach",
+lab_cap:"Una ilustración, no una simulación, de las celdas de choque que estudié en mi tesis. Sube la relación de presiones y aparece un disco de Mach; cambia a MM, un vapor orgánico no ideal, y el disco crece.",
+tr_label:"Dos perfiles, una ingeniera",tr_q:"Elige la ingeniera que necesitas",tr_eng:"Ingeniería y simulación",tr_cus:"Ingeniería de cara al cliente",
+e1t:"CFD de la malla a la respuesta",e1d:"SU2 y OpenFOAM, mallado con Gmsh y refinamiento adaptativo, postproceso en Python y ParaView.",
+e2t:"Resultados fiables",e2d:"Cada configuración comprobada con datos publicados o de túnel: 0,11 mm en chorros, 4,7 % en la resistencia del alerón.",
+e3t:"Aviones en regla",e3d:"Renovaciones de certificados de aeronavegabilidad, estudios AD/SB de la FAA y EASA, y un análisis de fiabilidad de 381 defectos en servicio.",
+c1t:"Clientes en cuatro países",c1d:"Soporte y ventas en remoto en 2021–2022 para 5CA (Países Bajos) en la cuenta de Secretlab (Singapur), 1840 & Company (EE. UU., inmobiliaria) e Intelcia (para una empresa francesa), en inglés y francés.",
+c2t:"Técnico, explicado fácil",c2d:"Informes, presentaciones y pitches que convierten resultados técnicos en decisiones.",
+c3t:"Siete idiomas",c3d:"Árabe, francés e inglés con fluidez, italiano B2, español, y algo de chino y coreano.",
+rt_leg1:"Viví y estudié",rt_leg2:"Trabajo remoto, 2021–2022",why_label:"Por qué yo",why_h:"Hago la simulación, la compruebo y se la explico a quien decide.",why_p:"Normalmente un ingeniero hace una de estas cosas. Yo he hecho las tres: CFD, aeronavegabilidad y trato con clientes en cuatro idiomas.",w1t:"Resultados fiables",w1d:"Cada configuración comprobada antes de contar: 0,11 mm en casos de chorros publicados, resistencia a un 4,7 % de los datos del túnel de viento del PoliMi.",w2t:"De la malla a la respuesta, por mi cuenta",w2d:"SU2 y OpenFOAM, mallado adaptativo, cálculos por lotes en Linux/HPC y posprocesado en Python. Entrego respuestas, no solo gráficos.",w3t:"Conozco aviones reales",w3d:"Renovaciones del certificado de aeronavegabilidad de cinco aviones, estudios AD/SB de la FAA y la EASA, 381 defectos en servicio analizados.",w4t:"Los clientes confían en mí",w4d:"Atención al cliente y ventas para empresas de Países Bajos, Singapur, EE. UU. y Francia. Inglés, francés y árabe fluidos, italiano B2.",why_cta:"Si tu equipo necesita esta combinación, hablemos esta semana.",tl_label:"Herramientas",tl_h:"Con qué trabajo",tl_now:"Ahora mismo",tl_used:"Usadas en proyectos",tl_ai:"Herramientas de IA (uso profesional)",tl_catia:"CATIA V5 (básico)",now_label:"Ahora mismo",now_h:"Lista para mi primer puesto a tiempo completo",now1t:"Qué hago",now1d:"Termino mi máster en Ingeniería Aeronáutica en el Politecnico di Milano (diciembre de 2026) y mantengo a punto mi flujo de trabajo CFD.",now2t:"Qué busco",now2d:"Un puesto a tiempo completo en CFD y simulación, en aeronavegabilidad e ingeniería de mantenimiento, o un puesto técnico de cara al cliente: ingeniera de aplicaciones, ventas o soporte.",now3t:"Dónde",now3d:"Vivo en Milán, abierta a trasladarme dentro de Europa.",lab_label:"Interactivo",lab_h:"Mi tesis en diez segundos",th_cta:"¿Quieres la tesis completa, los datos o una presentación? Pídemelo y te los envío con gusto.",rt_label:"Cuaderno de vuelo",rt_h:"Tres países, una dirección",rt_p:"Toca una escala para abrir su capítulo.",km_note:"distancia ortodrómica recorrida hasta ahora",ch_next:"Siguiente",
+th_label:"Tesis de máster",th_h:"Chorros supersónicos de un gas no ideal",
+th_p1:"Cuando un gas sale de una tobera a mayor presión que el ambiente, forma una cadena de celdas de choque. Comparé chorros planos y circulares de nitrógeno y de siloxano MM, un vapor orgánico denso usado en turbinas ORC, donde la ley de los gases ideales deja de valer.",
+th_p2:"Lancé simulaciones SU2 Euler, RANS y RANS no estacionarias con diez niveles de adaptación anisótropa de malla en un clúster HPC, comprobando convergencia de malla e independencia del dominio.",
+n1:"de diferencia con los casos publicados",n2:"más aguas abajo: primera celda plana vs disco de Mach circular",n3:"radio del disco de Mach con mayor no idealidad",
+fig1:"Chorro circular de siloxano MM: número de Mach (izquierda) y schlieren numérico (derecha), dos niveles de no idealidad. SU2 RANS.",
+fig2:"Validación: presión en el eje del chorro, mi reproducción (discontinua) frente al estudio de referencia (continua).",
+pr_label:"Proyectos",pr_h:"Trabajos destacados",f_all:"Todos",f_exp:"Experimental",f_ctrl:"Control",f_biz:"Negocio",tg_mk:"Estudio de mercado",
+p1_t:"Aerodinámica de un coche solar",p1_d:"Equipo de 4. Cuatro diseños del World Solar Challenge comparados con CFD RANS en mallas de 7–8,5 millones de celdas. Mi parte: convergencia de malla y maqueta impresa en 3D. Túnel: Cd 0,144 en CFD frente a 0,163 medido.",
+p2_t:"De la CFD al túnel de viento",p2_d:"La maqueta de 16 cm que preparé y lijé, sobre la balanza de PoliMi. Cerca del suelo, la resistencia aumenta 2,4 veces.",
+p3_t:"Alerón trasero DRS 2D",p3_d:"Equipo de 5. 24 combinaciones de perfil y flap con el DRS abierto, Euler y RANS no estacionario. Configuración RANS a un 4,7 % de la resistencia medida.",
+p4_t:"Estela y vórtices",p4_d:"Estructuras de vórtices detrás de los coches solares, para explicar de dónde viene la resistencia.",
+p5_t:"Control robusto de un dron",p5_d:"Equipo de 3. Control lateral de un multirrotor por inversión dinámica y H∞; robustez comprobada con 1.000 simulaciones Monte Carlo.",
+p6_t:"SpeedySails, startup",p6_d:"Equipo de 6, nota 29/30. Sensores de presión en las velas para ajustarlas en tiempo real. Estudio de mercado, entrevistas (88 % positivas), gráficos y pitch final.",
+sk_hint:"Toca una competencia para ver dónde la usé.",
+fit_label:"¿Próximo destino?",fit_h:"¿Tienes un puesto en mente? Pégalo y mira cómo encajo.",fit_p:"Pega una oferta. La comprobación se hace en tu navegador y no se envía nada. También muestra lo que aún no he hecho.",
+fit_paste:"Oferta de empleo",fit_btn:"Comprobar",fit_ex:"Probar un ejemplo",fit_sc:"de las competencias que cita la oferta",fit_have:"Coincidencias y dónde las usé",fit_gap:"Todavía no, con sinceridad",fit_empty:"Pega una oferta y pulsa «Comprobar».",fit_none:"No se reconoció ninguna competencia: prueba con una oferta técnica.",fit_nogap:"Ninguna carencia detectada entre las herramientas que conozco.",
+lg_label:"Idiomas",lg_h:"Saluda",lg_p:"Toca uno: toda la página cambia de idioma.",l_ar:"Árabe",l_fr:"Francés",l_en:"Inglés",l_it:"Italiano",l_es:"Español",l_zh:"Chino",l_ko:"Coreano",lv_n:"fluido",lv_i:"intermedio",lv_b:"básico",
+off_label:"Fuera del trabajo",off_h:"Cuando no estoy mallando",o1:"Automovilismo",o1d:"Donde la aerodinámica se decide en milisegundos.",o2:"Surf",o2d:"Dinámica de fluidos, sentida en lugar de calculada.",o3:"Fotografía",o3d:"El mismo instinto que una buena imagen de postproceso.",o4:"Café y té",o4d:"Del té a la menta marroquí al espresso italiano y el té chino.",o5:"Viajes",o5d:"Tres países vividos, 18 visitados.",o6:"Idiomas",o6d:"Mejoro mi italiano cada día.",
+ct_label:"Contacto",ct_h:"Hablemos",ct_p:"¿Buscáis a alguien para CFD, simulación, aeronavegabilidad o un puesto técnico de cara al cliente? Escribidme y os envío un CV adaptado al puesto.",ct_based:"Ubicación",ct_why:"Motivo del mensaje",r_job:"Un puesto a tiempo completo",r_talk:"Una primera llamada sobre mi equipo",r_cv:"Envíame tu CV",copy:"Copiar",copy_d:"Copiar el mensaje",copied:"Copiado",
+nav_travel:"Viajes",tv_label:"Diario de viaje",tv_h:"18 países, y contando",tv_p:"Viajar me enseñó a adaptarme rápido y a sentirme en casa en equipos internacionales.",tv_lived:"viví allí",tv_vis:"visitado",
+greet:"¡Hola, soy Salma! Sube a bordo, te doy un paseo.",tour_start:"Subir a bordo",tour_skip:"Prefiero mirar por mi cuenta",tour_back:"Atrás",tour_next:"Siguiente",tour_end:"Terminar",tour_land:"Aterrizar",sWy:"Primera parada: por qué contratarme. Cuatro razones, con cifras que lo demuestran.",sL:"Mi laboratorio de celdas de choque: mueve el control y mira aparecer el disco de Mach.",sTo:"Mi caja de herramientas: lo que uso ahora y lo que he usado en proyectos.",sNw:"Ahora mismo: qué hago y qué puesto busco.",sOf:"Fuera del trabajo: lo que hago cuando no estoy mallando.",s0:"¡Despegamos! Primero, un poco sobre mí: ingeniera aeronáutica en Milán que convierte flujos complejos en respuestas claras.",s1:"Dos perfiles, una ingeniera. Elige para qué puesto buscas.",s2:"Mi cuaderno de vuelo: Nankín, Casablanca, Milán. Toca una escala para leer el capítulo.",s3:"Mi tesis: chorros supersónicos de un gas que no se comporta como un gas ideal.",s4:"Algunos proyectos de los que estoy orgullosa. Toca una competencia para ver dónde la usé.",s5:"¿Reclutas? Pega aquí tu oferta y mira, con sinceridad, cuánto encajo.",s6:"18 países hasta ahora. Pasa por el mapa.",s7:"Saluda en uno de mis idiomas y toda la página cambia.",s8:"¡Aterrizamos! Si quieres hablar, mi correo está aquí. Gracias por volar conmigo.",
+intro_hi:"¡Hola, soy Salma!",intro_sub:"Bienvenido a mi hangar. La misión de hoy: un recorrido por mi trabajo. ¡Sube a bordo!",intro_skip:"Saltar",
+foot:"Figuras de mi tesis de máster y de proyectos en el Politecnico di Milano."},
+ar:{nav_story:"المسار",nav_thesis:"الأطروحة",nav_projects:"المشاريع",nav_fit:"الملاءمة",nav_contact:"التواصل",motion:"الحركة: تشغيل",motion_off:"الحركة: إيقاف",
+hello:"مرحبًا، أنا سلمى.",role:"مهندسة طيران · المحاكاة الحسابية، صلاحية الطيران، والناس بينهما",
+lead:"أجعل التدفقات غير المرئية مرئية: نفّاثات أسرع من الصوت، أثر سيارة شمسية، الهواء فوق جناح سباق. وأحب أن أشرحها لمن يحتاج الجواب.",
+woman:"امرأة في هندسة الطيران والفضاء، تكوّنت بين المغرب والصين وإيطاليا، وتعمل بسبع لغات.",
+chip_open:"منفتحة على فرص العمل · ميلانو",chip_reloc:"مستعدة للانتقال",chip_lang:"7 لغات",btn_contact:"تواصل معي",btn_fit:"تحقّق من ملاءمتي لوظيفتك",
+lab_t:"مختبر خلايا الصدمة",lab_hint:"حرّك المؤشر",lab_npr:"نسبة الضغط",lab_cells:"خلايا الصدمة",lab_disk:"قرص ماخ",
+lab_cap:"رسم توضيحي وليس محاكاة لخلايا الصدمة التي درستها في أطروحتي. ارفع نسبة الضغط فيظهر قرص ماخ؛ وانتقل إلى MM، وهو بخار عضوي غير مثالي، فيكبر القرص.",
+tr_label:"ملفّان، مهندسة واحدة",tr_q:"اختر المهندسة التي تحتاجها",tr_eng:"الهندسة والمحاكاة",tr_cus:"هندسة قريبة من العملاء",
+e1t:"محاكاة من الشبكة إلى الجواب",e1d:"SU2 وOpenFOAM، شبكات Gmsh مع تنقيح تكيفي، ومعالجة النتائج بـPython وParaView.",
+e2t:"نتائج موثوقة",e2d:"كل إعداد مُتحقَّق منه ببيانات منشورة أو بيانات نفق الرياح: 0.11 مم في النفّاثات و4.7% في مقاومة الجناح.",
+e3t:"طائرات مطابقة للقوانين",e3d:"تجديد شهادات صلاحية الطيران، دراسات توجيهات الصلاحية FAA وEASA، وتحليل موثوقية لـ381 عطلًا.",
+c1t:"عملاء في أربع دول",c1d:"دعم ومبيعات عن بُعد في 2021–2022 لصالح 5CA (هولندا) على حساب Secretlab (سنغافورة)، و1840 & Company (الولايات المتحدة، عقارات)، وIntelcia (لشركة فرنسية)، بالإنجليزية والفرنسية.",
+c2t:"تقنية بشرح بسيط",c2d:"تقارير وعروض تحوّل النتائج الهندسية إلى قرارات.",
+c3t:"سبع لغات",c3d:"العربية والفرنسية والإنجليزية بطلاقة، الإيطالية B2، الإسبانية، وقليل من الصينية والكورية.",
+rt_leg1:"عشت ودرست",rt_leg2:"عمل عن بُعد، 2021–2022",why_label:"لماذا أنا",why_h:"أُجري المحاكاة، وأتحقق منها، وأشرحها لمن يتخذ القرار.",why_p:"عادةً يتقن المهندس واحدًا من هذه الأمور. أنا عملت في الثلاثة: ديناميكا الموائع الحسابية، وصلاحية الطيران، والعمل مع العملاء بأربع لغات.",w1t:"نتائج يمكن الوثوق بها",w1d:"كل إعداد يُتحقق منه قبل اعتماده: 0.11 مم على حالات نفاثات منشورة، ومقاومة ضمن 4.7% من بيانات النفق الهوائي في PoliMi.",w2t:"من الشبكة إلى الإجابة باستقلالية",w2d:"SU2 وOpenFOAM، وشبكات تكيفية، وحسابات دفعية على Linux/HPC، ومعالجة لاحقة بـ Python. أقدّم إجابات، لا رسومًا بيانية فقط.",w3t:"أعرف الطائرات الحقيقية",w3d:"تجديد شهادات صلاحية الطيران لخمس طائرات، ودراسات AD/SB لدى FAA وEASA، وتحليل 381 عطلًا أثناء الخدمة.",w4t:"العملاء يثقون بي",w4d:"دعم العملاء والمبيعات لشركات في هولندا وسنغافورة والولايات المتحدة وفرنسا. إنجليزية وفرنسية وعربية بطلاقة، وإيطالية بمستوى B2.",why_cta:"إذا كان فريقك يحتاج إلى هذا المزيج، فلنتحدث هذا الأسبوع.",tl_label:"أدواتي",tl_h:"الأدوات التي أعمل بها",tl_now:"أستخدمها الآن",tl_used:"استخدمتها في المشاريع",tl_ai:"أدوات الذكاء الاصطناعي (استخدام مهني)",tl_catia:"CATIA V5 (أساسي)",now_label:"الآن",now_h:"مستعدة لأول وظيفة بدوام كامل",now1t:"ما أفعله",now1d:"أُنهي الماجستير في هندسة الطيران في Politecnico di Milano (ديسمبر 2026) وأحافظ على جاهزية سير عملي في CFD.",now2t:"ما أبحث عنه",now2d:"وظيفة بدوام كامل في CFD والمحاكاة، أو في صلاحية الطيران وهندسة الصيانة، أو وظيفة تقنية مع العملاء: مهندسة تطبيقات أو مبيعات أو دعم.",now3t:"أين",now3d:"أقيم في ميلانو، ومستعدة للانتقال داخل أوروبا.",lab_label:"تفاعلي",lab_h:"أطروحتي في عشر ثوانٍ",th_cta:"تريد الأطروحة كاملة أو البيانات أو شرحًا مفصلًا؟ اطلبها مني وسأرسلها بكل سرور.",rt_label:"سجل الرحلات",rt_h:"ثلاث دول، اتجاه واحد",rt_p:"اضغط على محطة لفتح فصلها.",km_note:"المسافة الدائرية الكبرى على طول المسار حتى الآن",ch_next:"التالي",
+th_label:"أطروحة الماجستير",th_h:"نفّاثات أسرع من الصوت لغاز غير مثالي",
+th_p1:"عندما يخرج غاز من فوهة بضغط أعلى من المحيط، يكوّن سلسلة من خلايا الصدمة. قارنتُ نفّاثات مستوية ودائرية من النيتروجين ومن السيلوكسان MM، وهو بخار عضوي كثيف يُستخدم في توربينات ORC ولا ينطبق عليه قانون الغاز المثالي.",
+th_p2:"أجريتُ محاكاة SU2 بنماذج Euler وRANS وRANS غير المستقرة مع عشرة مستويات من تكييف الشبكة على حاسوب عالي الأداء، مع التحقق من تقارب الشبكة واستقلالية النطاق.",
+n1:"فرق عن الحالات المنشورة",n2:"أبعد باتجاه التيار: خلية الصدمة الأولى المستوية مقابل قرص ماخ الدائري",n3:"نصف قطر قرص ماخ مع لامثالية أقوى",
+fig1:"نفّاث دائري من السيلوكسان MM: عدد ماخ (يسارًا) وشليرين رقمي (يمينًا)، بمستويين من اللامثالية. SU2 RANS.",
+fig2:"التحقق: الضغط على محور النفّاث، نتائجي (متقطع) مقابل الدراسة المرجعية (متصل).",
+pr_label:"المشاريع",pr_h:"أعمال مختارة",f_all:"الكل",f_exp:"تجريبي",f_ctrl:"تحكم",f_biz:"أعمال",tg_mk:"دراسة سوق",
+p1_t:"الديناميكا الهوائية لسيارة شمسية",p1_d:"فريق من 4. مقارنة أربعة تصاميم بمحاكاة RANS على شبكات من 7 إلى 8.5 مليون خلية. دوري: تقارب الشبكة والنموذج المطبوع. النفق: Cd ‏0.144 محاكاةً مقابل 0.163 قياسًا.",
+p2_t:"من المحاكاة إلى نفق الرياح",p2_d:"النموذج بطول 16 سم الذي جهّزته وصقلته، على ميزان القوى. القرب من الأرض ضاعف المقاومة 2.4 مرة.",
+p3_t:"جناح خلفي DRS ثنائي الأبعاد",p3_d:"فريق من 5. 24 تركيبة للجناح واللوح مع فتح DRS، بنماذج Euler وRANS غير المستقرة. إعداد RANS ضمن 4.7% من المقاومة المقيسة.",
+p4_t:"الأثر والدوامات",p4_d:"بنى الدوامات خلف السيارات الشمسية لتفسير مصدر المقاومة.",
+p5_t:"تحكم متين بطائرة مسيّرة",p5_d:"فريق من 3. تحكم جانبي بالانعكاس الديناميكي وH∞؛ تحقق من المتانة بـ1000 محاكاة مونت كارلو.",
+p6_t:"SpeedySails، شركة ناشئة",p6_d:"فريق من 6، علامة 29/30. حساسات ضغط على الأشرعة لضبطها لحظيًا. دراسة سوق، مقابلات (88% إيجابية)، تصاميم وعرض نهائي.",
+sk_hint:"اضغط على مهارة لترى أين استخدمتها.",
+fit_label:"الوجهة التالية؟",fit_h:"لديك وظيفة في ذهنك؟ الصقها وشاهد مدى توافقي معها.",fit_p:"الصقوا إعلان الوظيفة. يتم التحقق في متصفحكم ولا يُرسل أي شيء. ويُظهر أيضًا ما لم أقم به بعد.",
+fit_paste:"إعلان الوظيفة",fit_btn:"تحقّق",fit_ex:"جرّب مثالًا",fit_sc:"من المهارات المذكورة في الإعلان",fit_have:"التطابقات وأين استخدمتها",fit_gap:"ليس بعد، بصراحة",fit_empty:"الصق إعلانًا واضغط «تحقّق».",fit_none:"لم يُتعرّف على أي مهارة: جرّب إعلانًا تقنيًا.",fit_nogap:"لا توجد فجوات بين الأدوات التي أعرفها.",
+lg_label:"اللغات",lg_h:"قل مرحبًا",lg_p:"اضغط على لغة: تتحول الصفحة كلها إليها.",l_ar:"العربية",l_fr:"الفرنسية",l_en:"الإنجليزية",l_it:"الإيطالية",l_es:"الإسبانية",l_zh:"الصينية",l_ko:"الكورية",lv_n:"بطلاقة",lv_i:"متوسط",lv_b:"مبتدئ",
+off_label:"خارج العمل",off_h:"حين لا أصنع الشبكات",o1:"رياضة السيارات",o1d:"حيث تُحسم الديناميكا الهوائية في أجزاء من الثانية.",o2:"ركوب الأمواج",o2d:"ديناميكا الموائع بالإحساس لا بالحساب.",o3:"التصوير",o3d:"الحس نفسه في صورة نتائج جيدة.",o4:"القهوة والشاي",o4d:"من الشاي المغربي بالنعناع إلى الإسبريسو الإيطالي والشاي الصيني.",o5:"السفر",o5d:"عشت في ثلاث دول وزرت 18.",o6:"اللغات",o6d:"أحسّن إيطاليتي كل يوم.",
+ct_label:"التواصل",ct_h:"لنتحدث",ct_p:"تبحثون عن مهندسة للمحاكاة أو صلاحية الطيران أو وظيفة تقنية قريبة من العملاء؟ راسلوني وسأرسل سيرة ذاتية مُكيّفة للوظيفة.",ct_based:"المقر",ct_why:"سبب المراسلة",r_job:"وظيفة بدوام كامل",r_talk:"مكالمة أولى عن فريقي",r_cv:"أرسلي لي سيرتك الذاتية",copy:"نسخ",copy_d:"نسخ الرسالة",copied:"تم النسخ",
+nav_travel:"السفر",tv_label:"سجل السفر",tv_h:"18 دولة، والقائمة مستمرة",tv_p:"علّمني السفر أن أتأقلم بسرعة وأن أشعر بالراحة في الفرق الدولية.",tv_lived:"عشت فيها",tv_vis:"زرتها",
+greet:"مرحبًا، أنا سلمى! اصعد معي، سآخذك في جولة.",tour_start:"اصعد على متن الطائرة",tour_skip:"سأتجول وحدي",tour_back:"رجوع",tour_next:"التالي",tour_end:"إنهاء الجولة",tour_land:"الهبوط",sWy:"المحطة الأولى: لماذا توظفني. أربعة أسباب، مع الأرقام التي تثبتها.",sL:"مختبر خلايا الصدمة: حرّك المؤشر وشاهد ظهور قرص ماخ.",sTo:"صندوق أدواتي: ما أستخدمه الآن وما استخدمته في المشاريع.",sNw:"الآن: ما أفعله والوظيفة التي أبحث عنها.",sOf:"خارج العمل: ما أفعله حين لا أبني الشبكات.",s0:"أقلعنا! أولًا، نبذة عني: مهندسة طيران في ميلانو أحوّل التدفقات المعقدة إلى إجابات واضحة.",s1:"ملفّان ومهندسة واحدة. اختر الوظيفة التي توظّف لها.",s2:"سجل رحلاتي: نانجينغ، الدار البيضاء، ميلانو. اضغط على محطة لقراءة الفصل.",s3:"أطروحتي: نفّاثات أسرع من الصوت لغاز لا يتصرف كغاز مثالي.",s4:"مشاريع أفتخر بها. اضغط على مهارة لترى أين استخدمتها.",s5:"مسؤول توظيف؟ الصق إعلانك هنا وشاهد بصراحة مدى ملاءمتي.",s6:"18 دولة حتى الآن. مرّر على الخريطة.",s7:"قل مرحبًا بإحدى لغاتي فتتغير الصفحة كلها.",s8:"الهبوط! إن أردت التحدث، بريدي الإلكتروني هنا. شكرًا لأنك طرت معي.",
+intro_hi:"مرحبًا، أنا سلمى!",intro_sub:"مرحبًا بك في حظيرتي. مهمة اليوم: جولة في أعمالي. اصعد معي!",intro_skip:"تخطٍّ",
+foot:"الأشكال من أطروحة الماجستير ومشاريعي في جامعة البوليتكنيك في ميلانو."},
+ko:{nav_story:"여정",nav_thesis:"논문",nav_projects:"프로젝트",nav_fit:"적합도",nav_contact:"연락처",motion:"애니메이션: 켬",motion_off:"애니메이션: 끔",
+hello:"안녕하세요, 살마입니다.",role:"항공우주 엔지니어 · CFD, 감항, 그리고 그 사이의 사람들",
+lead:"보이지 않는 유동을 보이게 만듭니다: 초음속 제트, 태양광 자동차의 후류, 레이싱 윙 위의 공기. 그리고 답이 필요한 사람에게 설명하는 일을 좋아합니다.",
+woman:"모로코, 중국, 이탈리아에서 공부하고 7개 언어로 일하는 항공우주 분야의 여성 엔지니어.",
+chip_open:"구직 중 · 밀라노",chip_reloc:"이주 가능",chip_lang:"7개 언어",btn_contact:"연락하기",btn_fit:"직무 적합도 확인",
+lab_t:"충격파 다이아몬드 실험실",lab_hint:"슬라이더를 움직여 보세요",lab_npr:"노즐 압력비",lab_cells:"충격파 셀",lab_disk:"마하 디스크",
+lab_cap:"논문에서 연구한 충격파 셀의 시뮬레이션이 아닌 그림입니다. 압력비를 높이면 마하 디스크가 생기고, 비이상 유기 증기인 MM으로 바꾸면 디스크가 커집니다.",
+tr_label:"두 가지 프로필, 한 명의 엔지니어",tr_q:"필요한 엔지니어를 고르세요",tr_eng:"엔지니어링·시뮬레이션",tr_cus:"고객 중심 엔지니어링",
+e1t:"격자부터 답까지 CFD",e1d:"SU2와 OpenFOAM, Gmsh 격자와 적응 세분화, Python·ParaView 후처리.",
+e2t:"신뢰할 수 있는 결과",e2d:"모든 설정을 문헌·풍동 데이터로 검증: 제트 0.11mm, 윙 항력 4.7%.",
+e3t:"규정을 지키는 항공기",e3d:"감항증명 갱신, FAA·EASA AD/SB 검토, 운항 결함 381건 신뢰성 분석.",
+c1t:"네 나라의 고객",c1d:"2021–2022년 원격으로 5CA(네덜란드)의 Secretlab(싱가포르) 계정, 1840 & Company(미국, 부동산), Intelcia(프랑스 기업 대상)에서 영어·프랑스어로 고객 지원과 영업.",
+c2t:"쉽게 설명하는 기술",c2d:"엔지니어링 결과를 의사결정으로 바꾸는 보고서와 발표.",
+c3t:"7개 언어",c3d:"아랍어·프랑스어·영어 유창, 이탈리아어 B2, 스페인어, 그리고 중국어·한국어 기초.",
+rt_leg1:"살고 공부한 곳",rt_leg2:"원격 근무, 2021–2022",why_label:"왜 저인가요",why_h:"시뮬레이션을 돌리고, 검증하고, 결정하는 사람에게 설명합니다.",why_p:"보통 엔지니어는 이 중 하나를 합니다. 저는 세 가지 모두 해 봤습니다: CFD, 감항성, 그리고 4개 언어로 고객을 상대하는 일.",w1t:"믿을 수 있는 결과",w1d:"모든 설정을 먼저 검증합니다: 공개된 제트 사례와 0.11 mm 차이, PoliMi 풍동 데이터와 항력 4.7% 이내.",w2t:"메시부터 답까지 혼자서",w2d:"SU2와 OpenFOAM, 적응형 메시, Linux/HPC 배치 계산, Python 후처리. 그래프가 아니라 답을 드립니다.",w3t:"실제 항공기를 압니다",w3d:"항공기 5대의 감항증명 갱신, FAA·EASA AD/SB 검토, 운항 중 결함 381건 분석.",w4t:"고객이 저를 신뢰합니다",w4d:"네덜란드, 싱가포르, 미국, 프랑스 기업의 고객 지원과 영업. 영어·프랑스어·아랍어 유창, 이탈리아어 B2.",why_cta:"팀에 이런 조합이 필요하다면, 이번 주에 이야기해요.",tl_label:"도구",tl_h:"제가 쓰는 도구",tl_now:"지금 사용 중",tl_used:"프로젝트에서 사용",tl_ai:"AI 도구 (업무 활용)",tl_catia:"CATIA V5 (기초)",now_label:"지금",now_h:"첫 정규직을 시작할 준비가 됐어요",now1t:"하고 있는 일",now1d:"밀라노 공과대학교 항공공학 석사를 마무리하며(2026년 12월) CFD 작업 흐름을 계속 다듬고 있어요.",now2t:"찾고 있는 것",now2d:"CFD·시뮬레이션, 감항·정비 엔지니어링, 또는 고객을 상대하는 기술직(애플리케이션·세일즈·지원 엔지니어) 정규직.",now3t:"어디서",now3d:"밀라노 거주, 유럽 내 이주 가능.",lab_label:"인터랙티브",lab_h:"10초 만에 보는 제 논문",th_cta:"논문 전문, 데이터, 설명이 필요하신가요? 말씀해 주시면 기꺼이 보내 드릴게요.",rt_label:"비행 기록",rt_h:"세 나라, 하나의 방향",rt_p:"경유지를 눌러 이야기를 펼쳐 보세요.",km_note:"지금까지 경로의 대권 거리",ch_next:"다음",
+th_label:"석사 논문",th_h:"비이상 기체의 초음속 제트",
+th_p1:"기체가 주변보다 높은 압력으로 노즐을 나오면 충격파 셀이 연속으로 생깁니다. 질소와 ORC 터빈에 쓰이는 고밀도 유기 증기인 실록산 MM의 평면·원형 제트를 비교했습니다. MM에서는 이상기체 법칙이 성립하지 않습니다.",
+th_p2:"HPC 클러스터에서 10단계 비등방 격자 적응을 적용한 SU2 Euler, RANS, 비정상 RANS 해석을 수행하고, 격자 수렴성과 영역 독립성을 확인했습니다.",
+n1:"문헌 사례와의 차이",n2:"더 하류: 평면 첫 충격파 셀 대 원형 마하 디스크",n3:"비이상성이 클 때 마하 디스크 반경",
+fig1:"실록산 MM 원형 제트: 마하수(왼쪽)와 수치 슐리렌(오른쪽), 두 가지 비이상성 수준. SU2 RANS.",
+fig2:"검증: 제트 축 압력, 본인 재현(점선)과 참고 연구(실선).",
+pr_label:"프로젝트",pr_h:"주요 작업",f_all:"전체",f_exp:"실험",f_ctrl:"제어",f_biz:"비즈니스",tg_mk:"시장 조사",
+p1_t:"태양광 자동차 공기역학",p1_d:"4인 팀. 설계 4종을 700만–850만 셀 RANS CFD로 비교. 담당: 격자 수렴성과 3D 프린팅 모형. 풍동: CFD Cd 0.144, 측정 0.163.",
+p2_t:"CFD에서 풍동까지",p2_d:"직접 준비하고 사포질한 16cm 모형을 PoliMi 천칭에 설치. 지면 근접 시 항력 2.4배.",
+p3_t:"2D DRS 리어 윙",p3_d:"5인 팀. DRS 개방 상태 24개 조합을 Euler·비정상 RANS로 해석. 측정 항력과 4.7% 이내.",
+p4_t:"후류와 와류",p4_d:"태양광 자동차 뒤 와류 구조로 항력의 원인을 설명.",
+p5_t:"드론 강인 제어",p5_d:"3인 팀. 동적 역변환과 H∞ 기반 멀티로터 횡방향 제어, 몬테카를로 1,000회로 검증.",
+p6_t:"SpeedySails 스타트업",p6_d:"6인 팀, 29/30점. 돛 압력 센서로 실시간 트림 피드백. 시장 조사, 고객 인터뷰(긍정 88%), 시각 자료, 최종 피치.",
+sk_hint:"기술을 누르면 어디에 썼는지 보여 줍니다.",
+fit_label:"다음 목적지는?",fit_h:"생각하는 포지션이 있나요? 붙여 넣고 얼마나 맞는지 확인해 보세요.",fit_p:"채용 공고를 붙여 넣으세요. 브라우저 안에서만 확인하며 아무것도 전송되지 않습니다. 아직 해 보지 않은 것도 보여 줍니다.",
+fit_paste:"채용 공고",fit_btn:"확인",fit_ex:"예시 보기",fit_sc:"공고에 나온 기술 중",fit_have:"일치 항목과 사용한 곳",fit_gap:"솔직히 아직은",fit_empty:"공고를 붙여 넣고 ‘확인’을 누르세요.",fit_none:"인식된 기술이 없습니다. 기술 직무 공고로 시도해 보세요.",fit_nogap:"제가 아는 도구 중 부족한 항목이 없습니다.",
+lg_label:"언어",lg_h:"인사해 보세요",lg_p:"하나를 누르면 페이지 전체가 그 언어로 바뀝니다.",l_ar:"아랍어",l_fr:"프랑스어",l_en:"영어",l_it:"이탈리아어",l_es:"스페인어",l_zh:"중국어",l_ko:"한국어",lv_n:"유창",lv_i:"중급",lv_b:"기초",
+off_label:"일 밖에서",off_h:"격자를 만들지 않을 때",o1:"모터스포츠",o1d:"공기역학이 밀리초 단위로 승부가 나는 곳.",o2:"서핑",o2d:"계산이 아니라 몸으로 느끼는 유체역학.",o3:"사진",o3d:"좋은 후처리 이미지와 같은 감각.",o4:"커피와 차",o4d:"모로코 민트티부터 이탈리아 에스프레소, 중국 차까지.",o5:"여행",o5d:"세 나라에서 살았고 18개국을 다녔습니다.",o6:"언어",o6d:"매일 이탈리아어를 다듬고 있습니다.",
+ct_label:"연락처",ct_h:"이야기 나눠요",ct_p:"CFD, 시뮬레이션, 감항 또는 고객 대응 기술 직무 인재를 찾고 계신가요? 연락 주시면 직무에 맞춘 이력서를 보내드립니다.",ct_based:"거주지",ct_why:"연락 목적",r_job:"정규직 채용",r_talk:"팀 소개 첫 통화",r_cv:"이력서 요청",copy:"복사",copy_d:"메시지 복사",copied:"복사됨",
+nav_travel:"여행",tv_label:"여행 기록",tv_h:"18개국, 그리고 계속",tv_p:"여행을 통해 빠르게 적응하고 국제 팀에서 편안함을 느끼는 법을 배웠습니다.",tv_lived:"거주",tv_vis:"방문",
+greet:"안녕하세요, 살마예요! 타세요, 제가 안내해 드릴게요.",tour_start:"탑승하기",tour_skip:"혼자 둘러볼게요",tour_back:"이전",tour_next:"다음",tour_end:"투어 종료",tour_land:"착륙",sWy:"첫 번째 경유지: 저를 채용해야 하는 이유. 숫자로 증명하는 네 가지.",sL:"충격파 실험실: 슬라이더를 움직여 마하 디스크가 나타나는 걸 보세요.",sTo:"제 도구 상자: 지금 쓰는 것과 프로젝트에서 써 본 것.",sNw:"지금: 하고 있는 일과 찾고 있는 역할.",sOf:"일 밖에서: 메시를 만들지 않을 때 하는 일.",s0:"이륙! 먼저 저를 소개할게요. 밀라노의 항공우주 엔지니어로, 복잡한 유동을 명확한 답으로 바꿉니다.",s1:"두 가지 프로필, 한 명의 엔지니어. 채용하려는 직무를 골라 보세요.",s2:"제 비행 기록: 난징, 카사블랑카, 밀라노. 경유지를 눌러 이야기를 읽어 보세요.",s3:"제 논문: 이상기체처럼 행동하지 않는 기체의 초음속 제트.",s4:"자랑스러운 프로젝트들이에요. 기술을 누르면 어디에 썼는지 보여 줘요.",s5:"채용 담당자이신가요? 공고를 붙여 넣고 솔직한 적합도를 확인하세요.",s6:"지금까지 18개국. 지도 위에 마우스를 올려 보세요.",s7:"제 언어 중 하나로 인사하면 페이지 전체가 바뀌어요.",s8:"착륙! 이야기하고 싶으시면 제 이메일이 여기 있어요. 함께 비행해 주셔서 감사합니다.",
+intro_hi:"안녕하세요, 살마예요!",intro_sub:"제 격납고에 오신 걸 환영해요. 오늘의 임무: 제 작업 둘러보기. 타세요!",intro_skip:"건너뛰기",
+foot:"그림은 밀라노 공과대학교 석사 논문과 프로젝트에서 가져왔습니다."},
+zh:{nav_story:"经历",nav_thesis:"论文",nav_projects:"项目",nav_fit:"匹配度",nav_contact:"联系",motion:"动画：开",motion_off:"动画：关",
+hello:"你好，我是萨尔玛。",role:"航空工程师 · CFD、适航，以及两者之间的人",
+lead:"我让看不见的流动变得可见：超音速射流、太阳能车的尾流、赛车尾翼上的气流。我也喜欢把它们讲给需要答案的人听。",
+woman:"一名航空航天领域的女性工程师，在摩洛哥、中国和意大利求学，用七种语言工作。",
+chip_open:"正在求职 · 米兰",chip_reloc:"可搬迁",chip_lang:"7种语言",btn_contact:"联系我",btn_fit:"查看我与岗位的匹配度",
+lab_t:"激波菱形实验室",lab_hint:"拖动滑块",lab_npr:"喷管压比",lab_cells:"激波胞格",lab_disk:"马赫盘",
+lab_cap:"这是我论文中研究的激波胞格的示意图，而非仿真。提高压比会出现马赫盘；切换到非理想有机蒸气MM，马赫盘会变大。",
+tr_label:"两种角色，一位工程师",tr_q:"选择你需要的工程师",tr_eng:"工程与仿真",tr_cus:"面向客户的工程",
+e1t:"从网格到答案的CFD",e1d:"SU2与OpenFOAM，Gmsh网格与自适应加密，用Python和ParaView后处理。",
+e2t:"可信的结果",e2d:"每个设置都用文献或风洞数据验证：射流0.11毫米，尾翼阻力4.7%。",
+e3t:"合规的飞机",e3d:"适航证续签、FAA与EASA的AD/SB评估，以及381个使用中缺陷的可靠性分析。",
+c1t:"四个国家的客户",c1d:"2021–2022年远程为5CA（荷兰）的Secretlab（新加坡）项目、1840 & Company（美国，房地产）和Intelcia（服务一家法国公司）提供英语和法语的客户支持与销售。",
+c2t:"把技术讲简单",c2d:"把工程结果变成决策的报告、演示和路演。",
+c3t:"七种语言",c3d:"阿拉伯语、法语、英语流利，意大利语B2，西班牙语，以及基础中文和韩语。",
+rt_leg1:"生活与学习",rt_leg2:"远程工作，2021–2022",why_label:"为什么选我",why_h:"我做仿真、验证仿真，并向做决定的人讲清楚。",why_p:"大多数工程师只擅长其中一项。我三项都做过：CFD、适航，以及用四种语言面对客户。",w1t:"可信的结果",w1d:"每个设置先验证再使用：与已发表射流算例相差 0.11 毫米，阻力与米兰理工风洞数据相差 4.7% 以内。",w2t:"从网格到答案，独立完成",w2d:"SU2 和 OpenFOAM、自适应网格、Linux/HPC 批量计算、Python 后处理。我交付的是答案，而不只是图表。",w3t:"我了解真实的飞机",w3d:"为五架飞机办理适航证续签，研究 FAA 和 EASA 的 AD/SB，分析 381 项在役缺陷。",w4t:"客户信任我",w4d:"为荷兰、新加坡、美国和法国的公司提供客户支持和销售。英语、法语、阿拉伯语流利，意大利语 B2。",why_cta:"如果你的团队需要这样的组合，我们这周就聊聊。",tl_label:"工具箱",tl_h:"我使用的工具",tl_now:"正在使用",tl_used:"项目中用过",tl_ai:"AI 工具（专业使用）",tl_catia:"CATIA V5（基础）",now_label:"现在",now_h:"准备好迎接第一份全职工作",now1t:"正在做",now1d:"正在完成米兰理工大学航空工程硕士学业（2026 年 12 月），并持续打磨我的 CFD 工作流程。",now2t:"寻找",now2d:"CFD 与仿真、适航与维修工程方向的全职岗位，或面向客户的技术岗位：应用、销售或支持工程师。",now3t:"地点",now3d:"现居米兰，可在欧洲范围内调动。",lab_label:"互动",lab_h:"十秒看懂我的论文",th_cta:"想要完整论文、数据或讲解？告诉我，我很乐意发给你。",rt_label:"飞行日志",rt_h:"三个国家，一个方向",rt_p:"点击一个站点，打开对应的章节。",km_note:"到目前为止路线的大圆距离",ch_next:"下一站",
+th_label:"硕士论文",th_h:"非理想气体的超音速射流",
+th_p1:"当气体以高于环境的压力离开喷管时，会形成一串激波胞格。我比较了氮气和硅氧烷MM的平面与圆形射流。MM是一种用于ORC涡轮的高密度有机蒸气，理想气体定律对它不再成立。",
+th_p2:"我在高性能集群上运行了带十级各向异性网格自适应的SU2 Euler、RANS和非定常RANS计算，并检查了网格收敛性和计算域无关性。",
+n1:"与文献算例的偏差",n2:"更靠下游：平面首个激波胞格对比圆形马赫盘",n3:"非理想性更强时马赫盘半径",
+fig1:"硅氧烷MM圆形射流：马赫数（左）与数值纹影（右），两种非理想程度。SU2 RANS。",
+fig2:"验证：射流轴线压力，我的复现（虚线）与参考研究（实线）。",
+pr_label:"项目",pr_h:"精选作品",f_all:"全部",f_exp:"实验",f_ctrl:"控制",f_biz:"商业",tg_mk:"市场调研",
+p1_t:"太阳能车空气动力学",p1_d:"4人团队。用700万至850万网格的RANS CFD比较四款设计。我负责网格收敛研究和3D打印模型。风洞：CFD Cd 0.144，实测0.163。",
+p2_t:"从CFD到风洞",p2_d:"我准备并打磨的16厘米模型，装在米兰理工的天平上。靠近地面时阻力增加到2.4倍。",
+p3_t:"二维DRS尾翼",p3_d:"5人团队。DRS打开时24种主翼与襟翼组合，Euler与非定常RANS。与实测阻力相差4.7%以内。",
+p4_t:"尾流与涡",p4_d:"太阳能车后方的涡结构，用来解释阻力的来源。",
+p5_t:"无人机鲁棒控制",p5_d:"3人团队。用动态逆和H∞实现多旋翼横向控制，并用1000次蒙特卡洛仿真验证。",
+p6_t:"SpeedySails创业项目",p6_d:"6人团队，成绩29/30。帆面压力传感器提供实时调帆反馈。市场调研、客户访谈（88%正面）、视觉设计与最终路演。",
+sk_hint:"点击一项技能，看看我在哪里用过它。",
+fit_label:"下一站？",fit_h:"有合适的岗位？粘贴进来，看看我有多匹配。",fit_p:"粘贴职位描述。检查只在您的浏览器中进行，不会发送任何内容。也会显示我还没做过的事。",
+fit_paste:"职位描述",fit_btn:"检查",fit_ex:"试试示例",fit_sc:"职位描述中提到的技能",fit_have:"匹配项及使用场景",fit_gap:"坦白说，还没有",fit_empty:"粘贴职位描述并点击“检查”。",fit_none:"未识别到技能：请试试技术岗位的描述。",fit_nogap:"在我了解的工具中没有发现缺口。",
+lg_label:"语言",lg_h:"打个招呼",lg_p:"点击一种语言，整个页面就会切换过去。",l_ar:"阿拉伯语",l_fr:"法语",l_en:"英语",l_it:"意大利语",l_es:"西班牙语",l_zh:"中文",l_ko:"韩语",lv_n:"流利",lv_i:"中级",lv_b:"基础",
+off_label:"工作之外",off_h:"不划网格的时候",o1:"赛车运动",o1d:"空气动力学以毫秒决胜负的地方。",o2:"冲浪",o2d:"用身体感受而不是计算的流体力学。",o3:"摄影",o3d:"和一张好的后处理图像同样的直觉。",o4:"咖啡与茶",o4d:"从摩洛哥薄荷茶到意大利浓缩咖啡和中国茶。",o5:"旅行",o5d:"在三个国家生活过，去过18个国家。",o6:"语言",o6d:"每天都在提高我的意大利语。",
+ct_label:"联系",ct_h:"聊一聊",ct_p:"正在招聘CFD、仿真、适航或面向客户的技术岗位？给我写信，我会发送针对该岗位调整的简历。",ct_based:"所在地",ct_why:"来信目的",r_job:"全职岗位",r_talk:"关于团队的初步通话",r_cv:"请发送您的简历",copy:"复制",copy_d:"复制消息",copied:"已复制",
+nav_travel:"旅行",tv_label:"旅行日志",tv_h:"18个国家，还在继续",tv_p:"旅行让我学会快速适应，在国际团队中如鱼得水。",tv_lived:"曾居住",tv_vis:"到访",
+greet:"你好，我是萨尔玛！上来吧，我带你参观一下。",tour_start:"登机",tour_skip:"我自己看看",tour_back:"上一步",tour_next:"下一步",tour_end:"结束参观",tour_land:"降落",sWy:"第一站：为什么要雇用我。四个理由，用数据说话。",sL:"我的激波实验室：拖动滑块，看马赫盘出现。",sTo:"我的工具箱：现在在用的，以及项目中用过的。",sNw:"现在：我在做什么，以及我在找什么岗位。",sOf:"工作之外：不做网格的时候我在做什么。",s0:"起飞！先介绍一下我：我是米兰的一名航空工程师，把复杂的流动变成清晰的答案。",s1:"两种角色，一位工程师。选择您要招聘的岗位。",s2:"我的飞行日志：南京、卡萨布兰卡、米兰。点击站点阅读对应章节。",s3:"我的论文：一种不像理想气体那样表现的气体的超音速射流。",s4:"一些让我自豪的项目。点击技能，看看我在哪里用过。",s5:"您在招聘吗？把职位描述粘贴在这里，坦诚地看看匹配度。",s6:"到目前为止去过18个国家。把鼠标移到地图上。",s7:"用我的任一种语言打个招呼，整个页面都会切换。",s8:"降落！如果想聊聊，我的邮箱就在这里。谢谢与我同行。",
+intro_hi:"你好，我是萨尔玛！",intro_sub:"欢迎来到我的机库。今天的任务：参观我的作品。上来吧！",intro_skip:"跳过",
+foot:"图片来自我在米兰理工大学的硕士论文和课程项目。"}
+};
+const CH={
+en:[["2017 – 2021 · Nanjing, China","Engineering in a new language","BSc in Aeronautical Engineering at NUAA, taught in Chinese and English: GPA 4.0/5, aeroengines 96/100, numerical analysis 96/100, a full machine-design project and CNC workshop training."],
+["2021 – 2023 · Casablanca, Morocco","Customers, then aircraft","Remote customer support and sales for companies in the Netherlands, Singapore, the USA and France, then airworthiness internships at Royal Air Maroc and Sarah Airways: certificate of airworthiness renewals for five aircraft, FAA and EASA AD/SB studies, and 381 in-service defects analysed."],
+["2023 – 2026 · Milano, Italia","Learning to see the flow","MSc in Aeronautical Engineering at Politecnico di Milano: CFD, compressible and multiphase flows, and a thesis on supersonic jets of non-ideal gases."],
+["Next · open to relocation","My first full-time role","In a team where simulation, aircraft or customers meet. Based in Milan, ready to move for the right role."]],
+it:[["2017 – 2021 · Nanchino, Cina","L'ingegneria in una nuova lingua","Laurea in Ingegneria Aeronautica alla NUAA, in cinese e inglese: GPA 4,0/5, motori aeronautici 96/100, analisi numerica 96/100, un progetto completo di costruzione di macchine e officina CNC."],
+["2021 – 2023 · Casablanca, Marocco","Prima i clienti, poi gli aerei","Assistenza clienti e vendite da remoto per aziende di Paesi Bassi, Singapore, Stati Uniti e Francia, poi tirocini in aeronavigabilità presso Royal Air Maroc e Sarah Airways: rinnovi del CdN di cinque aeromobili, studi AD/SB FAA ed EASA e 381 difetti analizzati."],
+["2023 – 2026 · Milano, Italia","Imparare a vedere il flusso","Laurea Magistrale in Ingegneria Aeronautica al Politecnico di Milano: CFD, flussi comprimibili e multifase, e una tesi sui getti supersonici di gas non ideali."],
+["Prossima tappa · disposta a trasferirmi","Il mio primo ruolo a tempo pieno","In un team dove si incontrano simulazione, aerei o clienti. Base a Milano, pronta a spostarmi per il ruolo giusto."]],
+fr:[["2017 – 2021 · Nankin, Chine","L'ingénierie dans une nouvelle langue","Licence en génie aéronautique à la NUAA, en chinois et en anglais : GPA 4,0/5, moteurs d'avion 96/100, analyse numérique 96/100, un projet complet de conception mécanique et un atelier CNC."],
+["2021 – 2023 · Casablanca, Maroc","D'abord les clients, puis les avions","Support client et vente à distance pour des entreprises des Pays-Bas, de Singapour, des États-Unis et de France, puis stages en navigabilité chez Royal Air Maroc et Sarah Airways : CdN de cinq avions, études AD/SB FAA et EASA, et 381 défauts analysés."],
+["2023 – 2026 · Milan, Italie","Apprendre à voir l'écoulement","Master en génie aéronautique au Politecnico di Milano : CFD, écoulements compressibles et multiphasiques, et un mémoire sur les jets supersoniques de gaz non idéaux."],
+["Prochaine escale · mobile","Mon premier poste à temps plein","Dans une équipe où se croisent simulation, avions ou clients. Basée à Milan, prête à bouger pour le bon poste."]],
+es:[["2017 – 2021 · Nankín, China","Ingeniería en un idioma nuevo","Grado en Ingeniería Aeronáutica en la NUAA, en chino e inglés: GPA 4,0/5, motores 96/100, análisis numérico 96/100, un proyecto completo de diseño mecánico y taller CNC."],
+["2021 – 2023 · Casablanca, Marruecos","Primero clientes, luego aviones","Soporte y ventas en remoto para empresas de Países Bajos, Singapur, EE. UU. y Francia, y después prácticas en aeronavegabilidad en Royal Air Maroc y Sarah Airways: CdA de cinco aviones, estudios AD/SB de la FAA y EASA, y 381 defectos analizados."],
+["2023 – 2026 · Milán, Italia","Aprender a ver el flujo","Máster en Ingeniería Aeronáutica en el Politecnico di Milano: CFD, flujos compresibles y multifásicos, y una tesis sobre chorros supersónicos de gases no ideales."],
+["Siguiente escala · dispuesta a mudarme","Mi primer puesto a tiempo completo","En un equipo donde se cruzan simulación, aviones o clientes. En Milán, lista para moverme por el puesto adecuado."]],
+ar:[["2017 – 2021 · نانجينغ، الصين","الهندسة بلغة جديدة","بكالوريوس هندسة الطيران في NUAA بالصينية والإنجليزية: معدل 4.0/5، محركات الطائرات 96/100، التحليل العددي 96/100، مشروع تصميم آلات كامل وورشة CNC."],
+["2021 – 2023 · الدار البيضاء، المغرب","العملاء أولًا، ثم الطائرات","دعم ومبيعات عن بُعد لشركات من هولندا وسنغافورة والولايات المتحدة وفرنسا، ثم تدريب في صلاحية الطيران لدى الخطوط الملكية المغربية وSarah Airways: تجديد شهادات خمس طائرات، دراسات توجيهات FAA وEASA، وتحليل 381 عطلًا."],
+["2023 – 2026 · ميلانو، إيطاليا","تعلّم رؤية التدفق","ماجستير هندسة الطيران في البوليتكنيك بميلانو: المحاكاة الحسابية، التدفقات الانضغاطية ومتعددة الأطوار، وأطروحة عن نفّاثات الغازات غير المثالية."],
+["المحطة التالية · مستعدة للانتقال","أول وظيفة بدوام كامل","في فريق تلتقي فيه المحاكاة أو الطائرات أو العملاء. مقيمة في ميلانو ومستعدة للانتقال للوظيفة المناسبة."]],
+ko:[["2017 – 2021 · 중국 난징","새로운 언어로 배운 공학","난징항공항천대학교 항공공학 학사(중국어·영어 수업): 평점 4.0/5, 항공 엔진 96/100, 수치해석 96/100, 기계설계 프로젝트와 CNC 실습."],
+["2021 – 2023 · 모로코 카사블랑카","먼저 고객, 그다음 항공기","네덜란드·싱가포르·미국·프랑스 기업을 위한 원격 고객 지원과 영업 후, 로열 에어 모로코와 Sarah Airways에서 감항 인턴: 항공기 5대 감항증명 갱신, FAA·EASA AD/SB 검토, 결함 381건 분석."],
+["2023 – 2026 · 이탈리아 밀라노","유동을 보는 법","밀라노 공과대학교 항공공학 석사: CFD, 압축성·다상 유동, 비이상 기체 초음속 제트에 관한 논문."],
+["다음 목적지 · 이주 가능","첫 정규직","시뮬레이션, 항공기, 고객이 만나는 팀에서. 밀라노 거주, 맞는 자리라면 이주 가능."]],
+zh:[["2017 – 2021 · 中国南京","用一门新语言学工程","南京航空航天大学航空工程学士（中英文授课）：绩点4.0/5，航空发动机96/100，数值分析96/100，完整的机械设计项目和数控实训。"],
+["2021 – 2023 · 摩洛哥卡萨布兰卡","先是客户，然后是飞机","为荷兰、新加坡、美国和法国的公司远程提供客户支持和销售，之后在摩洛哥皇家航空和Sarah Airways做适航实习：五架飞机适航证续签、FAA与EASA的AD/SB评估、分析381个缺陷。"],
+["2023 – 2026 · 意大利米兰","学会看见流动","米兰理工大学航空工程硕士：CFD、可压缩与多相流，以及关于非理想气体超音速射流的论文。"],
+["下一站 · 可搬迁","第一份全职工作","在仿真、飞机或客户交汇的团队中。常驻米兰，愿意为合适的岗位搬迁。"]]
+};
+const EN={};document.querySelectorAll('[data-i]').forEach(el=>{const k=el.dataset.i;if(!(k in EN))EN[k]=el.textContent});
+Object.assign(EN,{motion:"Motion: on",motion_off:"Motion: off",copied:"Copied",fit_none:"No skills recognised: try a technical job ad.",fit_nogap:"No gaps found among the tools I know of.",fit_empty:"Paste an ad and press “Check fit”."});
+T.en=EN;
+let cur="en",still=false,chIdx=0;
+const tr=k=>(T[cur]&&T[cur][k]!=null)?T[cur][k]:(EN[k]!=null?EN[k]:k);
+const motionBtn=document.getElementById('motionBtn');
+function setLang(l){
+  if(!T[l])l="en";cur=l;
+  document.querySelectorAll('[data-i]').forEach(el=>{el.textContent=tr(el.dataset.i)});
+  motionBtn.textContent=still?tr('motion_off'):tr('motion');
+  document.documentElement.lang=l;document.documentElement.dir=(l==="ar")?"rtl":"ltr";
+  document.querySelectorAll('.langs button').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.lang===l)));
+  showChapter(chIdx,false);renderDraft();runFit();drawJet(performance.now());renderCountries();if(ti>=0){const n=document.querySelector('.tnote span');if(n)n.textContent=tr(TOUR[ti][2])}
+  try{localStorage.setItem('sa-lang',l)}catch(e){}
+}
+document.querySelectorAll('.langs button').forEach(b=>b.addEventListener('click',()=>setLang(b.dataset.lang)));
+document.querySelectorAll('.lang[data-to]').forEach(b=>b.addEventListener('click',()=>{setLang(b.dataset.to);window.scrollTo({top:0,behavior:still?'auto':'smooth'})}));
+still=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+motionBtn.addEventListener('click',()=>{still=!still;document.body.classList.toggle('still',still);motionBtn.setAttribute('aria-pressed',String(still));motionBtn.textContent=still?tr('motion_off'):tr('motion');drawJet(performance.now())});
+
+/* shock-diamond lab (illustrative) */
+const cv=document.getElementById('jet'),ctx=cv.getContext('2d');
+let npr=5,gas='n2';const t0=performance.now();
+const col=n=>getComputedStyle(document.documentElement).getPropertyValue(n).trim()||'#1D61C4';
+function fitCanvas(){const w=cv.getBoundingClientRect().width||600;const d=window.devicePixelRatio||1;cv.width=Math.round(w*d);cv.height=Math.round(230*d);ctx.setTransform(d,0,0,d,0,0)}
+function drawJet(time){
+  const W=cv.width/(window.devicePixelRatio||1),H=230,cy=H/2;
+  ctx.clearRect(0,0,W,H);
+  const blue=col('--blue'),sky=col('--sky'),rose=col('--rose'),ink=col('--ink'),muted=col('--muted');
+  const x0=48,r0=Math.round(H*0.15);
+  const L=r0*1.45*Math.sqrt(npr)*(gas==='mm'?0.96:1);
+  const amp=r0*(0.18+0.09*(npr-2));
+  const disk=npr>4.2;
+  const diskR=disk?Math.min(r0*0.95,(npr-4.2)*r0*0.22+4)*(gas==='mm'?1.75:1):0;
+  ctx.globalAlpha=.55;ctx.fillStyle=muted;ctx.fillRect(0,cy-r0-16,x0,16);ctx.fillRect(0,cy+r0,x0,16);ctx.globalAlpha=1;
+  const rad=x=>{const s=(x-x0)/L;return r0+amp*Math.sin(Math.PI*s)**2*Math.exp(-s*0.18)+(x-x0)*0.02};
+  ctx.beginPath();for(let x=x0;x<=W;x+=2)ctx.lineTo(x,cy-rad(x));for(let x=W;x>=x0;x-=2)ctx.lineTo(x,cy+rad(x));ctx.closePath();
+  ctx.globalAlpha=.22;ctx.fillStyle=sky;ctx.fill();ctx.globalAlpha=1;
+  ctx.strokeStyle=sky;ctx.lineWidth=1.4;ctx.beginPath();for(let x=x0;x<=W;x+=2)ctx.lineTo(x,cy-rad(x));ctx.stroke();ctx.beginPath();for(let x=x0;x<=W;x+=2)ctx.lineTo(x,cy+rad(x));ctx.stroke();
+  let cells=0;
+  for(let k=0;k<12;k++){
+    const xs=x0+k*L,xm=xs+L*0.5,xe=xs+L;if(xs>W)break;cells++;
+    ctx.globalAlpha=Math.max(0.15,1-k*0.16);ctx.strokeStyle=blue;ctx.lineWidth=1.8;
+    const rs=rad(xs)*0.92,re=rad(Math.min(xe,W))*0.92,h=(k===0&&disk)?diskR:0;
+    ctx.beginPath();ctx.moveTo(xs,cy-rs);ctx.lineTo(xm,cy-h);ctx.lineTo(xe,cy+re);ctx.moveTo(xs,cy+rs);ctx.lineTo(xm,cy+h);ctx.lineTo(xe,cy-re);ctx.stroke();
+    if(k===0&&disk){ctx.globalAlpha=1;ctx.strokeStyle=rose;ctx.lineWidth=3;ctx.beginPath();ctx.moveTo(xm,cy-diskR);ctx.lineTo(xm,cy+diskR);ctx.stroke();
+      ctx.fillStyle=rose;ctx.font='500 11px "JetBrains Mono", monospace';ctx.fillText(tr('lab_disk'),xm+6,cy-diskR-6)}
+  }
+  ctx.globalAlpha=1;
+  if(!still){const ph=(time-t0)/1000;ctx.fillStyle=ink;ctx.globalAlpha=.35;
+    for(let i=0;i<34;i++){const x=x0+((i*53+ph*170)%(W-x0));const lane=((i*37)%17)/16-0.5;ctx.beginPath();ctx.arc(x,cy+lane*rad(x)*1.6,1.8,0,6.3);ctx.fill()}ctx.globalAlpha=1}
+  document.getElementById('rCells').textContent=String(Math.min(cells,9));
+  document.getElementById('rDisk').textContent=disk?(gas==='mm'?'⌀ ×1.75':'✓'):'–';
+}
+function loop(t){if(!still)drawJet(t);requestAnimationFrame(loop)}
+const nprIn=document.getElementById('npr');
+nprIn.addEventListener('input',()=>{npr=+nprIn.value;document.getElementById('nprVal').textContent=npr.toFixed(1);drawJet(performance.now())});
+function setGas(g){gas=g;document.getElementById('gN2').setAttribute('aria-pressed',String(g==='n2'));document.getElementById('gMM').setAttribute('aria-pressed',String(g==='mm'));drawJet(performance.now())}
+document.getElementById('gN2').addEventListener('click',()=>setGas('n2'));document.getElementById('gMM').addEventListener('click',()=>setGas('mm'));
+window.addEventListener('resize',()=>{fitCanvas();drawJet(performance.now())});
+
+/* tracks */
+function setTrack(t){document.getElementById('tEng').setAttribute('aria-pressed',String(t==='eng'));document.getElementById('tCus').setAttribute('aria-pressed',String(t==='cus'));
+  document.getElementById('tpEng').hidden=t!=='eng';document.getElementById('tpCus').hidden=t!=='cus'}
+document.getElementById('tEng').addEventListener('click',()=>setTrack('eng'));document.getElementById('tCus').addEventListener('click',()=>setTrack('cus'));
+
+/* route */
+const KM=[10855,21710,23657,23657];
+const legs=['leg1','leg2','leg3'];
+let kmShown=0;
+const fmt=n=>n.toLocaleString(cur==='en'?'en-US':cur)+' km';
+function animateKm(to){const from=kmShown,st=performance.now(),dur=still?0:900;
+  function step(n){const p=dur?Math.min(1,(n-st)/dur):1;kmShown=Math.round(from+(to-from)*p);document.getElementById('km').textContent=fmt(kmShown);if(p<1)requestAnimationFrame(step)}requestAnimationFrame(step)}
+function placePlane(i){const leg=document.getElementById(legs[Math.min(i,2)]);const len=leg.getTotalLength();
+  const p=leg.getPointAtLength(len-1),q=leg.getPointAtLength(len);const ang=Math.atan2(q.y-p.y,q.x-p.x)*180/Math.PI;
+  document.getElementById('plane').setAttribute('transform',`translate(${q.x},${q.y}) rotate(${ang})`)}
+function showChapter(i,anim=true){chIdx=i;const c=(CH[cur]||CH.en)[i];
+  document.getElementById('chWhen').textContent=c[0];document.getElementById('chT').textContent=c[1];document.getElementById('chD').textContent=c[2];
+  document.querySelectorAll('.stops button').forEach(b=>b.setAttribute('aria-pressed',String(+b.dataset.ch===i)));
+  legs.forEach((id,k)=>{document.getElementById(id).style.opacity=(k<=Math.min(i,2))?1:.22});
+  placePlane(Math.min(i,2));const rm=document.getElementById('remote');if(rm)rm.style.opacity=i>=1?1:0;
+  if(anim)animateKm(KM[i]);else{kmShown=KM[i];document.getElementById('km').textContent=fmt(KM[i])}}
+document.querySelectorAll('.stops button').forEach(b=>b.addEventListener('click',()=>showChapter(+b.dataset.ch)));
+
+/* projects + skills */
+const where=document.getElementById('where');
+document.querySelectorAll('.filters button').forEach(b=>b.addEventListener('click',()=>{
+  document.querySelectorAll('.filters button').forEach(x=>x.setAttribute('aria-pressed',String(x===b)));
+  const f=b.dataset.f;document.querySelectorAll('.card').forEach(c=>{c.hidden=!(f==='all'||c.dataset.tags.split(' ').includes(f));c.classList.remove('dim','hit')});
+  document.querySelectorAll('.skill').forEach(s=>s.setAttribute('aria-pressed','false'));where.textContent=''}));
+const SK=[
+ ['cfd','CFD','Thesis (SU2), DRS wing (SU2), solar cars (OpenFOAM)'],['su2','SU2','Thesis jets and DRS rear wing'],['openfoam','OpenFOAM','Solar car aerodynamics and wake study'],
+ ['python','Python','Thesis automation and post-processing, data analysis'],['matlab','MATLAB / Simulink','Drone control, panel-method solver, B767 aeroelastic design'],
+ ['hpc','Linux / HPC','Thesis batch runs on an SGE/MPI cluster with Bash'],['valid','Validation','0.11 mm on jets, 4.7% on DRS drag, CFD vs wind tunnel on the solar car'],
+ ['aero','Aerodynamics','Solar cars, DRS wing, panel method'],['cad','SOLIDWORKS / CAD','Solar car models, BSc machine-design project (AutoCAD)'],
+ ['stats','Monte Carlo','1,000-run robustness check of the drone controller'],['air','Airworthiness','Sarah Airways and Royal Air Maroc internships (FAA and EASA ADs)'],
+ ['cust','Customers','Remote support and sales 2021–2022 (Netherlands, Singapore, USA, France); SpeedySails interviews'],['pitch','Pitching','SpeedySails final pitch; project presentations']];
+const skBox=document.getElementById('skills');
+SK.forEach(([id,n,w])=>{const b=document.createElement('button');b.type='button';b.className='skill';b.textContent=n;b.setAttribute('aria-pressed','false');
+  b.addEventListener('click',()=>{const on=b.getAttribute('aria-pressed')!=='true';
+    document.querySelectorAll('.skill').forEach(x=>x.setAttribute('aria-pressed','false'));
+    document.querySelectorAll('.filters button').forEach(x=>x.setAttribute('aria-pressed',String(x.dataset.f==='all')));
+    document.querySelectorAll('.card').forEach(c=>{c.hidden=false;c.classList.remove('dim','hit');if(on)c.classList.add(c.dataset.sk.split(' ').includes(id)?'hit':'dim')});
+    b.setAttribute('aria-pressed',String(on));where.innerHTML=on?`<b>${n}</b> · ${w}`:''});skBox.appendChild(b)});
+
+/* fit checker */
+const HAVE=[
+ [/\bcfd\b|computational fluid|fluidodinamica computazionale/i,'CFD','Thesis, DRS wing, solar cars'],[/\bsu2\b/i,'SU2','Thesis and DRS wing'],[/openfoam/i,'OpenFOAM','Solar car study'],
+ [/\brans\b|turbulen|k-?ω|k-?omega|\bsst\b/i,'RANS / turbulence models','k–ω SST in thesis, DRS and solar car'],[/urans|unsteady|transient|non stazionar/i,'Unsteady simulation','URANS in thesis and DRS'],
+ [/\bmesh|meshing|\bgrid|maillage/i,'Meshing','Gmsh, snappyHexMesh, adaptive refinement'],[/python/i,'Python','Thesis automation and post-processing'],
+ [/matlab|simulink/i,'MATLAB / Simulink','Drone control, panel solver'],[/linux|\bhpc\b|cluster|bash/i,'Linux / HPC','Thesis batch jobs (SGE, MPI)'],
+ [/paraview|post-?process/i,'Post-processing','ParaView and Python'],[/aerodynam|aerodinamic|aérodynam/i,'Aerodynamics','Solar cars, DRS wing'],
+ [/compressib|supersonic|supersonico|transonic/i,'Compressible flow','Thesis on supersonic jets'],[/thermodynam|termodinamic|thermo-?fluid|heat transfer|real gas/i,'Thermo-fluid dynamics','Real-gas (Peng–Robinson) thesis work'],
+ [/multiphase|multifase|two-phase|free surface/i,'Multiphase flows','Course grade 30/30'],[/wind tunnel|galleria del vento|soufflerie|validat|experiment/i,'Validation and testing','Wind tunnel and published data'],
+ [/airworthiness|aeronavigabil|navigabilit/i,'Airworthiness','Sarah Airways, Royal Air Maroc'],[/airworthiness directive|service bulletin/i,'ADs and SBs','FAA and EASA AD/SB applicability, compliance records'],
+ [/maintenance|manutenzion/i,'Maintenance engineering','Work packages, records, reliability'],[/reliab|affidabil|mtbf|mttr/i,'Reliability','381-defect study: Pareto, MTBF, MTTR'],
+ [/technical document|manuals?\b|publications|technical report/i,'Technical documentation','Manuals, AD/SB studies, reports'],
+ [/customer|client|cliente/i,'Customer support','Remote, 2021–2022: Netherlands, Singapore, USA, France'],[/\bsales\b|vendit|commercial/i,'Sales','2021–2022; SpeedySails pitch'],
+ [/solidworks|\bcad\b|catia|autocad|drawing/i,'CAD and drawings','SOLIDWORKS, AutoCAD, CATIA (basic)'],[/excel|office|powerpoint/i,'Microsoft Office','Reports, reliability analysis'],
+ [/monte carlo|statistic|uncertaint/i,'Monte Carlo / statistics','Drone robustness study'],[/optimi[sz]|operations research|ricerca operativa/i,'Optimisation','Operations Research 29/30'],
+ [/english|inglese|anglais/i,'English','Fluent'],[/french|francese|français/i,'French','Fluent'],[/italian|italiano/i,'Italian','B2'],[/arabic|arabo/i,'Arabic','Fluent'],[/spanish|spagnolo/i,'Spanish','Intermediate']];
+const GAPS=[[/ansys|fluent\b(?!\s+(english|italian|french))/i,'ANSYS Fluent'],[/star-?ccm/i,'STAR-CCM+'],[/abaqus/i,'Abaqus'],[/nastran|patran/i,'Nastran'],[/c\+\+/i,'C++'],[/\bjava\b/i,'Java'],[/\bsap\b/i,'SAP'],[/\bplc\b|tia portal|wincc/i,'PLC programming'],[/ls-?dyna/i,'LS-DYNA'],[/simcenter|amesim/i,'Simcenter / Amesim'],[/machine learning|neural/i,'Machine learning'],[/part[- ]?145|part[- ]?m\b|part[- ]?66|\bcamo\b/i,'EASA Part-M / 145 / CAMO']];
+const EX="CFD Engineer – Aerospace. Requirements: MSc in Aerospace Engineering; experience with CFD (RANS, URANS), meshing and post-processing; knowledge of compressible flows and thermodynamics; Python scripting on Linux/HPC clusters; ANSYS or STAR-CCM+ is a plus; validation against wind-tunnel tests; English required, Italian appreciated.";
+const esc=s=>s.replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));
+function runFit(){
+  const t=document.getElementById('jd').value;const have=[],gaps=[];
+  HAVE.forEach(([re,n,w])=>{if(re.test(t))have.push([n,w])});GAPS.forEach(([re,n])=>{if(re.test(t))gaps.push(n)});
+  const tot=have.length+gaps.length,pct=tot?Math.round(100*have.length/tot):0;
+  document.getElementById('scoreTxt').textContent=tot?pct+'%':'–';
+  document.getElementById('ringFg').style.strokeDashoffset=String(201-201*pct/100);
+  const hl=document.getElementById('haveList'),gl=document.getElementById('gapList');
+  hl.innerHTML=have.length?have.map(([n,w])=>`<div><span class="ok-dot">✓</span><p><b>${esc(n)}</b> <span>· ${esc(w)}</span></p></div>`).join(''):`<span class="mono">${esc(t.trim()?tr('fit_none'):tr('fit_empty'))}</span>`;
+  gl.innerHTML=gaps.length?gaps.map(n=>`<div><span class="gap-dot">○</span><p>${esc(n)}</p></div>`).join(''):(have.length?`<span class="mono">${esc(tr('fit_nogap'))}</span>`:'');
+}
+document.getElementById('fitBtn').addEventListener('click',runFit);
+document.getElementById('fitEx').addEventListener('click',()=>{document.getElementById('jd').value=EX;runFit()});
+
+/* contact */
+const DR={job:"Hello Salma,\nI'm [name] from [company]. We have an opening for a [role] in [city] and your profile caught our attention. Could you send us your CV?\nBest regards,",
+talk:"Hello Salma,\nI'm [name], [role] at [company]. I'd be happy to have a short call about our team and how you could fit in. When would suit you?\nBest regards,",
+cv:"Hello Salma,\nCould you send me your CV for the [role] position at [company]?\nThank you,"};
+function renderDraft(){document.getElementById('draft').textContent=DR[document.getElementById('reason').value]}
+document.getElementById('reason').addEventListener('change',renderDraft);
+function copyText(txt,btn,key){try{navigator.clipboard.writeText(txt).then(()=>{btn.textContent=tr('copied');setTimeout(()=>btn.textContent=tr(key),1500)},()=>{})}catch(e){}}
+document.getElementById('copyEm').addEventListener('click',e=>copyText(document.getElementById('em').textContent,e.currentTarget,'copy'));
+document.getElementById('copyDraft').addEventListener('click',e=>copyText(document.getElementById('draft').textContent+"\n",e.currentTarget,'copy_d'));
+
+/* Miller projection used by the jsVectorMap world map (central meridian 11.5) */
+function millP(W){const bb=W.insets[0].bbox,h=W.insets[0].height,wd=W.insets[0].width,R=6381372,c=W.projection&&W.projection.centralMeridian||11.5,d=Math.PI/180;
+  return(lat,lon)=>{const x=R*(lon-c)*d,y=-R*Math.log(Math.tan((45+0.4*lat)*d))/0.8;return[(x-bb[0].x)/(bb[1].x-bb[0].x)*wd,(y-bb[0].y)/(bb[1].y-bb[0].y)*h]}}
+/* flight-log map */
+function drawRouteMap(){const svg=document.getElementById('rmap'),W=window.__WORLD;if(!svg||!W)return;
+  const h=W.insets[0].height,P=millP(W);
+  const [x0,y0]=P(62,-128),[x1,y1]=P(-9,130);svg.setAttribute('viewBox',`${x0} ${y0} ${x1-x0} ${y1-y0}`);
+  const LV=['MA','CN','IT'],RM=['NL','FR','US','SG'];let g='';
+  for(const [c,o] of Object.entries(W.paths)){if(c==='AQ')continue;g+=`<path class="cty${LV.includes(c)?' l':RM.includes(c)?' r':''}" d="${o.path}"/>`}
+  const C={CMN:P(33.57,-7.59),NKG:P(32.06,118.8),MIL:P(45.46,9.19),NL:P(52.37,4.9),FR:P(48.86,2.35),USA:P(39,-98),SG:P(1.35,103.8)};
+  const arc=(a,b,k)=>{const mx=(a[0]+b[0])/2,my=(a[1]+b[1])/2,d=Math.hypot(b[0]-a[0],b[1]-a[1]);return`M${a[0]} ${a[1]} Q${mx} ${my-d*k} ${b[0]} ${b[1]}`};
+  g+='<g id="remote" class="rem">'+['NL','FR','USA','SG'].map(t=>`<path d="${arc(C.CMN,C[t],t==='NL'||t==='FR'?.35:.22)}"/><rect x="${C[t][0]-2.5}" y="${C[t][1]-2.5}" width="5" height="5" fill="#5BA8FF"/>`).join('')+
+    `<text class="s" x="${C.USA[0]-10}" y="${C.USA[1]-7}">USA</text><text class="s" x="${C.SG[0]+6}" y="${C.SG[1]+3}">SG</text><text class="s" x="${C.NL[0]-4}" y="${C.NL[1]-6}">NL</text><text class="s" x="${C.FR[0]-16}" y="${C.FR[1]-2}">FR</text></g>`;
+  g+=`<path id="leg1" class="leg" d="${arc(C.CMN,C.NKG,.22)}"/><path id="leg2" class="leg" d="${arc(C.NKG,C.CMN,-.12)}" stroke-dasharray="2 5"/><path id="leg3" class="leg" d="${arc(C.CMN,C.MIL,.4)}"/>`;
+  for(const [t,dx,dy] of [['CMN',-30,12],['NKG',6,12],['MIL',6,-4]])g+=`<circle cx="${C[t][0]}" cy="${C[t][1]}" r="3.6" fill="${t==='CMN'?'var(--rose)':'var(--blue)'}" stroke="#05090D" stroke-width="1"/><text x="${C[t][0]+dx}" y="${C[t][1]+dy}">${t}</text>`;
+  g+='<g id="plane"><path d="M-7 0 L7 0 M1.5 -4.5 L4.5 0 L1.5 4.5 M-5.5 -2.5 L-4 0 L-5.5 2.5" stroke="#fff" stroke-width="1.8" fill="none" stroke-linecap="round"/></g>';
+  svg.innerHTML=g}
+/* travel map */
+const LIVED=['MA','CN','IT'],VIS=['MA','ES','PT','FR','BE','DE','PL','IT','GR','AT','CH','HU','TR','CN','KR','ID','HK','PH'];
+const regionName=c=>{try{return new Intl.DisplayNames([cur],{type:'region'}).of(c)}catch(e){return c}};
+function drawWorld(){
+  const box=document.getElementById('world');const W=window.__WORLD;
+  if(!W){box.style.display='none';return}
+  const NS='http://www.w3.org/2000/svg';const svg=document.createElementNS(NS,'svg');
+  const h=W.insets[0].height;svg.setAttribute('viewBox','0 30 900 '+(h-60));svg.setAttribute('role','img');svg.setAttribute('aria-label','World map of visited countries');
+  for(const [code,obj] of Object.entries(W.paths)){if(code==='AQ')continue;const p=document.createElementNS(NS,'path');p.setAttribute('d',obj.path);p.dataset.c=code;
+    if(LIVED.includes(code))p.classList.add('l');else if(VIS.includes(code))p.classList.add('v');svg.appendChild(p)}
+  const [hx,hy]=millP(W)(22.32,114.17);
+  const dot=document.createElementNS(NS,'circle');dot.setAttribute('cx',hx);dot.setAttribute('cy',hy);dot.setAttribute('r',3.4);dot.setAttribute('class','hk');dot.dataset.c='HK';svg.appendChild(dot);
+  box.innerHTML='';box.appendChild(svg);const tip=document.createElement('div');tip.className='wtip';tip.hidden=true;box.appendChild(tip);
+  svg.addEventListener('pointermove',e=>{const c=e.target.dataset&&e.target.dataset.c;if(c&&VIS.includes(c)){const r=box.getBoundingClientRect();tip.hidden=false;tip.textContent=regionName(c);tip.style.left=(e.clientX-r.left)+'px';tip.style.top=(e.clientY-r.top)+'px'}else tip.hidden=true});
+  svg.addEventListener('pointerleave',()=>tip.hidden=true);
+}
+function renderCountries(){const box=document.getElementById('clist');if(!box)return;box.innerHTML='';
+  const sorted=[...VIS].sort((a,b)=>(LIVED.includes(b)-LIVED.includes(a))||regionName(a).localeCompare(regionName(b),cur));
+  sorted.forEach(c=>{const b=document.createElement('button');b.type='button';b.className='cc'+(LIVED.includes(c)?' lived':'');b.textContent=regionName(c);b.setAttribute('aria-pressed','false');
+    b.addEventListener('click',()=>{const on=b.getAttribute('aria-pressed')!=='true';document.querySelectorAll('.cc').forEach(x=>x.setAttribute('aria-pressed','false'));document.querySelectorAll('#world [data-c]').forEach(p=>p.classList.toggle('on',on&&p.dataset.c===c));b.setAttribute('aria-pressed',String(on))});
+    box.appendChild(b)});
+  document.getElementById('tcount').textContent=String(VIS.length)}
+
+/* avatar (stylised, from her photos: long dark-brown hair, side part, clip, light skin) */
+function avatar(vb,opts={}){const wave=opts.wave!==false;
+ return `<svg viewBox="${vb}" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+ <path d="M58 46 C54 20 106 18 102 46 C106 80 110 118 104 150 C96 160 64 160 56 150 C50 118 54 80 58 46Z" fill="url(#sa-hair)"/>
+ <path d="M56 206 C56 250 58 300 60 334 L77 334 C77 296 79 258 80 232 C81 258 83 296 83 334 L100 334 C102 300 104 250 104 206Z" fill="url(#sa-jeans)"/>
+ <path d="M66 220 C66 260 68 300 69 330 M94 220 C94 260 92 300 91 330" stroke="#33405A" stroke-width="1" fill="none" opacity=".8"/>
+ <path d="M57 326 h22 l2 16 c-10 4 -22 4 -28 0 z" fill="url(#sa-boot)"/><path d="M81 326 h22 l3 16 c-8 4 -20 4 -27 0z" fill="url(#sa-boot)"/>
+ <path d="M54 342 c8 2 18 2 26 0 M80 342 c8 2 18 2 26 0" stroke="#2A1A10" stroke-width="2"/>
+ <path d="M73 78 C73 86 74 92 72 96 L88 96 C86 92 87 86 87 78Z" fill="url(#sa-neck)"/>
+ <path d="M62 98 C70 94 90 94 98 98 L101 206 C88 210 72 210 59 206Z" fill="#F7F5F2"/>
+ <path d="M66 98 C68 104 74 108 80 108 C86 108 92 104 94 98" fill="none" stroke="#E1DCD6" stroke-width="2"/>
+ <path d="M52 100 C60 94 66 94 70 96 C70 130 68 170 66 210 C58 212 50 210 44 206 C44 160 44 120 52 100Z" fill="url(#sa-jkt)"/>
+ <path d="M108 100 C100 94 94 94 90 96 C90 130 92 170 94 210 C102 212 110 210 116 206 C116 160 116 120 108 100Z" fill="url(#sa-jkt)"/>
+ <path d="M70 96 L66 128 L72 140 M90 96 L94 128 L88 140" stroke="#152536" stroke-width="1.6" fill="none"/>
+ <rect x="48" y="150" width="14" height="14" rx="2" fill="#2E4660" stroke="#152536"/><rect x="98" y="150" width="14" height="14" rx="2" fill="#20344B" stroke="#152536"/>
+ <path d="M100 118 l4 -2 l4 2 l-4 1.4z" fill="var(--gold)"/>
+ <path d="M74 96 L80 150 L86 96" stroke="var(--rose)" stroke-width="2" fill="none"/>
+ <rect x="74" y="148" width="12" height="16" rx="2" fill="#FFFFFF" stroke="#C9D2DE"/><rect x="76" y="151" width="8" height="3" fill="var(--rose)"/><path d="M76 157 h8 M76 160 h6" stroke="#9AA7B8" stroke-width="1"/>
+ <path d="M64 92 C64 104 96 104 96 92" stroke="#2B3442" stroke-width="4" fill="none"/><circle cx="63" cy="94" r="5.5" fill="#2B3442"/><circle cx="97" cy="94" r="5.5" fill="#2B3442"/>
+ <path d="M50 104 C42 130 40 160 42 186" stroke="url(#sa-jkt)" stroke-width="15" stroke-linecap="round" fill="none"/>
+ <rect x="26" y="168" width="26" height="34" rx="3" fill="#1C2430" transform="rotate(-8 39 185)"/><rect x="29" y="172" width="20" height="26" rx="1.5" fill="#4FD8FF" opacity=".55" transform="rotate(-8 39 185)"/>
+ <path d="M34 186 c4 -3 10 -3 12 2 c1 6 -2 11 -8 11 c-5 -1 -6 -8 -4 -13z" fill="url(#sa-skin)"/>
+ <g class="${wave?'wave':''}" style="transform-origin:110px 104px">
+  <path d="M110 104 C124 92 130 78 132 52" stroke="url(#sa-jkt)" stroke-width="15" stroke-linecap="round" fill="none"/>
+  <path d="M125 50 c-2 -10 0 -18 4 -20 c2 -1 3 1 3 3 l1 -7 c1 -3 4 -3 5 0 l0 7 l2 -6 c1 -3 4 -2 4 1 l-1 8 l2 -3 c2 -2 4 0 3 3 c-2 8 -6 14 -11 16 c-6 1 -10 0 -12 -2z" fill="url(#sa-skin)"/>
+ </g>
+ <path d="M62 50 C62 30 98 30 98 50 C98 66 96 74 90 80 C86 84 74 84 70 80 C64 74 62 66 62 50Z" fill="url(#sa-skin)"/>
+ <path d="M62 56 C62 66 64 74 70 80 C66 72 65 64 66 56Z" fill="#D9A585" opacity=".5"/>
+ <ellipse cx="61" cy="58" rx="2.6" ry="4.6" fill="#E2AF8F"/><ellipse cx="99" cy="58" rx="2.6" ry="4.6" fill="#D9A585"/>
+ <path d="M66.5 50.5 C69 48 74 47.5 77 49" stroke="#3A2418" stroke-width="2" fill="none" stroke-linecap="round"/>
+ <path d="M83 49 C86 47.5 91 48 93.5 50.5" stroke="#3A2418" stroke-width="2" fill="none" stroke-linecap="round"/>
+ <path d="M66.5 56.5 C69 53 75 53 77.5 56.5 C75 59 69 59.5 66.5 56.5Z" fill="#FFFFFF"/><path d="M82.5 56.5 C85 53 91 53 93.5 56.5 C91 59.5 85 59 82.5 56.5Z" fill="#FFFFFF"/>
+ <circle cx="72" cy="56.3" r="2.7" fill="#6B4329"/><circle cx="88" cy="56.3" r="2.7" fill="#6B4329"/>
+ <circle cx="72" cy="56.3" r="1.3" fill="#1A100B"/><circle cx="88" cy="56.3" r="1.3" fill="#1A100B"/>
+ <circle cx="73" cy="55.3" r=".8" fill="#fff"/><circle cx="89" cy="55.3" r=".8" fill="#fff"/>
+ <path d="M66 56.6 C69 52 75 52 78 56 M82 56 C85 52 91 52 94 56.6" stroke="#1C110B" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+ <path d="M80.5 59 C80 63 79 66 77.5 67.5 C79 68.6 81.5 68.6 83 67.6" stroke="#C48A6D" stroke-width="1.2" fill="none" stroke-linecap="round"/>
+ <path d="M76 67.6 C78 69 82 69 84 67.6" stroke="#D9A585" stroke-width="1" fill="none" opacity=".7"/>
+ <path d="M74 72.5 C76.5 71 78.5 71.4 80 72.2 C81.5 71.4 83.5 71 86 72.5 C83 74 77 74 74 72.5Z" fill="#C25E6A"/>
+ <path d="M74 72.5 C77 76.8 83 76.8 86 72.5 C82 74.3 78 74.3 74 72.5Z" fill="#DA8189"/><ellipse cx="81.5" cy="74.6" rx="2" ry=".7" fill="#fff" opacity=".45"/>
+ <ellipse cx="68" cy="65" rx="5" ry="3.2" fill="#F07F8E" opacity=".22"/><ellipse cx="92" cy="65" rx="5" ry="3.2" fill="#F07F8E" opacity=".22"/>
+ <path d="M76 30 C64 30 58 40 60 58 C61 78 56 100 54 118 C62 100 66 80 66 62 C66 46 70 38 78 34Z" fill="url(#sa-hair)"/>
+ <path d="M76 30 C92 28 102 38 100 56 C99 80 104 102 108 120 C98 104 96 82 95 62 C94 46 88 38 78 34Z" fill="url(#sa-hair)"/>
+ <path d="M76 30 C88 30 96 36 98 46 C92 38 84 35 78 34Z" fill="#6A4430" opacity=".8"/>
+ <path d="M63 46 C61 66 59 90 57 106 M97 50 C98 72 101 92 105 110 M84 33 C90 36 94 42 96 50" stroke="#7A5038" stroke-width="1.2" fill="none" opacity=".8"/>
+ <path d="M64 34 C68 28 92 28 96 34" stroke="#C9A24A" stroke-width="1.6" fill="none"/>
+ <path d="M64 34 C62 40 72 42 77 36 Z M96 34 C98 40 88 42 83 36Z" fill="#33414F" stroke="#C9A24A" stroke-width="1"/>
+</svg>`}
+const BUST="42 18 76 76";
+function planeSVG(){const pilot=avatar('0 0 160 360',{wave:false}).replace(/^<svg[^>]*>|<\/svg>$/g,'');
+ /* single-engine personal jet in the spirit of the Cirrus Vision Jet: engine on top, V-tail; ~9.4 m long vs a 1.65 m pilot */
+ return `<svg viewBox="0 0 900 300" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+ <defs><linearGradient id="vj-b" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFFFFF"/><stop offset=".55" stop-color="#EDF1F7"/><stop offset="1" stop-color="#B9C4D4"/></linearGradient>
+ <linearGradient id="vj-g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#9FD0FF" stop-opacity=".55"/><stop offset="1" stop-color="#1D3B63" stop-opacity=".75"/></linearGradient>
+ <radialGradient id="vj-x" cx="1" cy=".5" r="1"><stop offset="0" stop-color="#FFE7A8"/><stop offset=".4" stop-color="#FF8A3D" stop-opacity=".8"/><stop offset="1" stop-color="#FF4F6F" stop-opacity="0"/></radialGradient></defs>
+ <ellipse cx="470" cy="288" rx="390" ry="12" fill="#000" opacity=".35"/>
+ <path d="M100 160 L28 122 L50 116 L140 156Z" fill="#AEB9C9"/>
+ <path d="M112 150 L36 62 L70 60 L156 146Z" fill="url(#vj-b)" stroke="#AEB9CA"/><path d="M48 74 L64 72 L120 138 L96 140Z" fill="var(--rose)"/>
+ <path d="M120 148 C200 118 420 104 620 103 C720 103 800 116 856 146 C884 160 874 176 842 182 C760 196 560 202 380 198 C260 194 170 184 120 172 C96 166 92 154 120 148Z" fill="url(#vj-b)" stroke="#AEB9CA" stroke-width="1.2"/>
+ <path d="M300 182 C460 168 660 156 860 160 C680 170 470 186 330 194Z" fill="var(--rose)"/>
+ <path d="M320 196 C470 186 660 174 846 172" stroke="#1B3D6E" stroke-width="4" fill="none"/>
+ <path d="M196 118 C228 88 322 84 352 98 C356 112 334 124 302 126 C262 128 214 128 196 118Z" fill="url(#vj-b)" stroke="#AEB9CA"/>
+ <ellipse cx="352" cy="108" rx="6" ry="13" fill="#1C2430"/><path d="M250 126 L300 126 L292 112 L258 112Z" fill="#DCE3EC"/>
+ <ellipse class="exhaust" cx="190" cy="118" rx="60" ry="14" fill="url(#vj-x)" opacity="0"/>
+ <g fill="url(#vj-g)" stroke="#8C9BAE" stroke-width="1.2"><rect x="430" y="122" width="40" height="24" rx="11"/><rect x="490" y="120" width="40" height="24" rx="11"/><rect x="550" y="119" width="40" height="24" rx="11"/><rect x="610" y="118" width="40" height="24" rx="11"/></g>
+ <path d="M612 110 L612 180 M676 106 L676 182" stroke="#C6CFDB" stroke-width="1.2"/>
+ <g transform="translate(700 74)"><svg x="0" y="0" width="74" height="74" viewBox="${BUST}" class="pilot">${pilot}</svg></g>
+ <path d="M690 112 C730 104 790 108 832 136 L740 140 C716 138 700 128 690 112Z" fill="url(#vj-g)" stroke="#8C9BAE" stroke-width="1.4"/>
+ <path d="M708 112 C740 108 778 112 806 126" stroke="#fff" stroke-width="2.5" opacity=".5" fill="none"/>
+ <text x="350" y="176" font-family="JetBrains Mono, monospace" font-size="22" font-weight="700" fill="#1B3D6E" letter-spacing="1">I-SALM</text>
+ <path d="M420 192 L660 184 L720 196 L414 206Z" fill="#E9EEF5" stroke="#AEB9CA"/><path d="M414 206 L720 196 L716 200 L418 210Z" fill="#AEB9C9"/><path d="M716 190 l10 -16 l6 2 l-8 18z" fill="#E9EEF5"/>
+ <path d="M560 204 L552 258" stroke="#6F7B8C" stroke-width="7"/><circle cx="552" cy="266" r="17" fill="#1A2433"/><circle cx="552" cy="266" r="6" fill="#8A97A8"/>
+ <path d="M790 182 L792 260" stroke="#6F7B8C" stroke-width="6"/><circle cx="792" cy="268" r="13" fill="#1A2433"/><circle cx="792" cy="268" r="4.5" fill="#8A97A8"/>
+ <circle cx="702" cy="190" r="3.2" fill="#3DF5A0"/><circle cx="108" cy="150" r="3" fill="#FF4F6F"/>
+</svg>`}
+document.getElementById('me').innerHTML='<img class="fs" src="img/av_stand.webp" alt=""><img class="fw" src="img/av_wave.webp" alt="Salma waving"><img class="ft" src="img/av_turn.webp" alt=""><img class="fb" src="img/av_back.webp" alt="">';
+document.getElementById('planeEl').innerHTML='<img src="img/jet_rear2.webp" alt="Personal jet I-SALM"><span class="glow"></span>';
+
+/* replace hero bust */
+const oldAv=document.querySelector('.greeter .avatar');if(oldAv){const im=document.createElement('img');im.src='img/av_head.webp';im.alt='Salma';im.className='hero-me';oldAv.replaceWith(im)}
+
+const TOUR=[['why','#why h2','sWy','WHYME'],['route','#route h2','s2','FLTLG'],['projects','#projects h2','s4','PRJCT'],['lab','#lab h2','sL','SHOCK'],['tools','#tools h2','sTo','TOOLS'],['thesis','#thesis h2','s3','THSIS'],['now','#now h2','sNw','NOW'],['langs','#langs [data-i=off_h]','sOf','OFFCK'],['travel','#travel h2','s6','TRVLG'],['fit','#fit h2','s5','FITCK'],['contact','#contact h2','s8','CNTCT']];
+Object.assign(EN,{sWy:"First stop: why you should hire me. Four reasons, with the numbers to prove them.",sL:"My shock-diamond lab: drag the slider and watch the Mach disk appear.",sTo:"My toolbox: what I use now and what I've used in projects.",sNw:"Right now: what I'm doing and the role I'm looking for.",sOf:"Off the clock: what I do when I'm not meshing.",s0:"Wheels up! First, a bit about me: an aeronautical engineer in Milan who turns complex flows into clear answers.",s1:"Two profiles, one engineer. Pick what you're hiring for.",s2:"My flight log: Nanjing, Casablanca, Milan. Tap a stop to read its chapter.",s3:"My MSc thesis: supersonic jets of a gas that doesn't behave like an ideal gas.",s4:"Some projects I'm proud of. Tap a skill to see where I used it.",s5:"Recruiter? Paste your job ad here and see, honestly, how well I fit.",s6:"18 countries so far. Hover over the map.",s7:"Say hello in one of my languages and the whole page switches.",s8:"Landing! If you'd like to talk, my email is right here. Thanks for flying with me."});
+let ti=-1;const nd=document.getElementById('nd'),ndR=document.getElementById('ndR');
+function buildRoute(prev,anim){const {W,H}=stripGeo(),Y=H*0.58,n=TOUR.length;ndR.setAttribute('viewBox',`0 0 ${W} ${H}`);
+  let h=`<line x1="${wpx[0]}" y1="${Y}" x2="${wpx[n-1]}" y2="${Y}" stroke="#2A3138" stroke-width="2" stroke-dasharray="2 6"/>`;
+  for(let i=0;i<n;i++)h+=`<line x1="${wpx[i]}" y1="${Y-3}" x2="${wpx[i]}" y2="${Y+3}" stroke="#3A444E" stroke-width="1.5"/>`;
+  const a=Math.min(prev,ti),b=Math.max(prev,ti);
+  if(a>0||ti>0)h+=`<line x1="${wpx[0]}" y1="${Y}" x2="${wpx[Math.min(a,ti)]}" y2="${Y}" stroke="#E8EEF4" stroke-width="2"/>`;
+  if(ti>prev){const L=wpx[ti]-wpx[prev];h+=`<line x1="${wpx[prev]}" y1="${Y}" x2="${wpx[ti]}" y2="${Y}" stroke="#FF4FD8" stroke-width="3" stroke-dasharray="${L}" stroke-dashoffset="${anim?L:0}"><animate attributeName="stroke-dashoffset" from="${anim?L:0}" to="0" dur="1.1s" fill="freeze" calcMode="spline" keySplines=".45 .05 .3 1" keyTimes="0;1"/></line>`}
+  for(let i=0;i<=ti;i++){const c=i===ti?'#FF4FD8':'#E8EEF4';h+=`<path d="M${wpx[i]} ${Y-4}l4 4-4 4-4-4z" fill="${i===ti?c:'#05090D'}" stroke="${c}" stroke-width="1.5"/><text x="${wpx[i]}" y="${H-3}" text-anchor="middle" font-size="12" font-family="JetBrains Mono,monospace" font-weight="700" letter-spacing=".04em" fill="${c}">${TOUR[i][3]}</text>`}
+  ndR.innerHTML=h}
+function goStep(i){if(i<0)return;if(i>=TOUR.length){endTour();return}const prev=ti<0?0:ti;ti=i;const [sec,anchor,key,w]=TOUR[i];
+  document.querySelectorAll('.tour-hl').forEach(e=>e.classList.remove('tour-hl'));document.querySelectorAll('.tnote').forEach(e=>e.remove());
+  const secEl=sec==='top'?document.querySelector('.hero'):document.getElementById(sec);const an=document.querySelector(anchor)||secEl;
+  const note=document.createElement('div');note.className='tnote';note.innerHTML='<b></b><span></span>';note.querySelector('b').textContent='WPT '+(i+1)+'/'+TOUR.length+' · '+w;note.querySelector('span').textContent=tr(key);
+  const host=an.closest('.sec-head')||an;if(sec==='top')an.prepend(note);else host.parentNode.insertBefore(note,host);
+  an.classList.add('tour-hl');setHdr();
+  const off=(parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--hdr'))||57)+74+18;
+  scrollTo({top:sec==='top'?0:note.getBoundingClientRect().top+scrollY-off,behavior:still?'auto':'smooth'});
+  buildRoute(prev,!still&&i!==prev);ndJet.classList.toggle('back',i<prev);ndJet.classList.remove('moving');void ndJet.offsetWidth;if(i!==prev)ndJet.classList.add('moving');
+  ndJet.style.setProperty('--jx',(wpx[i]-(ndJet.offsetWidth||96)/2)+'px');
+  document.getElementById('ndS').textContent=(i+1)+'/'+TOUR.length;
+  document.getElementById('ndPrev').disabled=i===0;document.getElementById('ndNext').textContent=i===TOUR.length-1?'LAND':'NEXT'}
+
+const ndJet=document.getElementById('ndJet');let wpx=[];
+function stripGeo(){const st=nd.querySelector('.strip'),W=st.clientWidth,H=st.clientHeight,jw=ndJet.offsetWidth||96,n=TOUR.length;wpx=[...Array(n)].map((_,i)=>jw/2+i*(W-jw)/(n-1));return{W,H}}
+function hideMini(){document.body.classList.remove('touring');document.querySelectorAll('.tnote').forEach(e=>e.remove())}
+function setHdr(){const h=document.querySelector('header');document.documentElement.style.setProperty('--hdr',(h?h.getBoundingClientRect().height:57)+'px')}
+addEventListener('resize',()=>{if(ti>=0){setHdr();buildRoute(ti,false);ndJet.style.setProperty('--jx',(wpx[ti]-(ndJet.offsetWidth||96)/2)+'px')}});
+function startTour(){document.body.classList.add('touring');setHdr();ti=-1;nd.hidden=false;goStep(0)}
+function endTour(){nd.hidden=true;hideMini();document.querySelectorAll('.tour-hl').forEach(e=>e.classList.remove('tour-hl'));ti=-1}
+document.getElementById('ndNext').addEventListener('click',()=>goStep(ti+1));
+document.getElementById('ndPrev').addEventListener('click',()=>goStep(ti-1));
+document.getElementById('ndEnd').addEventListener('click',endTour);
+document.addEventListener('keydown',e=>{if(ti<0)return;if(e.key==='Escape')endTour();if(e.key==='ArrowRight')goStep(ti+1);if(e.key==='ArrowLeft')goStep(ti-1)});
+
+/* intro: she jumps in, waves, hops into the plane, takes off */
+const intro=document.getElementById('intro'),me=document.getElementById('me'),say=document.getElementById('say'),pl=document.getElementById('planeEl');
+function placeJet(){const vw=innerWidth,vh=innerHeight,ir=16/9;let sw,sh;if(vw/vh>ir){sw=vw;sh=vw/ir}else{sh=vh;sw=vh*ir}
+  const ox=(vw-sw)*0.5,oy=(vh-sh)*0.7,gx=ox+0.47*sw,gy=oy+0.648*sh,w=Math.min(0.40*sw,vw*0.75),h=w*700/1400;
+  Object.assign(pl.style,{width:w+'px',left:(gx-0.44*w)+'px',top:(gy-0.90*h)+'px',right:'auto',bottom:'auto'})}
+addEventListener('resize',()=>{if(!intro.hidden)placeJet()});
+function showIntro(){intro.hidden=false;placeJet();intro.classList.remove('gone');me.className='me';me.style.opacity='';pl.className='plane';pl.style.transform='';pl.style.transition='';pl.style.opacity='';me.style.removeProperty('--sc');me.classList.remove('turn','back');say.classList.remove('on');
+  void me.offsetWidth;if(!still)me.classList.add('jump');setTimeout(()=>{say.classList.add('on');me.classList.add('waving')},still?0:1000)}
+function closeIntro(then){intro.classList.add('gone');setTimeout(()=>{intro.hidden=true;if(then)then()},still?0:600);try{localStorage.setItem('sa-intro','1')}catch(e){}}
+document.getElementById('skipIntro').addEventListener('click',()=>closeIntro());
+document.getElementById('hopOn').addEventListener('click',()=>{
+  if(still){closeIntro(startTour);return}
+  say.classList.remove('on');me.classList.remove('jump','waving');me.classList.add('turn');
+  setTimeout(()=>{
+    const pr=pl.getBoundingClientRect(),mr=me.getBoundingClientRect();
+    /* feet go to the foot of the airstair; she shrinks to the jet's scale (about 1.2 x the door height) */
+    const sc=Math.max(.1,Math.min(1,(pr.height*0.40)/mr.height));
+    me.style.setProperty('--tx',((pr.left+pr.width*0.40)-(mr.left+mr.width/2))+'px');
+    me.style.setProperty('--ty',((pr.top+pr.height*0.99)-mr.bottom)+'px');
+    me.style.setProperty('--sc',sc);
+    me.classList.remove('turn');me.classList.add('back');void me.offsetWidth;me.classList.add('hop')},750);
+  setTimeout(()=>{pl.classList.add('boarded')},2550);
+  setTimeout(()=>{pl.style.transition='transform 1.3s cubic-bezier(.5,0,.8,.6)';pl.style.transform='translate(9vw,-5vh) scale(.8)'},3250);
+  setTimeout(()=>{pl.style.transition='transform 1.2s cubic-bezier(.5,0,.3,1),opacity 1.2s';pl.style.transform='translate(26vw,-15vh) scale(.38)';pl.style.opacity='0'},4500);
+  setTimeout(()=>closeIntro(startTour),5500)});
+document.getElementById('tourStart').addEventListener('click',showIntro);
+document.getElementById('tourSkip').addEventListener('click',()=>{document.getElementById('why').scrollIntoView({behavior:still?'auto':'smooth'})});
+
+/* boot */
+fitCanvas();
+let saved=null;try{saved=localStorage.getItem('sa-lang')}catch(e){}
+if(still){document.body.classList.add('still');motionBtn.setAttribute('aria-pressed','true')}
+drawWorld();drawRouteMap();setLang(saved||'en');showChapter(0,false);
+let seen=null;try{seen=localStorage.getItem('sa-intro')}catch(e){}
+if(!seen)showIntro();
+requestAnimationFrame(loop);
+</script>
