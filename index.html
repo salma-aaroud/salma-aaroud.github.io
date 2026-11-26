@@ -1032,50 +1032,56 @@ function drawJet(time){
   ctx.clearRect(0,0,W,H);
   const blue=col('--blue'),sky=col('--sky'),rose=col('--rose'),ink=col('--ink'),muted=col('--muted'),amber='#F0A04B';
   const narrow=W<520;
-  /* converging-diverging nozzle: inlet -> throat -> exit (x0) */
-  const xi=4,xt=narrow?44:66,x0=narrow?82:128,r0=Math.round(H*0.15),rt=r0*0.62,ri=Math.min(H*0.42,r0*(narrow?1.75:2.3));
-  const rn=x=>{if(x<=xt){const u=(x-xi)/(xt-xi);return rt+(ri-rt)*(0.5+0.5*Math.cos(Math.PI*u))}const u=(x-xt)/(x0-xt);return rt+(r0-rt)*Math.sin(u*Math.PI/2)};
+  /* nozzle: only the end of the converging part, the throat (M=1) and the diverging part */
+  const r0=Math.round(H*0.15),rt=r0*0.66,rc=rt*1.35,xi=0,xt=narrow?14:22,x0=narrow?58:88;
+  const rn=x=>{if(x<=xt){const u=Math.max(0,(x-xi)/(xt-xi));return rt+(rc-rt)*(0.5+0.5*Math.cos(Math.PI*u))}const u=(x-xt)/(x0-xt);return rt+(r0-rt)*Math.sin(u*Math.PI/2)};
   const L=r0*1.45*Math.sqrt(npr)*(gas==='mm'?0.96:1);
   const amp=r0*(0.18+0.09*(npr-2));
   const disk=npr>4.2;
   const diskR=disk?Math.min(r0*0.95,(npr-4.2)*r0*0.22+4)*(gas==='mm'?1.75:1):0;
   const rad=x=>{if(x<x0)return rn(x);const s=(x-x0)/L;return r0+amp*Math.sin(Math.PI*s)**2*Math.exp(-s*0.18)+(x-x0)*0.02};
-  /* flow inside the nozzle: darker (subsonic) to lighter (supersonic) */
-  const g=ctx.createLinearGradient(xi,0,x0,0);g.addColorStop(0,'rgba(90,168,255,.10)');g.addColorStop(1,'rgba(140,200,255,.30)');
+  const g=ctx.createLinearGradient(xi,0,x0,0);g.addColorStop(0,'rgba(90,168,255,.12)');g.addColorStop(1,'rgba(140,200,255,.30)');
   ctx.fillStyle=g;ctx.beginPath();for(let x=xi;x<=x0;x+=1)ctx.lineTo(x,cy-rn(x));for(let x=x0;x>=xi;x-=1)ctx.lineTo(x,cy+rn(x));ctx.closePath();ctx.fill();
-  /* nozzle walls */
   ctx.fillStyle=muted;ctx.globalAlpha=.6;
   for(const sg of [-1,1]){ctx.beginPath();for(let x=xi;x<=x0;x+=1)ctx.lineTo(x,cy+sg*rn(x));for(let x=x0;x>=xi;x-=1)ctx.lineTo(x,cy+sg*(rn(x)+9));ctx.closePath();ctx.fill()}
-  ctx.globalAlpha=1;
-  ctx.font='500 10px "JetBrains Mono", monospace';ctx.fillStyle=muted;
-  if(!narrow){ctx.fillText('M<1',xi+8,cy+3);}ctx.fillText('M=1',xt-12,cy-rt-14);ctx.setLineDash([2,3]);ctx.strokeStyle=muted;ctx.beginPath();ctx.moveTo(xt,cy-rt);ctx.lineTo(xt,cy+rt);ctx.stroke();ctx.setLineDash([]);
-  /* jet plume */
+  ctx.globalAlpha=1;ctx.font='500 10px "JetBrains Mono", monospace';ctx.fillStyle=muted;ctx.fillText('M=1',Math.max(2,xt-10),cy-rc-14);
+  ctx.setLineDash([2,3]);ctx.strokeStyle=muted;ctx.lineWidth=1;ctx.beginPath();ctx.moveTo(xt,cy-rt);ctx.lineTo(xt,cy+rt);ctx.stroke();ctx.setLineDash([]);
+  /* jet plume and its constant-pressure boundary */
   ctx.beginPath();for(let x=x0;x<=W;x+=2)ctx.lineTo(x,cy-rad(x));for(let x=W;x>=x0;x-=2)ctx.lineTo(x,cy+rad(x));ctx.closePath();
   ctx.globalAlpha=.20;ctx.fillStyle=sky;ctx.fill();ctx.globalAlpha=1;
   ctx.strokeStyle=sky;ctx.lineWidth=1.4;ctx.beginPath();for(let x=x0;x<=W;x+=2)ctx.lineTo(x,cy-rad(x));ctx.stroke();ctx.beginPath();for(let x=x0;x<=W;x+=2)ctx.lineTo(x,cy+rad(x));ctx.stroke();
+  const q=(p0,p1,p2,t)=>[(1-t)*(1-t)*p0[0]+2*(1-t)*t*p1[0]+t*t*p2[0],(1-t)*(1-t)*p0[1]+2*(1-t)*t*p1[1]+t*t*p2[1]];
   let cells=0;
   for(let k=0;k<12;k++){
     const xs=x0+k*L,xm=xs+L*0.5,xe=xs+L;if(xs>W)break;cells++;
     const fade=Math.max(0.12,1-k*0.17);
-    const rs=rad(xs)*0.92,re=rad(Math.min(xe,W))*0.92,h=(k===0&&disk)?diskR:0;
-    /* expansion fan from the lip (k=0) or from the boundary where the previous cell ends */
-    ctx.strokeStyle=sky;ctx.lineWidth=1;ctx.globalAlpha=fade*0.9;
-    for(const sg of [-1,1])for(let j=0;j<5;j++){ctx.beginPath();ctx.moveTo(xs,cy+sg*rs);ctx.lineTo(xs+L*(0.16+0.065*j),cy+sg*rs*(0.12+0.05*j));ctx.stroke()}
-    /* compression waves: reflected from the jet boundary, converging towards the end of the cell */
-    ctx.strokeStyle=amber;ctx.lineWidth=1;ctx.globalAlpha=fade*0.85;
-    for(const sg of [-1,1])for(let j=0;j<4;j++){const xb=xs+L*(0.50+0.08*j),yb=cy+sg*rad(Math.min(xb,W))*0.97;ctx.beginPath();ctx.moveTo(xb,yb);ctx.lineTo(xs+L*0.97,cy+sg*re*0.62);ctx.stroke()}
-    /* shocks (barrel shock / reflected shock) */
-    ctx.globalAlpha=fade;ctx.strokeStyle=blue;ctx.lineWidth=1.8;
-    ctx.beginPath();ctx.moveTo(xs,cy-rs);ctx.lineTo(xm,cy-h);ctx.lineTo(xe,cy+re);ctx.moveTo(xs,cy+rs);ctx.lineTo(xm,cy+h);ctx.lineTo(xe,cy-re);ctx.stroke();
-    if(k===0&&disk){ctx.globalAlpha=1;ctx.strokeStyle=rose;ctx.lineWidth=3;ctx.beginPath();ctx.moveTo(xm,cy-diskR);ctx.lineTo(xm,cy+diskR);ctx.stroke();
-      ctx.fillStyle=rose;ctx.font='500 11px "JetBrains Mono", monospace';ctx.fillText(tr('lab_disk'),xm+6,cy-diskR-6)}
+    const md=(k===0&&disk)?diskR:0;
+    for(const sg of [-1,1]){
+      const rs=rad(xs)*0.97,lip=[xs,cy+sg*rs],tp=[xm,cy+sg*md];
+      /* intercepting (barrel) shock: leaves the lip almost parallel to the boundary, then bends to the triple point */
+      const c1=[xs+L*0.2,cy+sg*rs*0.95],c2=[xs+L*0.42,cy+sg*(md+(rs-md)*0.72)];
+      const cb=t=>{const u=1-t;return[u*u*u*lip[0]+3*u*u*t*c1[0]+3*u*t*t*c2[0]+t*t*t*tp[0],u*u*u*lip[1]+3*u*u*t*c1[1]+3*u*t*t*c2[1]+t*t*t*tp[1]]};
+      const xb=j=>xs+L*(0.13+0.06*j);
+      /* 1) expansion fan from the opposite lip, crossing the jet to this side's boundary */
+      ctx.strokeStyle=sky;ctx.lineWidth=0.9;ctx.globalAlpha=fade*0.55;
+      for(let j=0;j<5;j++){const x=xb(j);ctx.beginPath();ctx.moveTo(xs,cy-sg*rs);ctx.lineTo(x,cy+sg*rad(x)*0.99);ctx.stroke()}
+      /* 2) reflected at the constant-pressure boundary as compression waves, which merge into the intercepting shock */
+      ctx.strokeStyle=amber;ctx.lineWidth=1.2;ctx.globalAlpha=fade*0.95;
+      for(let j=0;j<5;j++){const x=xb(j),tg=cb(0.22+0.14*j);ctx.beginPath();ctx.moveTo(x,cy+sg*rad(x)*0.99);ctx.lineTo(tg[0],tg[1]);ctx.stroke()}
+      /* 3) the shock, then the reflected shock from the triple point back to the boundary (where it reflects as the next fan) */
+      ctx.strokeStyle=blue;ctx.lineWidth=2;ctx.globalAlpha=fade;
+      const xr=Math.min(xe,W);
+      ctx.beginPath();ctx.moveTo(lip[0],lip[1]);ctx.bezierCurveTo(c1[0],c1[1],c2[0],c2[1],tp[0],tp[1]);
+      ctx.quadraticCurveTo(xm+L*0.25,cy+sg*(md+(rad(xr)-md)*0.55),xr,cy+sg*rad(xr)*0.97);ctx.stroke();
+      if(md){ctx.setLineDash([3,4]);ctx.strokeStyle=muted;ctx.lineWidth=1;ctx.globalAlpha=0.7;ctx.beginPath();ctx.moveTo(tp[0],tp[1]);ctx.lineTo(xm+L*0.45,cy+sg*md*0.9);ctx.stroke();ctx.setLineDash([])}
+    }
+    if(md){ctx.globalAlpha=1;ctx.strokeStyle=rose;ctx.lineWidth=3;ctx.beginPath();ctx.moveTo(xm,cy-md);ctx.lineTo(xm,cy+md);ctx.stroke();
+      ctx.fillStyle=rose;ctx.font='500 11px "JetBrains Mono", monospace';ctx.fillText(tr('lab_disk'),xm+6,cy-md-6)}
   }
   ctx.globalAlpha=1;
-  /* particles: slow in the converging part, accelerating through the throat, fast in the jet */
   if(!still){const ph=(time-t0)/1000;ctx.fillStyle=ink;ctx.globalAlpha=.4;
-    for(let i=0;i<46;i++){const sph=((i*0.6180339)+ph*0.33)%1;const x=xi+4+(W-xi-4)*Math.pow(sph,1.7);const lane=((i*37)%17)/16-0.5;
-      const r=x<x0?rn(x)*1.7:rad(x)*1.6;ctx.beginPath();ctx.arc(x,cy+lane*r,1.7,0,6.3);ctx.fill()}ctx.globalAlpha=1}
-  /* legend */
+    for(let i=0;i<40;i++){const sph=((i*0.6180339)+ph*0.33)%1;const x=xi+2+(W-xi-2)*Math.pow(sph,1.45);const lane=((i*37)%17)/16-0.5;
+      const r=x<x0?rn(x)*1.6:rad(x)*1.6;ctx.beginPath();ctx.arc(x,cy+lane*r,1.7,0,6.3);ctx.fill()}ctx.globalAlpha=1}
   const lg=[[sky,tr('lab_exp')],[amber,tr('lab_comp')],[blue,tr('lab_shock')]];let lx=narrow?6:x0+8;const ly=H-8;ctx.font=(narrow?'500 9px':'500 10px')+' "JetBrains Mono", monospace';
   for(const [c,t] of lg){ctx.strokeStyle=c;ctx.lineWidth=2;ctx.beginPath();ctx.moveTo(lx,ly-3);ctx.lineTo(lx+14,ly-3);ctx.stroke();ctx.fillStyle=muted;ctx.fillText(t,lx+18,ly);lx+=(narrow?20:24)+ctx.measureText(t).width+(narrow?4:10)}
   document.getElementById('rCells').textContent=String(Math.min(cells,9));
