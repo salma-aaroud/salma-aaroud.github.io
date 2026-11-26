@@ -1033,7 +1033,7 @@ function drawJet(time){
   const blue=col('--blue'),sky=col('--sky'),rose=col('--rose'),ink=col('--ink'),muted=col('--muted'),amber='#F0A04B';
   const narrow=W<520;
   /* converging-diverging nozzle: inlet -> throat -> exit (x0) */
-  const xi=4,xt=narrow?44:66,x0=narrow?82:128,r0=Math.round(H*0.15),rt=r0*0.62,ri=Math.min(H*0.42,r0*2.3);
+  const xi=4,xt=narrow?44:66,x0=narrow?82:128,r0=Math.round(H*0.15),rt=r0*0.62,ri=Math.min(H*0.42,r0*(narrow?1.75:2.3));
   const rn=x=>{if(x<=xt){const u=(x-xi)/(xt-xi);return rt+(ri-rt)*(0.5+0.5*Math.cos(Math.PI*u))}const u=(x-xt)/(x0-xt);return rt+(r0-rt)*Math.sin(u*Math.PI/2)};
   const L=r0*1.45*Math.sqrt(npr)*(gas==='mm'?0.96:1);
   const amp=r0*(0.18+0.09*(npr-2));
@@ -1076,8 +1076,8 @@ function drawJet(time){
     for(let i=0;i<46;i++){const sph=((i*0.6180339)+ph*0.33)%1;const x=xi+4+(W-xi-4)*Math.pow(sph,1.7);const lane=((i*37)%17)/16-0.5;
       const r=x<x0?rn(x)*1.7:rad(x)*1.6;ctx.beginPath();ctx.arc(x,cy+lane*r,1.7,0,6.3);ctx.fill()}ctx.globalAlpha=1}
   /* legend */
-  const lg=[[sky,tr('lab_exp')],[amber,tr('lab_comp')],[blue,tr('lab_shock')]];let lx=x0+8;const ly=H-8;ctx.font='500 10px "JetBrains Mono", monospace';
-  for(const [c,t] of lg){ctx.strokeStyle=c;ctx.lineWidth=2;ctx.beginPath();ctx.moveTo(lx,ly-3);ctx.lineTo(lx+14,ly-3);ctx.stroke();ctx.fillStyle=muted;ctx.fillText(t,lx+18,ly);lx+=24+ctx.measureText(t).width+10}
+  const lg=[[sky,tr('lab_exp')],[amber,tr('lab_comp')],[blue,tr('lab_shock')]];let lx=narrow?6:x0+8;const ly=H-8;ctx.font=(narrow?'500 9px':'500 10px')+' "JetBrains Mono", monospace';
+  for(const [c,t] of lg){ctx.strokeStyle=c;ctx.lineWidth=2;ctx.beginPath();ctx.moveTo(lx,ly-3);ctx.lineTo(lx+14,ly-3);ctx.stroke();ctx.fillStyle=muted;ctx.fillText(t,lx+18,ly);lx+=(narrow?20:24)+ctx.measureText(t).width+(narrow?4:10)}
   document.getElementById('rCells').textContent=String(Math.min(cells,9));
   document.getElementById('rDisk').textContent=disk?(gas==='mm'?'⌀ ×1.75':'✓'):'–';
 }
