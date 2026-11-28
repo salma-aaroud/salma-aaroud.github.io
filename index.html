@@ -31,7 +31,7 @@
 html{scroll-behavior:smooth;overflow-x:clip}
 body{background:var(--bg);color:var(--ink);font:400 17px/1.55 var(--f-body);-webkit-font-smoothing:antialiased;overflow-x:clip}
 a{color:inherit}
-img{max-width:100%;display:block}
+img{max-width:100%;height:auto;display:block}
 button{font:inherit;color:inherit;cursor:pointer}
 .wrap{width:min(var(--wrap),calc(100% - 40px));margin-inline:auto}
 .mono{font-family:var(--f-mono)}
@@ -159,6 +159,7 @@ h2{font:700 clamp(2.1rem,4.6vw,3.6rem)/1.06 var(--f-display);letter-spacing:-.01
 @media (max-width:900px){.story{grid-template-columns:1fr;gap:24px}.figwrap{position:relative;top:0;order:-1}.step,.step:last-child{min-height:auto;opacity:1;padding:18px 0}#thesisJet{height:250px}}
 .fig2{margin-top:72px}
 .fig2 img{border-radius:10px;background:#fff}
+@media (max-width:600px){.fig2 .scrollx{overflow-x:auto;-webkit-overflow-scrolling:touch;border-radius:10px}.fig2 .scrollx img{min-width:720px;border-radius:0}}
 .fig2 figcaption{font:400 .82rem/1.6 var(--f-mono);color:var(--ink2);margin-top:12px;max-width:820px}
 .fig2 figcaption b{color:var(--accent);transition:color .6s}
 .nums{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin-top:40px}
@@ -419,7 +420,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
         </div>
       </div>
     </div>
-    <figure class="fig2"><img src="img/jet_round.webp" width="1400" height="499" alt="Axisymmetric jet of siloxane MM: Mach number and numerical schlieren at two levels of non-ideality" loading="lazy">
+    <figure class="fig2"><div class="scrollx"><img src="img/jet_round.webp" width="1400" height="499" alt="Axisymmetric jet of siloxane MM: Mach number and numerical schlieren at two levels of non-ideality" loading="lazy"></div>
       <figcaption><b>Fig. 2</b> From the thesis. Axisymmetric jet of siloxane MM: Mach number (left) and numerical schlieren (right) at two levels of non-ideality, SU2 RANS. This plot is the colour palette of this website.</figcaption></figure>
     <div class="nums">
       <div><b>0.11 mm</b><p>match to published jet cases</p></div>
